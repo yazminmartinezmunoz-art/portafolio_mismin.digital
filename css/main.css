@@ -134,3 +134,99 @@ header, section, footer {
   font-size: 0.9rem;
   color: #777;
 }
+
+
+/* ========================= */
+/* CARD DE PROYECTO          */
+/* ========================= */
+
+.project-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 16px;
+  background-color: #1A1A22;
+  cursor: pointer;
+}
+
+/* Imagen base */
+.project-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: opacity 0.3s ease;
+}
+
+/* Video preview (oculto por defecto) */
+.project-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+/* Overlay oscuro */
+.project-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 1rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+/* Tags */
+.project-tag {
+  align-self: flex-start;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 0.3rem 0.7rem;
+  border-radius: 999px;
+  font-size: 0.8rem;
+}
+
+/* Info inferior */
+.project-info {
+  padding: 1rem;
+}
+
+.project-info h3 {
+  font-size: 1rem;
+  margin-bottom: 0.2rem;
+}
+
+.project-info p {
+  font-size: 0.85rem;
+  color: #B8B8C0;
+}
+
+/* ========================= */
+/* HOVER                     */
+/* ========================= */
+
+.project-card:hover .project-video {
+  opacity: 1;
+}
+
+.project-card:hover .project-overlay {
+  opacity: 1;
+}
+
+.project-card:hover .project-image {
+  opacity: 0;
+}
+
+/* ========================= */
+/* BOTÓN PEQUEÑO             */
+/* ========================= */
+
+.btn.small {
+  font-size: 0.85rem;
+  padding: 0.5rem 1.2rem;
+}
