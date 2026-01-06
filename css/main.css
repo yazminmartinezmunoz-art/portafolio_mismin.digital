@@ -1,0 +1,136 @@
+/* ========================= */
+/* RESET BÁSICO              */
+/* ========================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: system-ui, sans-serif;
+}
+
+/* ========================= */
+/* ESTILOS GENERALES         */
+/* ========================= */
+
+body {
+  background-color: #0E0E11; /* fondo oscuro */
+  color: #F5F5F7;            /* texto principal */
+  line-height: 1.6;
+}
+
+p {
+  color: #B8B8C0;            /* texto secundario */
+}
+
+/* Espaciado general */
+header, section, footer {
+  padding: 4rem 8%;
+}
+
+/* ========================= */
+/* HERO                      */
+/* ========================= */
+
+.hero {
+  min-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.hero-buttons {
+  margin-top: 2rem;
+  display: flex;
+  gap: 1rem;
+}
+
+/* ========================= */
+/* BOTONES                   */
+/* ========================= */
+
+.btn {
+  padding: 0.8rem 1.6rem;
+  border-radius: 999px;
+  text-decoration: none;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+/* Botón principal */
+.primary {
+  background: linear-gradient(135deg, #7CF6FF, #C77DFF);
+  color: #0E0E11;
+}
+
+/* Botón secundario */
+.secondary {
+  border: 1px solid #555;
+  background: transparent;
+  color: #F5F5F7;
+}
+
+/* Botón desactivado */
+.disabled {
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+/* Botón outline */
+.outline {
+  border: 1px solid #7CF6FF;
+  color: #7CF6FF;
+  background: transparent;
+}
+
+/* ========================= */
+/* GRID DE PROYECTOS         */
+/* ========================= */
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+  margin: 3rem 0;
+}
+
+/* Tarjeta base */
+.card {
+  background-color: #1A1A22;
+  border-radius: 16px;
+  aspect-ratio: 1 / 1;
+}
+
+/* Placeholder visual */
+.placeholder {
+  background: linear-gradient(
+    135deg,
+    #1A1A22,
+    #232330
+  );
+}
+
+/* ========================= */
+/* SOBRE MÍ + CONTACTO       */
+/* ========================= */
+
+.about-contact .links {
+  margin-top: 1.5rem;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.link {
+  color: #7CF6FF;
+  text-decoration: none;
+}
+
+/* ========================= */
+/* FOOTER                    */
+/* ========================= */
+
+.footer {
+  text-align: center;
+  font-size: 0.9rem;
+  color: #777;
+}
