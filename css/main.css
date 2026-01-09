@@ -231,15 +231,19 @@ header, section, footer {
   padding: 0.5rem 1.2rem;
 }
 
-#about h2 {
-  margin-bottom: 2rem; /* espacio hacia abajo */
+/* ========================= */
+/* SOBRE MÍ + CONTACTO      */
+/* ========================= */
+
+.about-contact h2 {
+  margin-bottom: 1.2rem; /* menos separación */
 }
 
 .about-content {
   display: flex;
-  flex-direction: column; /* 👈 vertical */
-  align-items: center;
-  gap: 1.5rem; /* espacio entre foto y texto */
+  flex-direction: column;
+  align-items: flex-start; /* alineado a la izquierda */
+  gap: 0.8rem; /* 👈 cohesión, no bloques separados */
 }
 
 .profile-pic {
@@ -249,15 +253,22 @@ header, section, footer {
   object-fit: cover;
 }
 
+/* Texto */
+.about-text {
+  max-width: 480px;
+  line-height: 1.5;
+}
+
+/* Íconos */
 .contact-icons {
   display: flex;
-  gap: 1rem;
-  margin-top: 1rem;
+  gap: 0.6rem; /* compactos */
+  margin-top: 0.3rem; /* mínima separación del texto */
 }
 
 .contact-icons img {
-  width: 20px;      /* aquí el tamaño real */
-  height: 20px;
+  width: 50px;
+  height: 50px;
   opacity: 0.8;
   transition: opacity 0.2s ease;
 }
