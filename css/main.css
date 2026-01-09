@@ -148,16 +148,15 @@ header, section, footer {
   cursor: pointer;
 }
 
-/* Imagen base */
+/* Imagen */
 .project-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  display: block;
   transition: opacity 0.3s ease;
 }
 
-/* Video preview (oculto por defecto) */
+/* Video */
 .project-video {
   position: absolute;
   inset: 0;
@@ -165,21 +164,22 @@ header, section, footer {
   height: 100%;
   object-fit: cover;
   opacity: 0;
-  pointer-events: none;
   transition: opacity 0.3s ease;
+  z-index: 1;
 }
 
-/* Overlay oscuro */
+/* Overlay */
 .project-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.35);
+  background: rgba(0,0,0,0.35);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   padding: 1rem;
   opacity: 0;
   transition: opacity 0.3s ease;
+  z-index: 2;
 }
 
 /* Tags */
@@ -214,12 +214,12 @@ header, section, footer {
   opacity: 1;
 }
 
-.project-card:hover .project-overlay {
-  opacity: 1;
-}
-
 .project-card:hover .project-image {
   opacity: 0;
+}
+
+.project-card:hover .project-overlay {
+  opacity: 1;
 }
 
 /* ========================= */
@@ -229,4 +229,39 @@ header, section, footer {
 .btn.small {
   font-size: 0.85rem;
   padding: 0.5rem 1.2rem;
+}
+
+#about h2 {
+  margin-bottom: 2rem; /* espacio hacia abajo */
+}
+
+.about-content {
+  display: flex;
+  flex-direction: column; /* 👈 vertical */
+  align-items: center;
+  gap: 1.5rem; /* espacio entre foto y texto */
+}
+
+.profile-pic {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.contact-icons {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.contact-icons img {
+  width: 20px;      /* aquí el tamaño real */
+  height: 20px;
+  opacity: 0.8;
+  transition: opacity 0.2s ease;
+}
+
+.contact-icons a:hover img {
+  opacity: 1;
 }

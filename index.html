@@ -6,11 +6,9 @@
 
   <!-- ESTILOS PRINCIPALES -->
   <link rel="stylesheet" href="css/main.css">
+
+  <script src="js/video-hover.js" defer></script>
 </head>
-
-<script src="js/video-hover.js"></script>
-
-
 <body>
 
   <!-- ===================== -->
@@ -52,44 +50,31 @@
       <!-- Reemplazar este div por una tarjeta real -->
       <div class="project-card">
 
-        <!-- THUMBNAIL (imagen base) -->
-        <!-- Reemplaza el src por tu imagen -->
         <img
-            src="assets/images/thumbnails/render_diorama_lady.png"
-            alt="Nombre del proyecto"
-            class="project-image"
+          src="assets/images/thumbnails/render_diorama_lady.png"
+          alt="Diorama inspirado en el cuarto de Marinette"
+          class="project-image"
         >
 
-        <!-- VIDEO PREVIEW (loop) -->
-        <!-- Reemplaza el src por tu video -->
         <video
-            class="project-video"
-            src="assets/videos/previews/render_video_lady.mp4"
-            muted
-            loop
-            playsinline
+          class="project-video"
+          src="assets/videos/previews/render_video_lady.mp4"
+          muted
+          playsinline
+          preload="none"
         ></video>
 
-        <!-- OVERLAY (aparece en hover) -->
         <div class="project-overlay">
-
-            <!-- TAGS -->
-            <span class="project-tag">Escenario</span>
-
-            <!-- BOTÓN -->
-            <a href="#" class="btn primary small">
-            Ver proyecto
-            </a>
-
+          <span class="project-tag">Escenario</span>
+          <a href="#" class="btn primary small">Ver proyecto</a>
         </div>
 
-        <!-- TEXTO INFERIOR (siempre visible) -->
         <div class="project-info">
-            <h3>Nombre del proyecto</h3>
-            <p>Escenario · Unity</p>
+          <h3>Diorama Ladybug</h3>
+          <p>Escenario · Blender / Unity</p>
         </div>
 
-        </div>
+      </div>
 
       <!-- CARD 2 -->
       <div class="project-card">
@@ -189,7 +174,16 @@
   <!-- ========================= -->
   <section class="about-contact">
 
-    <h2>Sobre mí</h2>
+    <section id="about">
+      <h2>Sobre mí</h2>
+
+      <div class="about-content">
+        <img src="assets/images/profile.jpg" class="profile-pic" alt="Foto de perfil">
+        <p>
+          Texto sobre mí...
+        </p>
+      </div>
+    </section>
 
     <!-- TEXTO PERSONAL -->
     <!-- Aquí puedes hablar brevemente de ti -->
@@ -199,26 +193,26 @@
     </p>
 
     <!-- LINKS IMPORTANTES -->
-    <div class="links">
-
+     
+    <div class="contact-icons">
       <!-- LINKEDIN -->
       <!-- Reemplaza # por tu URL real -->
-      <a href="#" target="_blank" class="link">
-        LinkedIn
+<!-- para poner icono de linkedin -->
+      <a href="https://www.linkedin.com/in/yazmin-martinez-853b87338/">
+        <img src="assets/icons/LinkedIn_icon.png" alt="LinkedIn">
       </a>
 
+      <a href="#">
+        <img src="assets/icons/mail.svg" alt="Email">
+      </a>
+      
       <!-- CV -->
       <!-- Puede ser PDF en /assets o Google Drive -->
-      <a href="#" target="_blank" class="link">
-        Descargar CV
+      <a href="#">
+        <img src="assets/icons/cv.svg" alt="CV">
       </a>
-
-      <!-- EMAIL (opcional) -->
-      <a href="mailto:tucorreo@email.com" class="link">
-        Contacto
-      </a>
-
     </div>
+      
   </section>
 
   <!-- ========================= -->

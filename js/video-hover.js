@@ -2,25 +2,21 @@
 // VIDEO PLAY ON HOVER
 // =========================
 
-// Seleccionamos todas las cards de proyecto
-const projectCards = document.querySelectorAll(".project-card");
+document.addEventListener("DOMContentLoaded", () => {
 
-projectCards.forEach(card => {
-  const video = card.querySelector(".project-video");
+  document.querySelectorAll(".project-card").forEach(card => {
+    const video = card.querySelector(".project-video");
+    if (!video) return;
 
-  // Al entrar el mouse
-  card.addEventListener("mouseenter", () => {
-    if (video) {
-      video.currentTime = 0; // vuelve al inicio
-      video.play();
-    }
-  });
+    card.addEventListener("mouseenter", () => {
+      video.currentTime = 0;
+      video.play().catch(() => {});
+    });
 
-  // Al salir el mouse
-  card.addEventListener("mouseleave", () => {
-    if (video) {
+    card.addEventListener("mouseleave", () => {
       video.pause();
       video.currentTime = 0;
-    }
+    });
   });
+
 });
