@@ -39,136 +39,135 @@
   <!-- ========================= -->
   <!-- PROYECTOS DESTACADOS     -->
   <!-- ========================= -->
-  <section class="featured">
+  <section class="featured-projects">
 
     <h2>Proyectos destacados</h2>
 
-    <!-- GRID DE TARJETAS -->
-    <!-- AQUÍ IRÁN LOS THUMBNAILS / VIDEOS PREVIEW -->
-    <div class="grid">
+    <!-- GRID -->
+    <div class="projects-grid">
 
-      <!-- CARD 1 -->
-      <!-- Reemplazar este div por una tarjeta real -->
-      <div class="project-card">
+      <!-- ========================= -->
+      <!-- HAiko & Goshi             -->
+      <!-- ========================= -->
+      <article class="project-card">
 
-        <img
-          src="assets/images/thumbnails/render_diorama_lady.png"
-          alt="Diorama inspirado en el cuarto de Marinette"
-          class="project-image"
-        >
-
-        <video
-          class="project-video"
-          src="assets/videos/previews/render_video_lady.mp4"
-          muted
-          playsinline
-          preload="none"
-        ></video>
-
-        <div class="project-overlay">
-          <span class="project-tag">Escenario</span>
-          <a href="#" class="btn primary small">Ver proyecto</a>
-        </div>
-
-        <div class="project-info">
-          <h3>Diorama Ladybug</h3>
-          <p>Escenario · Blender / Unity</p>
-        </div>
-
-      </div>
-
-      <!-- CARD 2 -->
-      <div class="project-card">
-
-        <!-- THUMBNAIL (imagen base) -->
-        <!-- Reemplaza el src por tu imagen -->
-        <img
-            src="assets/images/thumbnails/proyecto-ejemplo.jpg"
-            alt="Nombre del proyecto"
+        <div class="project-media">
+          <img
+            src="assets/images/thumbnails/render_diorama_lady.png"
+            alt="Haiko & Goshi – Personajes estilizados"
             class="project-image"
-        >
+          >
 
-        <!-- VIDEO PREVIEW (loop) -->
-        <!-- Reemplaza el src por tu video -->
-        <video
+          <video
             class="project-video"
-            src="assets/videos/previews/proyecto-ejemplo.mp4"
+            src="assets/videos/previews/render_video_lady.mp4"
             muted
             loop
             playsinline
-        ></video>
-
-        <!-- OVERLAY (aparece en hover) -->
-        <div class="project-overlay">
-
-            <!-- TAGS -->
-            <span class="project-tag">Escenario</span>
-
-            <!-- BOTÓN -->
-            <a href="#" class="btn primary small">
-            Ver proyecto
-            </a>
-
+          ></video>
         </div>
 
-        <!-- TEXTO INFERIOR (siempre visible) -->
         <div class="project-info">
-            <h3>Nombre del proyecto</h3>
-            <p>Escenario · Unity</p>
+          <h3 class="project-title">Haiko & Goshi</h3>
+          <span class="project-divider"></span>
+
+          <p class="project-category">
+            Personajes estilizados<br>
+            Modelado 3D
+          </p>
+
+          <a href="projects/haiko-goshi.html" class="project-btn">
+            Ver proyecto
+          </a>
         </div>
 
-        </div>
+      </article>
 
-      <!-- CARD 3 -->
-      <div class="project-card">
+      <!-- ========================= -->
+      <!-- Escenario Kirby           -->
+      <!-- ========================= -->
+      <article class="project-card">
 
-        <!-- THUMBNAIL (imagen base) -->
-        <!-- Reemplaza el src por tu imagen -->
-        <img
-            src="assets/images/thumbnails/proyecto-ejemplo.jpg"
-            alt="Nombre del proyecto"
+        <div class="project-media">
+          <img
+            src="assets/images/thumbnails/kirby-scene.jpg"
+            alt="Escenario Kirby"
             class="project-image"
-        >
+          >
 
-        <!-- VIDEO PREVIEW (loop) -->
-        <!-- Reemplaza el src por tu video -->
-        <video
+          <video
             class="project-video"
-            src="assets/videos/previews/proyecto-ejemplo.mp4"
+            src="assets/videos/previews/kirby-scene.mp4"
             muted
             loop
             playsinline
-        ></video>
-
-        <!-- OVERLAY (aparece en hover) -->
-        <div class="project-overlay">
-
-            <!-- TAGS -->
-            <span class="project-tag">Escenario</span>
-
-            <!-- BOTÓN -->
-            <a href="#" class="btn primary small">
-            Ver proyecto
-            </a>
-
+          ></video>
         </div>
 
-        <!-- TEXTO INFERIOR (siempre visible) -->
         <div class="project-info">
-            <h3>Nombre del proyecto</h3>
-            <p>Escenario · Unity</p>
+          <h3 class="project-title">Escenario Kirby</h3>
+          <span class="project-divider"></span>
+
+          <p class="project-category">
+            Escenario 3D<br>
+            Unity
+          </p>
+
+          <a href="projects/kirby.html" class="project-btn">
+            Ver proyecto
+          </a>
         </div>
 
+      </article>
+
+      <!-- ========================= -->
+      <!-- Pagodas Procedurales      -->
+      <!-- ========================= -->
+      <article class="project-card">
+
+        <div class="project-media">
+          <img
+            src="assets/images/thumbnails/pagoda-procedural.jpg"
+            alt="Pagodas procedurales"
+            class="project-image"
+          >
+
+          <video
+            class="project-video"
+            src="assets/videos/previews/pagoda-procedural.mp4"
+            muted
+            loop
+            playsinline
+          ></video>
         </div>
+
+        <div class="project-info">
+          <h3 class="project-title">Pagodas Procedurales</h3>
+          <span class="project-divider"></span>
+
+          <p class="project-category">
+            Generación procedural<br>
+            Blender
+          </p>
+
+          <a href="projects/pagoda-procedural.html" class="project-btn">
+            Ver proyecto
+          </a>
+        </div>
+
+      </article>
 
     </div>
 
-    <!-- BOTÓN PARA IR A TODOS LOS PROYECTOS -->
-    <a href="projects.html" class="btn outline">
-      Ver todos los proyectos
-    </a>
+    <!-- BOTÓN VER TODOS -->
+    <div class="featured-cta">
+      <a href="projects.html" class="btn secondary">
+        Ver todos los proyectos
+      </a>
+    </div>
 
   </section>
+
 
   <!-- ========================= -->
   <!-- SOBRE MÍ + CONTACTO      -->
@@ -182,7 +181,7 @@
 
       <!-- FOTO DE PERFIL -->
       <img
-        src="assets/icons/fotoPerfil.jpg"
+        src="assets/icons/Foto_Perfil.jpeg"
         class="profile-pic"
         alt="Foto de perfil"
       >
@@ -203,7 +202,7 @@
           <img src="assets/icons/LinkedIn_icon.png" alt="LinkedIn">
         </a>
 
-        <a href="mailto:tucorreo@email.com">
+        <a href="mismin.digital@gmail.com">
           <img src="assets/icons/gmail_icon.png" alt="Email">
         </a>
 
