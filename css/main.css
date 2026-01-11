@@ -131,6 +131,11 @@ footer {
     0 0 26px rgba(125, 249, 255, 0.35);
 }
 
+.featured-cta {
+  margin-top: 6rem; /* 👈 separa claramente del grid */
+  text-align: center;
+}
+
 
 /* =====================================================
    7. MEDIA (IMAGEN / VIDEO)
@@ -363,4 +368,9 @@ footer {
   font-size: 0.9rem;
   color: #777;
 }
+
+/* =====================================================
+   efectos holograficos
+   ===================================================== */
+
 
