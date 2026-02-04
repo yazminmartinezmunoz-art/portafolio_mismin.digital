@@ -20,9 +20,17 @@ p {
 }
 
 header,
-section,
+section {
+  padding: 5.5rem 6%;
+}
+
+.featured-projects{
+  padding: 2.5rem 6%;
+  transform:scale(1.15);
+}
+
 footer {
-  padding: 7.5rem 8%;
+  padding: 2.5rem 6%;
 }
 
 
@@ -64,6 +72,7 @@ footer {
   border: 1px solid #555;
   background: transparent;
   color: var(--text-main);
+
 }
 
 .btn.outline {
@@ -282,18 +291,20 @@ footer {
   margin-bottom: 1.2rem;
 }
 
-.about-content {
+.about-contact {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 0.8rem;
+  gap: 1.8rem;
+  transform:scale(1.1);
 }
 
 .profile-pic {
-  width: 120px;
-  height: 120px;
+  width: 140px;
+  height: 140px;
   border-radius: 50%;
   object-fit: cover;
+  margin-bottom: 1rem;
 }
 
 .about-text {
@@ -303,7 +314,8 @@ footer {
 .contact-icons {
   display: flex;
   gap: 0.6rem;
-  margin-top: 0.3rem;
+  margin-top: 1rem;
+  margin-bottom: 3rem;
 }
 
 .contact-icons img {
@@ -368,9 +380,160 @@ footer {
   font-size: 0.9rem;
   color: #777;
 }
-
 /* =====================================================
-   efectos holograficos
+   EFECTOS VIDEO DE FONDO HOME (CORREGIDO)
    ===================================================== */
 
+/* ======== VIDEO GLOBAL DE FONDO (opcional) ======== */
 
+.background-video-wrapper {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  overflow: hidden;
+}
+
+.background-video-wrapper video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.15;
+  filter: saturate(1.2) contrast(1.1);
+}
+
+.background-video-wrapper::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at center,
+    rgba(10,10,20,0.3),
+    rgba(5,5,10,0.85)
+  );
+}
+
+/* =====================================================
+   HERO BACKGROUND SYSTEM (SE MANTIENE TU IDEA)
+   ===================================================== */
+
+.hero {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+/* Capa del fondo del hero */
+.hero-background {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+/* Video / imagen del hero */
+.hero-bg-media {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.28;
+  transform: scale(1);
+  transition: transform 0.25s ease-out;
+}
+
+/* Degradado artístico del hero */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+
+  background: linear-gradient(
+    180deg,
+    rgba(14, 14, 17, 0.85) 0%,
+    rgba(14, 14, 17, 0.35) 50%,
+    rgba(14, 14, 17, 1) 100%
+  );
+}
+
+/* Contenido del hero encima */
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
+
+/* =====================================================
+   SISTEMA DE FONDOS POR SECCIÓN (CORREGIDO)
+   ===================================================== */
+
+.section-with-bg {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Video de fondo por sección */
+.section-background {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  opacity: 0.18;
+}
+
+.section-background video {
+  width: 100%;
+  height: 100%;
+  transform: scale(1);
+  object-fit: cover;
+}
+
+/* Oscurece ligeramente el video para cohesión */
+.section-background::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(14, 14, 17, 0.45);
+  z-index: 1;
+}
+
+/* ==============================
+   🔹 CLAVE: EMPALME SUAVE ENTRE VIDEOS
+   ============================== */
+
+/* 👉 Quitamos tu sombra SOLO abajo y añadimos sombra arriba */
+.section-with-bg::after {
+  content: "";
+  position: absolute;
+  top: 0;            /* ← cambio clave */
+  left: 0;
+  width: 100%;
+  height: 160px;     /* tamaño del sombreado */
+  background: linear-gradient(
+    to bottom,
+    rgba(14, 14, 17, 0.85), /* oscuro arriba */
+    transparent
+  );
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Asegura que el contenido siempre esté por encima */
+.featured-projects,
+.about-contact {
+  position: relative;
+  z-index: 2;
+}
+
+/* ===== DIFUMINADO INFERIOR (LO QUE TE FALTA) ===== */
+
+.section-with-bg::before {
+  content: "";
+  position: absolute;
+  bottom: 0;           /* <-- CLAVE */
+  left: 0;
+  width: 100%;
+  height: 160px;       /* altura del difuminado */
+  background: linear-gradient(
+    to top,
+    rgba(14, 14, 17, 0.9),  /* oscuro abajo */
+    transparent
+  );
+  z-index: 1;
+  pointer-events: none;
+}

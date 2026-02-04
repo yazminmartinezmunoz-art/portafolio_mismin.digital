@@ -8,216 +8,252 @@
   <link rel="stylesheet" href="css/main.css">
 
   <script src="js/video-hover.js" defer></script>
+  <script src="js/background-video.js" defer></script>
+  <script src="js/hero-background.js"></script>
 </head>
 
 <body>
-
-  <!-- ===================== -->
+  <!--===================== -->
   <!-- HERO / PRESENTACIÓN  -->
   <!-- ===================== -->
   <header class="hero">
-    <!-- TU ROL PRINCIPAL -->
-    <h1>Diseñadora 3D</h1>
 
-    <!-- DESCRIPCIÓN CORTA -->
-    <p>Modelado, animación y entornos estilizados para videojuegos</p>
-
-    <!-- BOTONES PRINCIPALES -->
-    <div class="hero-buttons">
-      <!-- LINK A TODOS LOS PROYECTOS -->
-      <a href="projects.html" class="btn primary">
-        Ver proyectos
-      </a>
-
-      <!-- BOTÓN FUTURO (EXPERIENCIA INTERACTIVA) -->
-      <button class="btn secondary disabled">
-        Explorar experiencia
-      </button>
+    <!-- ===== CAPA 1: VIDEO / IMAGEN DE FONDO ===== -->
+    <div class="hero-background">
+      <video
+        class="hero-bg-media"
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="auto"
+      >
+        <source src="assets/backgrounds/home-bg.webm" type="video/webm">
+        <source src="assets/backgrounds/Fondo_ChicaAnime.mp4" type="video/mp4">
+      </video>
     </div>
+
+    <!-- ===== CAPA 2: OVERLAY DEGRADADO ARTÍSTICO ===== -->
+    <div class="hero-overlay"></div>
+
+    <!-- ===== CONTENIDO (NO SE TOCA) ===== -->
+    <div class="hero-content">
+      <h1>Diseñadora 3D</h1>
+      <p>Modelado, animación y entornos estilizados para videojuegos</p>
+
+      <div class="hero-buttons">
+        <a href="projects.html" class="btn primary">Ver proyectos</a>
+        <button class="btn secondary disabled">Explorar experiencia</button>
+      </div>
+    </div>
+
   </header>
 
-  <!-- ========================= -->
-  <!-- PROYECTOS DESTACADOS     -->
-  <!-- ========================= -->
-  <section class="featured-projects">
 
-    <h2>Proyectos destacados</h2>
 
-    <!-- GRID -->
-    <div class="projects-grid">
+  <section class="section-with-bg projects-bg">
 
-      <!-- ========================= -->
-      <!-- HAiko & Goshi             -->
-      <!-- ========================= -->
-      <article class="project-card">
-
-        <div class="project-media">
-          <img
-            src="assets/images/thumbnails/render_diorama_lady.png"
-            alt="Haiko & Goshi – Personajes estilizados"
-            class="project-image"
-          >
-
-          <video
-            class="project-video"
-            src="assets/videos/previews/render_video_lady.mp4"
-            muted
-            loop
-            playsinline
-          ></video>
-        </div>
-
-        <div class="project-info">
-          <h3 class="project-title">Haiko & Goshi</h3>
-          <span class="project-divider"></span>
-
-          <p class="project-category">
-            Personajes estilizados<br>
-            Modelado 3D
-          </p>
-
-          <a href="projects/haiko-goshi.html" class="project-btn">
-            Ver proyecto
-          </a>
-        </div>
-
-      </article>
-
-      <!-- ========================= -->
-      <!-- Escenario Kirby           -->
-      <!-- ========================= -->
-      <article class="project-card">
-
-        <div class="project-media">
-          <img
-            src="assets/images/thumbnails/kirby-scene.jpg"
-            alt="Escenario Kirby"
-            class="project-image"
-          >
-
-          <video
-            class="project-video"
-            src="assets/videos/previews/kirby-scene.mp4"
-            muted
-            loop
-            playsinline
-          ></video>
-        </div>
-
-        <div class="project-info">
-          <h3 class="project-title">Escenario Kirby</h3>
-          <span class="project-divider"></span>
-
-          <p class="project-category">
-            Escenario 3D<br>
-            Unity
-          </p>
-
-          <a href="projects/kirby.html" class="project-btn">
-            Ver proyecto
-          </a>
-        </div>
-
-      </article>
-
-      <!-- ========================= -->
-      <!-- Pagodas Procedurales      -->
-      <!-- ========================= -->
-      <article class="project-card">
-
-        <div class="project-media">
-          <img
-            src="assets/images/thumbnails/pagoda-procedural.jpg"
-            alt="Pagodas procedurales"
-            class="project-image"
-          >
-
-          <video
-            class="project-video"
-            src="assets/videos/previews/pagoda-procedural.mp4"
-            muted
-            loop
-            playsinline
-          ></video>
-        </div>
-
-        <div class="project-info">
-          <h3 class="project-title">Pagodas Procedurales</h3>
-          <span class="project-divider"></span>
-
-          <p class="project-category">
-            Generación procedural<br>
-            Blender
-          </p>
-
-          <a href="projects/pagoda-procedural.html" class="project-btn">
-            Ver proyecto
-          </a>
-        </div>
-
-      </article>
-
+    <!-- FONDO DE LA SECCIÓN -->
+    <div class="section-background">
+      <video autoplay muted loop playsinline>
+        <source src="assets/backgrounds/Fondo_Peces.mp4" type="video/mp4">
+      </video>
     </div>
 
-    <!-- BOTÓN VER TODOS -->
-    <div class="featured-cta">
-      <a href="projects.html" class="btn secondary">
-        Ver todos los proyectos
-      </a>
-    </div>
+      <!-- ========================= -->
+    <!-- PROYECTOS DESTACADOS     -->
+    <!-- ========================= -->
+    <section class="featured-projects">
 
-  </section>
+      <h2>Proyectos destacados</h2>
 
+      <!-- GRID -->
+      <div class="projects-grid">
 
-  <!-- ========================= -->
-  <!-- SOBRE MÍ + CONTACTO      -->
-  <!-- ========================= -->
-  <section class="about-contact">
+        <!-- ========================= -->
+        <!-- HAiko & Goshi             -->
+        <!-- ========================= -->
+        <article class="project-card">
 
-    <h2>Sobre mí</h2>
+          <div class="project-media">
+            <img
+              src="assets/images/thumbnails/Haiko_Goshi.jpg"
+              alt="Haiko & Goshi – Personajes estilizados"
+              class="project-image"
+            >
 
-    <!-- CONTENIDO COMPLETO -->
-    <div class="about-content">
+            <video
+              class="project-video"
+              src="assets/videos/previews/render_video_lady.mp4"
+              muted
+              loop
+              playsinline
+            ></video>
+          </div>
 
-      <!-- FOTO DE PERFIL -->
-      <img
-        src="assets/icons/Foto_Perfil.jpeg"
-        class="profile-pic"
-        alt="Foto de perfil"
-      >
+          <div class="project-info">
+            <h3 class="project-title">Haiko & Goshi</h3>
+            <span class="project-divider"></span>
 
-      <!-- TEXTO DESCRIPTIVO -->
-      <p class="about-text">
-        Diseñadora 3D enfocada en personajes, escenarios estilizados
-        y experiencias visuales para videojuegos.
-      </p>
+            <p class="project-category">
+              Personajes estilizados<br>
+              Modelado 3D
+            </p>
 
-      <!-- ICONOS DE CONTACTO -->
-      <div class="contact-icons">
+            <a href="projects/haiko-goshi.html" class="project-btn">
+              Ver proyecto
+            </a>
+          </div>
 
-        <a
-          href="https://www.linkedin.com/in/yazmin-martinez-853b87338/"
-          target="_blank"
-        >
-          <img src="assets/icons/LinkedIn_icon.png" alt="LinkedIn">
-        </a>
+        </article>
 
-        <a href="mismin.digital@gmail.com">
-          <img src="assets/icons/gmail_icon.png" alt="Email">
-        </a>
+        <!-- ========================= -->
+        <!-- Escenario Kirby           -->
+        <!-- ========================= -->
+        <article class="project-card">
 
-        <a href="assets/cv/CV_Yazmin_Martinez.pdf" target="_blank">
-          <img src="assets/icons/cv_icon.png" alt="CV">
-        </a>
+          <div class="project-media">
+            <img
+              src="assets/images/thumbnails/kirby-scene.jpg"
+              alt="Escenario Kirby"
+              class="project-image"
+            >
+
+            <video
+              class="project-video"
+              src="assets/videos/previews/kirby-scene.mp4"
+              muted
+              loop
+              playsinline
+            ></video>
+          </div>
+
+          <div class="project-info">
+            <h3 class="project-title">Escenario Kirby</h3>
+            <span class="project-divider"></span>
+
+            <p class="project-category">
+              Escenario 3D<br>
+              Unity
+            </p>
+
+            <a href="projects/kirby.html" class="project-btn">
+              Ver proyecto
+            </a>
+          </div>
+
+        </article>
+
+        <!-- ========================= -->
+        <!-- Pagodas Procedurales      -->
+        <!-- ========================= -->
+        <article class="project-card">
+
+          <div class="project-media">
+            <img
+              src="assets/images/thumbnails/pagoda-procedural.jpg"
+              alt="Pagodas procedurales"
+              class="project-image"
+            >
+
+            <video
+              class="project-video"
+              src="assets/videos/previews/pagoda-procedural.mp4"
+              muted
+              loop
+              playsinline
+            ></video>
+          </div>
+
+          <div class="project-info">
+            <h3 class="project-title">Pagodas Procedurales</h3>
+            <span class="project-divider"></span>
+
+            <p class="project-category">
+              Generación procedural<br>
+              Blender
+            </p>
+
+            <a href="projects/pagoda-procedural.html" class="project-btn">
+              Ver proyecto
+            </a>
+          </div>
+
+        </article>
 
       </div>
 
-    </div>
+      <!-- BOTÓN VER TODOS -->
+      <div class="featured-cta">
+        <a href="projects.html" class="btn secondary">
+          Ver todos los proyectos
+        </a>
+      </div>
+
+    </section>
 
   </section>
 
+  
+  <section class="section-with-bg projects-bg">
 
+    <!-- FONDO DE LA SECCIÓN -->
+    <div class="section-background">
+      <video autoplay muted loop playsinline>
+        <source src="assets/backgrounds/Fondo_ChicaAnime.mp4" type="video/mp4">
+      </video>
+    </div>
 
+    <!-- ========================= -->
+    <!-- SOBRE MÍ + CONTACTO      -->
+    <!-- ========================= -->
+    <section class="about-contact">
+
+      <h2>Sobre mí</h2>
+
+      <!-- CONTENIDO COMPLETO -->
+      <div class="about-content">
+
+        <!-- FOTO DE PERFIL -->
+        <img
+          src="assets/icons/Foto_Perfil.jpeg"
+          class="profile-pic"
+          alt="Foto de perfil"
+        >
+
+        <!-- TEXTO DESCRIPTIVO -->
+        <p class="about-text">
+          Diseñadora 3D enfocada en personajes, escenarios estilizados
+          y experiencias visuales para videojuegos.
+        </p>
+
+        <!-- ICONOS DE CONTACTO -->
+        <div class="contact-icons">
+
+          <a
+            href="https://www.linkedin.com/in/yazmin-martinez-853b87338/"
+            target="_blank"
+          >
+            <img src="assets/icons/LinkedIn_icon.png" alt="LinkedIn">
+          </a>
+
+          <a href="mismin.digital@gmail.com">
+            <img src="assets/icons/gmail_icon.png" alt="Email">
+          </a>
+
+          <a href="assets/cv/CV_Yazmin_Martinez.pdf" target="_blank">
+            <img src="assets/icons/cv_icon.png" alt="CV">
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </section>
+
+  
   <!-- ========================= -->
   <!-- FOOTER                   -->
   <!-- ========================= -->
