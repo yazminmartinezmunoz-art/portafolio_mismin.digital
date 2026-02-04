@@ -537,3 +537,197 @@ footer {
   z-index: 1;
   pointer-events: none;
 }
+
+
+/* =====================================================
+   PAGINA "TODOS LOS PROYECTOS" — SISTEMA PROPIO
+   (NO AFECTA LA HOME)
+   ===================================================== */
+
+.allprojects-grid {
+  max-width: 1300px;
+  margin: 40px auto 120px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 50px;
+  padding: 0 4%;
+}
+
+/* TARJETA MÁS GRANDE Y PROTAGONISTA */
+.allprojects-card {
+  background: #0f0f15;
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow: 0 0 0 1px rgba(120, 255, 255, 0.12);
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+
+/* MISMO GLOW QUE TUS CARDS DE HOME */
+.allprojects-card:hover {
+  transform: translateY(-4px);
+  box-shadow:
+    0 0 0 1px rgba(120, 255, 255, 0.55),
+    0 0 22px rgba(120, 255, 255, 0.25);
+}
+
+/* MEDIA (imagen + video) MÁS GRANDE */
+.allprojects-media {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;   /* ← MÁS GRANDE QUE HOME */
+  overflow: hidden;
+}
+
+.allprojects-image,
+.allprojects-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* video oculto por defecto */
+.allprojects-video {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity .35s ease;
+}
+
+/* aparece al hover (igual que home) */
+.allprojects-card:hover .allprojects-video {
+  opacity: 1;
+}
+
+.allprojects-card:hover .allprojects-image {
+  opacity: 0;
+}
+
+/* INFO INFERIOR (ESTÉTICA LIMPIA) */
+.allprojects-info {
+  padding: 1.4rem 1.3rem 1.6rem;
+  text-align: center;
+}
+
+/* BOTÓN CON EL MISMO ESTILO HOLOGRÁFICO DE LA HOME */
+.allprojects-btn {
+  position: relative;
+  display: inline-block;
+  margin-top: 15px;
+  padding: .75rem 1.4rem;
+  color: var(--accent);
+  border: 1px solid var(--accent-soft);
+  border-radius: 999px;
+  text-decoration: none;
+  overflow: hidden;
+}
+
+/* DESTELLO (idéntico a tu .project-btn) */
+.allprojects-btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(125, 249, 255, 0.9),
+    transparent
+  );
+  transform: translateX(-120%);
+}
+
+.allprojects-btn:hover::before {
+  animation: shine .9s ease;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px){
+  .allprojects-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 550px){
+  .allprojects-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* FILTROS CON ESTÉTICA DE TU PORTAFOLIO */
+
+.filters {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin: 10px 0 10px;
+  padding-top: 2%;
+  padding-bottom: 3%;
+
+}
+
+.filter {
+  background: transparent;
+  color: var(--text-main);
+  border: 1px solid var(--accent-soft);
+  padding: .6rem 1.2rem;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: all .25s ease;
+}
+
+.filter.active {
+  background: rgba(125,249,255,.15);
+  border-color: var(--accent);
+}
+
+.filter:hover {
+  background: rgba(125,249,255,.08);
+}
+
+/* =====================================================
+   HEADER DE LA PÁGINA "TODOS LOS PROYECTOS"
+   (NUEVO DISEÑO — NO AFECTA LA HOME)
+   ===================================================== */
+
+.projects-header {
+  position: relative;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 3rem 8% 2rem;
+
+  /* Línea base estética (suave, como tu lenguaje visual) */
+  border-bottom: 1px solid rgba(125, 249, 255, 0.15);
+}
+
+/* TÍTULO PRINCIPAL */
+.projects-header h1 {
+  font-size: 2.6rem;
+  font-weight: 600;
+  margin-bottom: 0.6rem;
+  color: var(--text-main);
+}
+
+/* SUBTÍTULO / DESCRIPCIÓN */
+.projects-header p {
+  max-width: 650px;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* DETALLE HOLOGRÁFICO SUTIL BAJO EL TÍTULO */
+.projects-header::after {
+  content: "";
+  position: absolute;
+  left: 8%;
+  bottom: -1px;
+  width: 220px;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--accent),
+    transparent
+  );
+  opacity: 0.7;
+  
+}

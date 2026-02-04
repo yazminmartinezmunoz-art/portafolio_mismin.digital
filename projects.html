@@ -4,11 +4,11 @@
   <meta charset="UTF-8">
   <title>Proyectos | Portafolio 3D</title>
   <link rel="stylesheet" href="css/main.css">
-
+  
   <script src="js/video-hover.js" defer></script>
+  <script src="js/projects-filter.js" defer></script>
 </head>
-
-
+  
 <body>
 
 <header class="projects-header">
@@ -16,20 +16,167 @@
   <p>Modelado, animación y escenas 3D</p>
 </header>
 
+<!-- FILTROS -->
 <section class="filters">
-  <button class="filter active">Todos</button>
-  <button class="filter">Personajes</button>
-  <button class="filter">Escenarios</button>
-  <button class="filter">Props</button>
-  <button class="filter">Animación</button>
+  <button class="filter active" data-filter="all">Todos</button>
+  <button class="filter" data-filter="personajes">Personajes</button>
+  <button class="filter" data-filter="escenarios">Escenarios</button>
+  <button class="filter" data-filter="props">Props</button>
+  <button class="filter" data-filter="animacion">Animación</button>
+  <button class="filter" data-filter="unity">Unity</button>
+  <button class="filter" data-filter="procedural">Procedural</button>
 </section>
 
-<section class="projects-grid">
-  <div class="card placeholder"></div>
-  <div class="card placeholder"></div>
-  <div class="card placeholder"></div>
-  <div class="card placeholder"></div>
+<!-- GRID REAL DE PROYECTOS -->
+<section class="allprojects-grid">
+
+  <!-- 1) HAIKO & GOSHI -->
+  <article class="allprojects-card" data-category="personajes props">
+
+    <div class="allprojects-media">
+      <img src="assets/images/thumbnails/render_diorama_lady.png"
+           class="allprojects-image">
+
+      <video class="allprojects-video"
+             src="assets/videos/previews/render_video_lady.mp4"
+             muted loop playsinline></video>
+    </div>
+
+    <div class="allprojects-info">
+      <h3>Haiko & Goshi</h3>
+      <p>Personajes estilizados · Blender</p>
+
+      <a href="projects/haiko-goshi.html" class="allprojects-btn">
+        Ver proyecto
+      </a>
+    </div>
+
+  </article>
+
+  <!-- 2) KIRBY -->
+  <article class="allprojects-card" data-category="escenarios unity">
+
+    <div class="allprojects-media">
+      <img src="assets/images/thumbnails/kirby-scene.jpg"
+           class="allprojects-image">
+
+      <video class="allprojects-video"
+             src="assets/videos/previews/kirby-scene.mp4"
+             muted playsinline></video>
+    </div>
+
+    <div class="allprojects-info">
+      <h3>Escenario Kirby</h3>
+      <p>Escena optimizada en Unity</p>
+
+      <a href="projects/kirby.html" class="allprojects-btn">
+        Ver proyecto
+      </a>
+    </div>
+
+  </article>
+
+  <!-- 3) PAGODA -->
+  <article class="allprojects-card" data-category="escenarios procedural">
+
+    <div class="allprojects-media">
+      <img src="assets/images/thumbnails/pagoda-procedural.jpg"
+           class="allprojects-image">
+
+      <video class="allprojects-video"
+             src="assets/videos/previews/pagoda-procedural.mp4"
+             muted playsinline></video>
+    </div>
+
+    <div class="allprojects-info">
+      <h3>Pagoda Procedural</h3>
+      <p>Generación procedural · Blender</p>
+
+      <a href="projects/pagoda-procedural.html" class="allprojects-btn">
+        Ver proyecto
+      </a>
+    </div>
+
+  </article>
+
+  <!-- 4) TRAFALGAR -->
+  <article class="allprojects-card" data-category="personajes props">
+
+    <div class="allprojects-media">
+      <img src="assets/images/thumbnails/trafalgar.jpg"
+           class="allprojects-image">
+    </div>
+
+    <div class="allprojects-info">
+      <h3>Trafalgar</h3>
+      <p>Personaje con espada · Blender</p>
+
+      <a href="projects/trafalgar.html" class="allprojects-btn">
+        Ver proyecto
+      </a>
+    </div>
+
+  </article>
+
+  <!-- 5) DIORAMA JAPONÉS -->
+  <article class="allprojects-card" data-category="escenarios props">
+
+    <div class="allprojects-media">
+      <img src="assets/images/thumbnails/diorama-japones.jpg"
+           class="allprojects-image">
+    </div>
+
+    <div class="allprojects-info">
+      <h3>Diorama interior japonés</h3>
+      <p>Escena de interior · Blender</p>
+
+      <a href="projects/diorama-japones.html" class="allprojects-btn">
+        Ver proyecto
+      </a>
+    </div>
+
+  </article>
+
+  <!-- 6) PANDA ROJO -->
+  <article class="allprojects-card" data-category="animacion unity">
+
+    <div class="allprojects-media">
+      <img src="assets/images/thumbnails/panda-rojo.jpg"
+           class="allprojects-image">
+    </div>
+
+    <div class="allprojects-info">
+      <h3>Panda rojo</h3>
+      <p>Animación con sliders · Blender + Unity</p>
+
+      <a href="projects/panda-rojo.html" class="allprojects-btn">
+        Ver proyecto
+      </a>
+    </div>
+
+  </article>
+
+  <!-- 7) HABITACIÓN MARINETT -->
+  <article class="allprojects-card" data-category="escenarios props">
+
+    <div class="allprojects-media">
+      <img src="assets/images/thumbnails/marinett-room.jpg"
+           class="allprojects-image">
+    </div>
+
+    <div class="allprojects-info">
+      <h3>Habitación Marinett</h3>
+      <p>Diorama · Blender</p>
+
+      <a href="projects/marinett.html" class="allprojects-btn">
+        Ver proyecto
+      </a>
+    </div>
+
+  </article>
+
 </section>
+
 
 <footer class="footer">
   <p>© 2026 · Mismin</p>
