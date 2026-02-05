@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>Haiko & Goshi | Proyecto</title>
+<title>Escenario Kirby | Proyecto</title>
 <link rel="stylesheet" href="../css/main.css">
 
 <style>
@@ -10,10 +10,12 @@ body{
   background:#0b0f12;
   color:white;
   margin:0;
+  
 }
 
 /* =================== */
 /* BOTONES SUPERIORES  */
+/* (MISMO ESTILO QUE HAIKO) */
 /* =================== */
 .top-nav{
   position:fixed;
@@ -40,7 +42,7 @@ body{
 .project-header{
   max-width:1150px;
   margin:90px auto 20px;
-  padding:0 20px;
+  padding:0 0px;
 }
 
 .project-meta{
@@ -54,7 +56,7 @@ body{
 .project-container{
   max-width:1150px;
   margin:0 auto;
-  padding:0 20px 70px;
+  padding:0 0px 50px;
 }
 
 /* =================== */
@@ -71,7 +73,7 @@ body{
   background:rgba(255,255,255,0.03);
   border:1px solid rgba(255,255,255,0.08);
   border-radius:16px;
-  padding:16px;
+  padding:10px; /* más limpio, como pediste */
 }
 
 /* Contenedor del video con lupa + play */
@@ -80,38 +82,19 @@ body{
   cursor:pointer;
 }
 
-/* Icono de lupa */
-.zoom-icon{
-  position:absolute;
-  top:10px;
-  right:10px;
-  background:rgba(0,0,0,0.7);
-  border:1px solid #3ad6d1;
-  color:white;
-  padding:6px 8px;
-  border-radius:8px;
-  font-size:0.8rem;
-}
-
-/* Botón play visible */
-.play-icon{
-  position:absolute;
-  top:50%;
-  left:50%;
-  transform:translate(-50%,-50%);
-  background:rgba(0,0,0,0.7);
-  border:1px solid #3ad6d1;
-  color:white;
-  padding:10px 14px;
-  border-radius:50%;
-  font-size:1.2rem;
-}
-
 /* videos normales */
 .media-wrapper video{
   width:100%;
-  border-radius:12px;
+  border-radius:14px;
   display:block;
+}
+
+/* SUBTÍTULO DE CADA VIDEO */
+.media-caption{
+  text-align:center;
+  font-size:0.85rem;
+  opacity:0.85;
+  margin-top:6px;
 }
 
 /* =================== */
@@ -121,7 +104,7 @@ body{
   display:flex;
   align-items:center;
   justify-content:space-between;
-  margin-top:10px;
+  margin-top:6px;
 }
 
 .toggle{
@@ -157,7 +140,7 @@ body{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
   gap:16px;
-  margin-top:20px;
+  margin-top:12px;
 }
 
 .gallery img{
@@ -200,49 +183,13 @@ body{
   cursor:pointer;
 }
 
-/* ===========================================
-   AJUSTES DE ESPACIO SOLO PARA PAGINA INDIVIDUAL
-   (NO AFECTA HOME NI OTRAS PÁGINAS)
-=========================================== */
-
+/* Espaciados limpios SOLO para esta página */
 .project-container section {
-  padding: 1.5rem 0; /* antes era 5.5rem → ahora mucho más limpio */
+  padding: 1.5rem 0;
 }
 
-/* Reducimos el espacio general del main */
-.project-container {
-  padding: 0 1% 60px; /* menos aire lateral y abajo */
-}
-
-/* Hacemos los videos VISUALMENTE más grandes */
-.interactive-grid {
-  gap: 40px; /* antes era 18px */
-  margin-bottom: 10px;
-}
-
-/* Hacemos que cada tarjeta tenga menos relleno */
-.interactive-card{
-  padding: 10px; /* antes 16px */
-}
-
-/* Hace que el video ocupe más área visual dentro de la card */
-.media-wrapper video{
-  border-radius: 14px;
-}
-
-/* Acercamos los switch al video */
-.switch-row{
-  margin-top: 6px; /* antes 10px */
-}
-
-/* Acercamos descripción a la zona visual */
 .project-description{
-  margin-top: 10px;
-}
-
-/* Acercamos la galería al texto */
-.gallery{
-  margin-top: 12px;
+  margin-top:10px;
 }
 
 </style>
@@ -258,67 +205,75 @@ body{
 </div>
 
 <header class="project-header">
-  <h1>Haiko & Goshi</h1>
+  <h1>Escenario Kirby</h1>
   <div class="project-meta">
-    Personajes · Animación · Blender · Unity Ready
+    Escenario · Unity · Optimización · Lighting · Blender
   </div>
 </header>
 
 <main class="project-container">
 
-<!-- ===== DOS PERSONAJES LADO A LADO ===== -->
+<!-- ===== DOS COLUMNAS (MISMA LÓGICA QUE HAIKO) ===== -->
 <section class="interactive-grid">
 
-<!-- HAIKO -->
+<!-- TARJETA 1: DÍA / NOCHE -->
 <div class="interactive-card">
-  <div class="media-wrapper" onclick="openModalVideo('haikoVideo')">
-    <!--<span class="zoom-icon">🔍</span>
-    <span class="play-icon">▶</span>-->
 
-    <video id="haikoVideo" autoplay loop muted>
-      <source src="../media/haiko_idle.mp4" type="video/mp4">
+  <div class="media-wrapper" onclick="openModalVideo('kirbyMain')">
+    <video id="kirbyMain" autoplay loop muted>
+      <source src="../media/kirby_day.mp4" type="video/mp4">
     </video>
   </div>
 
-  <div class="switch-row">
-    <span>Idle / Run</span>
-    <div class="toggle" id="toggleHaiko" onclick="toggleHaiko(this)"></div>
+  <div class="media-caption">
+    Vista general del escenario — Día / Noche
   </div>
+
+  <div class="switch-row">
+    <span>Día / Noche</span>
+    <div class="toggle" id="toggleKirby" onclick="toggleKirby(this)"></div>
+  </div>
+
 </div>
 
-<!-- GOSHI -->
+<!-- TARJETA 2: OPTIMIZACIÓN -->
 <div class="interactive-card">
-  <div class="media-wrapper" onclick="openModalVideo('goshiVideo')">
-    <!--<span class="zoom-icon">🔍</span>
-    <span class="play-icon">▶</span>-->
 
-    <video id="goshiVideo" autoplay loop muted>
-      <source src="../media/goshi_idle.mp4" type="video/mp4">
+  <div class="media-wrapper" onclick="openModalVideo('kirbyOpt')">
+    <video id="kirbyOpt" muted loop playsinline>
+      <source src="../media/kirby_optimization.mp4" type="video/mp4">
     </video>
   </div>
 
-  <div class="switch-row">
-    <span>Idle / Vuelo</span>
-    <div class="toggle" id="toggleGoshi" onclick="toggleGoshi(this)"></div>
+  <div class="media-caption">
+    Vista de rendimiento y reducción de draw calls en Unity
   </div>
+
 </div>
 
 </section>
 
+<!-- ================= DESCRIPCIÓN ================= -->
 <section class="project-description">
 <h2>Sobre el proyecto</h2>
 <p>
-Haiko es un personaje original modelado y riggeado en Blender, optimizado para Unity.  
-Goshi es su criatura acompañante, diseñada con animaciones suaves y lectura clara de silueta.  
-El proyecto demuestra flujo profesional: modelado, retopología, texturas eficientes y preparación para tiempo real.
+Escenario estilizado inspirado en Kirby, modelado en Blender e integrado en Unity con foco en rendimiento.  
+Se trabajó con:
+- Baking de iluminación  
+- Materiales eficientes  
+- Reducción de polígonos  
+- Agrupación de meshes  
+- Occlusion culling  
+- Escala coherente para gameplay  
 </p>
 </section>
 
+<!-- ================= GALERÍA DE PROPS ================= -->
 <section class="gallery">
-  <img src="../media/Haiko_Goshi.jpg" onclick="openModalImage(this.src)">
-  <img src="../media/Haiko_Goshi (2).jpg" onclick="openModalImage(this.src)">
-  <img src="../media/haiko_wireframe.jpg" onclick="openModalImage(this.src)">
-  <img src="../media/haiko_pose.jpg" onclick="openModalImage(this.src)">
+  <img src="../media/kirby_tree.jpg" onclick="openModalImage(this.src)">
+  <img src="../media/kirby_rock.jpg" onclick="openModalImage(this.src)">
+  <img src="../media/kirby_grass.jpg" onclick="openModalImage(this.src)">
+  <img src="../media/kirby_house.jpg" onclick="openModalImage(this.src)">
 </section>
 
 </main>
@@ -330,30 +285,16 @@ El proyecto demuestra flujo profesional: modelado, retopología, texturas eficie
 </div>
 
 <script>
-/* ===== SWITCH HAIKO ===== */
-function toggleHaiko(el){
-  const video = document.getElementById("haikoVideo");
+/* ===== SWITCH DÍA / NOCHE ===== */
+function toggleKirby(el){
+  const video = document.getElementById("kirbyMain");
 
   if(el.classList.contains("active")){
     el.classList.remove("active");
-    video.src="../media/chica.mp4";
+    video.src="../media/kirby_day.mp4";
   }else{
     el.classList.add("active");
-    video.src="../media/haiko_run.mp4";
-  }
-  video.play();
-}
-
-/* ===== SWITCH GOSHI ===== */
-function toggleGoshi(el){
-  const video = document.getElementById("goshiVideo");
-
-  if(el.classList.contains("active")){
-    el.classList.remove("active");
-    video.src="../media/goshi_idle.mp4";
-  }else{
-    el.classList.add("active");
-    video.src="../media/goshi_fly.mp4";
+    video.src="../media/kirby_night.mp4";
   }
   video.play();
 }
@@ -390,4 +331,3 @@ function closeModal(){
 
 </body>
 </html>
-

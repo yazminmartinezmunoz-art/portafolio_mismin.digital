@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>Haiko & Goshi | Proyecto</title>
+<title>Pagoda Procedural | Proyecto</title>
 <link rel="stylesheet" href="../css/main.css">
 
 <style>
@@ -38,9 +38,9 @@ body{
 /* HEADER DEL PROYECTO */
 /* =================== */
 .project-header{
-  max-width:1150px;
+  max-width:1100px;
   margin:90px auto 20px;
-  padding:0 20px;
+  padding: 0px;
 }
 
 .project-meta{
@@ -54,19 +54,21 @@ body{
 .project-container{
   max-width:1150px;
   margin:0 auto;
-  padding:0 20px 70px;
+  padding:0 0px 50px;
 }
 
+
 /* =================== */
-/* DOS COLUMNAS VIDEO  */
+/* DOS PANELES LADO A LADO */
 /* =================== */
 .interactive-grid{
   display:grid;
   grid-template-columns:1fr 1fr;
   gap:40px;
-  margin-bottom:20px;
+  margin-bottom:0px;
 }
 
+/* TARJETAS */
 .interactive-card{
   background:rgba(255,255,255,0.03);
   border:1px solid rgba(255,255,255,0.08);
@@ -74,48 +76,27 @@ body{
   padding:16px;
 }
 
-/* Contenedor del video con lupa + play */
+/* VIDEO */
 .media-wrapper{
   position:relative;
   cursor:pointer;
 }
 
-/* Icono de lupa */
-.zoom-icon{
-  position:absolute;
-  top:10px;
-  right:10px;
-  background:rgba(0,0,0,0.7);
-  border:1px solid #3ad6d1;
-  color:white;
-  padding:6px 8px;
-  border-radius:8px;
-  font-size:0.8rem;
-}
-
-/* Botón play visible */
-.play-icon{
-  position:absolute;
-  top:50%;
-  left:50%;
-  transform:translate(-50%,-50%);
-  background:rgba(0,0,0,0.7);
-  border:1px solid #3ad6d1;
-  color:white;
-  padding:10px 14px;
-  border-radius:50%;
-  font-size:1.2rem;
-}
-
-/* videos normales */
 .media-wrapper video{
   width:100%;
   border-radius:12px;
   display:block;
 }
 
+/* SUBTÍTULOS BAJO VIDEO */
+.media-caption{
+  margin-top:8px;
+  font-size:0.9rem;
+  color:#9aa0a6;
+}
+
 /* =================== */
-/* SWITCH TOGGLE       */
+/* SWITCHES */
 /* =================== */
 .switch-row{
   display:flex;
@@ -160,11 +141,21 @@ body{
   margin-top:20px;
 }
 
+.gallery figure{
+  margin:0;
+}
+
 .gallery img{
   width:100%;
   border-radius:12px;
   border:1px solid rgba(255,255,255,0.08);
   cursor:pointer;
+}
+
+.gallery figcaption{
+  margin-top:6px;
+  font-size:0.85rem;
+  color:#9aa0a6;
 }
 
 /* =================== */
@@ -199,6 +190,7 @@ body{
   font-size:24px;
   cursor:pointer;
 }
+
 
 /* ===========================================
    AJUSTES DE ESPACIO SOLO PARA PAGINA INDIVIDUAL
@@ -245,12 +237,13 @@ body{
   margin-top: 12px;
 }
 
+
+
 </style>
 </head>
 
 <body>
 
-<!-- BOTONES SUPERIORES -->
 <div class="top-nav">
   <a href="../index.html" class="nav-pill">Home</a>
   <a href="../index.html#sobre-mi" class="nav-pill">Sobre mí</a>
@@ -258,67 +251,93 @@ body{
 </div>
 
 <header class="project-header">
-  <h1>Haiko & Goshi</h1>
+  <h1>Pagoda Procedural</h1>
   <div class="project-meta">
-    Personajes · Animación · Blender · Unity Ready
+    Blender · Procedural · Arquitectura · Optimización
   </div>
 </header>
 
 <main class="project-container">
 
-<!-- ===== DOS PERSONAJES LADO A LADO ===== -->
+<!-- ===== DOS PANELES INTERACTIVOS ===== -->
 <section class="interactive-grid">
 
-<!-- HAIKO -->
+<!-- PANEL 1: DÍA / NOCHE -->
 <div class="interactive-card">
-  <div class="media-wrapper" onclick="openModalVideo('haikoVideo')">
-    <!--<span class="zoom-icon">🔍</span>
-    <span class="play-icon">▶</span>-->
-
-    <video id="haikoVideo" autoplay loop muted>
-      <source src="../media/haiko_idle.mp4" type="video/mp4">
+  <div class="media-wrapper" onclick="openModalVideo('pagodaVideo')">
+    <video id="pagodaVideo" autoplay loop muted>
+      <source src="../media/pagoda-dia.mp4" type="video/mp4">
     </video>
   </div>
 
+  <div class="media-caption">
+    Pagoda base con iluminación diurna.
+  </div>
+
   <div class="switch-row">
-    <span>Idle / Run</span>
-    <div class="toggle" id="toggleHaiko" onclick="toggleHaiko(this)"></div>
+    <span>Día / Noche</span>
+    <div class="toggle" id="togglePagoda" onclick="togglePagoda(this)"></div>
   </div>
 </div>
 
-<!-- GOSHI -->
+<!-- PANEL 2: COLUMNAS + COLOR -->
 <div class="interactive-card">
-  <div class="media-wrapper" onclick="openModalVideo('goshiVideo')">
-    <!--<span class="zoom-icon">🔍</span>
-    <span class="play-icon">▶</span>-->
-
-    <video id="goshiVideo" autoplay loop muted>
-      <source src="../media/goshi_idle.mp4" type="video/mp4">
+  <div class="media-wrapper" onclick="openModalVideo('pagodaVariantVideo')">
+    <video id="pagodaVariantVideo" autoplay loop muted>
+      <source src="../media/pagoda-columnas-a.mp4" type="video/mp4">
     </video>
   </div>
 
+  <div class="media-caption">
+    Variaciones procedurales de columnas y color.
+  </div>
+
   <div class="switch-row">
-    <span>Idle / Vuelo</span>
-    <div class="toggle" id="toggleGoshi" onclick="toggleGoshi(this)"></div>
+    <span>Columnas A / B</span>
+    <div class="toggle" id="toggleColumns" onclick="toggleColumns(this)"></div>
+  </div>
+
+  <div class="switch-row">
+    <span>Color A / B</span>
+    <div class="toggle" id="toggleColor" onclick="toggleColor(this)"></div>
   </div>
 </div>
 
 </section>
 
+<!-- ===== DESCRIPCIÓN ===== -->
 <section class="project-description">
 <h2>Sobre el proyecto</h2>
 <p>
-Haiko es un personaje original modelado y riggeado en Blender, optimizado para Unity.  
-Goshi es su criatura acompañante, diseñada con animaciones suaves y lectura clara de silueta.  
-El proyecto demuestra flujo profesional: modelado, retopología, texturas eficientes y preparación para tiempo real.
+Pagoda creada con modelado procedural en Blender.  
+Permite modificar número de columnas, proporciones y paleta cromática sin remodelar desde cero.  
+Optimizada para tiempo real y exportable a Unity o Three.js.
 </p>
 </section>
 
+<!-- ===== GALERÍA CON SUBTÍTULOS ===== -->
 <section class="gallery">
-  <img src="../media/Haiko_Goshi.jpg" onclick="openModalImage(this.src)">
-  <img src="../media/Haiko_Goshi (2).jpg" onclick="openModalImage(this.src)">
-  <img src="../media/haiko_wireframe.jpg" onclick="openModalImage(this.src)">
-  <img src="../media/haiko_pose.jpg" onclick="openModalImage(this.src)">
+
+<figure>
+  <img src="../media/pagoda_techo.png" onclick="openModalImage(this.src)">
+  <figcaption>Detalle del techo curvo generado proceduralmente.</figcaption>
+</figure>
+
+<figure>
+  <img src="../media/pagoda_pilares.png" onclick="openModalImage(this.src)">
+  <figcaption>Variaciones de columnas paramétricas.</figcaption>
+</figure>
+
+<figure>
+  <img src="../media/pagoda_base.png" onclick="openModalImage(this.src)">
+  <figcaption>Base modular optimizada para tiempo real.</figcaption>
+</figure>
+
+<figure>
+  <img src="../media/pagoda_ornamentos.png" onclick="openModalImage(this.src)">
+  <figcaption>Ornamentos personalizables por nodos.</figcaption>
+</figure>
+
 </section>
 
 </main>
@@ -330,30 +349,44 @@ El proyecto demuestra flujo profesional: modelado, retopología, texturas eficie
 </div>
 
 <script>
-/* ===== SWITCH HAIKO ===== */
-function toggleHaiko(el){
-  const video = document.getElementById("haikoVideo");
+/* ===== SWITCH DIA/NOCHE ===== */
+function togglePagoda(el){
+  const video = document.getElementById("pagodaVideo");
 
   if(el.classList.contains("active")){
     el.classList.remove("active");
-    video.src="../media/chica.mp4";
+    video.src="../media/pagoda-dia.mp4";
   }else{
     el.classList.add("active");
-    video.src="../media/haiko_run.mp4";
+    video.src="../media/pagoda-noche.mp4";
   }
   video.play();
 }
 
-/* ===== SWITCH GOSHI ===== */
-function toggleGoshi(el){
-  const video = document.getElementById("goshiVideo");
+/* ===== SWITCH COLUMNAS ===== */
+function toggleColumns(el){
+  const video = document.getElementById("pagodaVariantVideo");
 
   if(el.classList.contains("active")){
     el.classList.remove("active");
-    video.src="../media/goshi_idle.mp4";
+    video.src="../media/pagoda-columnas-a.mp4";
   }else{
     el.classList.add("active");
-    video.src="../media/goshi_fly.mp4";
+    video.src="../media/pagoda-columnas-b.mp4";
+  }
+  video.play();
+}
+
+/* ===== SWITCH COLOR ===== */
+function toggleColor(el){
+  const video = document.getElementById("pagodaVariantVideo");
+
+  if(el.classList.contains("active")){
+    el.classList.remove("active");
+    video.src="../media/pagoda-color-a.mp4";
+  }else{
+    el.classList.add("active");
+    video.src="../media/pagoda-color-b.mp4";
   }
   video.play();
 }

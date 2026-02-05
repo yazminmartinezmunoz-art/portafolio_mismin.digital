@@ -694,8 +694,8 @@ footer {
   margin: 0 auto;
   padding: 3rem 8% 2rem;
 
-  /* Línea base estética (suave, como tu lenguaje visual) */
-  border-bottom: 1px solid rgba(125, 249, 255, 0.15);
+  /* Línea base estética (suave, como tu lenguaje visual) 
+  border-bottom: 1px solid rgba(125, 249, 255, 0.15);*/
 }
 
 /* TÍTULO PRINCIPAL */
@@ -714,7 +714,7 @@ footer {
   line-height: 1.6;
 }
 
-/* DETALLE HOLOGRÁFICO SUTIL BAJO EL TÍTULO */
+/* DETALLE HOLOGRÁFICO SUTIL BAJO EL TÍTULO 
 .projects-header::after {
   content: "";
   position: absolute;
@@ -730,7 +730,7 @@ footer {
   );
   opacity: 0.7;
   
-}
+}*/
 
 /* =====================================================
    BOTONES SUPERIORES - ESTILO REFERENCIA (HOME / SOBRE MÍ)
@@ -853,5 +853,4 @@ footer {
     top: 100%;
   }
 }
-
 
