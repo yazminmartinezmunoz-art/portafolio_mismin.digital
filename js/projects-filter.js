@@ -6,19 +6,24 @@ document.addEventListener("DOMContentLoaded", () => {
   buttons.forEach(btn => {
     btn.addEventListener("click", () => {
 
-      // quitar activo anterior
+      // Quitar activo anterior
       buttons.forEach(b => b.classList.remove("active"));
       btn.classList.add("active");
 
-      const category = btn.textContent.toLowerCase();
+      const filter = btn.dataset.filter; 
+      // ← usa data-filter del botón (no el texto visible)
 
       cards.forEach(card => {
 
-        const tags = card.dataset.category; // "personajes props"
+        const tags = card.dataset.category; // ej: "animacion unity"
 
-        if (category === "todos" || tags.includes(category)) {
+        if (filter === "all") {
           card.style.display = "block";
-        } else {
+        }
+        else if (tags.includes(filter)) {
+          card.style.display = "block";
+        }
+        else {
           card.style.display = "none";
         }
 

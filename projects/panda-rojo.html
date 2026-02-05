@@ -73,20 +73,20 @@ Pensado para uso posterior en Unity o Three.js con control interactivo.
 <!-- ===== GALERÍA DE DETALLES ===== -->
 <section class="gallery">
 
-<figure>
-  <img src="../media/panda_face.jpg" onclick="openModalImage(this.src)">
-  <figcaption>Expresiones faciales.</figcaption>
-</figure>
+  <figure>
+    <img src="../media/panda_face.jpg" onclick="openModalImage(this.src)">
+    <figcaption>Expresiones faciales.</figcaption>
+  </figure>
 
-<figure>
-  <img src="../media/panda_rig.jpg" onclick="openModalImage(this.src)">
-  <figcaption>Estructura del rig.</figcaption>
-</figure>
+  <figure>
+    <img src="../media/panda_rig.jpg" onclick="openModalImage(this.src)">
+    <figcaption>Estructura del rig.</figcaption>
+  </figure>
 
-<figure>
-  <img src="../media/panda_pose.jpg" onclick="openModalImage(this.src)">
-  <figcaption>Poses clave.</figcaption>
-</figure>
+  <figure>
+    <img src="../media/panda_pose.jpg" onclick="openModalImage(this.src)">
+    <figcaption>Poses clave.</figcaption>
+  </figure>
 
 </section>
 
@@ -116,6 +116,24 @@ function togglePlayAndZoom(videoId){
   modal.style.display="flex";
   video.play();
 }
+
+function openModalImage(src){
+  const modal = document.getElementById("modal");
+  const content = document.getElementById("modal-content");
+
+  const img = document.createElement("img");
+  img.src = src;
+  img.style.maxWidth = "90vw";
+  img.style.maxHeight = "90vh";
+  img.style.borderRadius = "12px";
+
+  content.innerHTML = "";
+  content.appendChild(img);
+
+  modal.style.display = "flex";
+}
+
+
 
 function closeModal(){
   document.getElementById("modal").style.display="none";
