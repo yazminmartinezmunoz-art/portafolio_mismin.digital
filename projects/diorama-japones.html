@@ -7,22 +7,6 @@
 <link rel="stylesheet" href="../css/main.css">
 <link rel="stylesheet" href="../css/project-individual.css">
 
-<style>
-/* ===== SOLO AJUSTES ESPECÍFICOS DEL DIORAMA ===== */
-
-.two-panels{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:40px;
-}
-
-.caption{
-  margin-top:6px;
-  color:#9aa0a6;
-  font-size:0.9rem;
-  text-align:center;
-}
-</style>
 </head>
 
 <body>
@@ -31,7 +15,7 @@
 <div class="top-nav">
   <a href="../index.html" class="nav-pill">Home</a>
   <a href="../index.html#sobre-mi" class="nav-pill">Sobre mí</a>
-  <a href="../projects.html" class="nav-pill">Todos los proyectos</a>
+  <a href="../projects.html" class="nav-pill home">Todos los proyectos</a>
 </div>
 
 <header class="project-header">
@@ -95,10 +79,25 @@ escena íntima y acogedora a una nocturna más silenciosa y cinematográfica.
 
 <h2>Detalles del escenario</h2>
 <section class="gallery">
-  <img src="../media/diorama_01.jpg" onclick="openModalImage(this.src)">
-  <img src="../media/diorama_02.jpg" onclick="openModalImage(this.src)">
-  <img src="../media/diorama_props.jpg" onclick="openModalImage(this.src)">
-  <img src="../media/diorama_luz.jpg" onclick="openModalImage(this.src)">
+
+  
+  <figure>
+    <img src="../media/diorama_01.jpg" onclick="openModalImage(this.src)">
+    <figcaption>Descripcion...</figcaption>
+  </figure>
+  <figure>
+    <img src="../media/diorama_02.jpg" onclick="openModalImage(this.src)">
+    <figcaption>Descripcion...</figcaption>
+  </figure>
+  <figure>
+    <img src="../media/diorama_props.jpg" onclick="openModalImage(this.src)">
+    <figcaption>Descripcion...</figcaption>
+  </figure>
+  <figure>
+    <img src="../media/diorama_luz.jpg" onclick="openModalImage(this.src)">
+    <figcaption>Descripcion...</figcaption>
+  </figure>
+
 </section>
 
 </main>

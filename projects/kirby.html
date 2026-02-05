@@ -4,195 +4,8 @@
 <meta charset="UTF-8">
 <title>Escenario Kirby | Proyecto</title>
 <link rel="stylesheet" href="../css/main.css">
+<link rel="stylesheet" href="../css/project-individual.css">
 
-<style>
-body{
-  background:#0b0f12;
-  color:white;
-  margin:0;
-  
-}
-
-/* =================== */
-/* BOTONES SUPERIORES  */
-/* (MISMO ESTILO QUE HAIKO) */
-/* =================== */
-.top-nav{
-  position:fixed;
-  top:20px;
-  right:20px;
-  display:flex;
-  gap:10px;
-  z-index:1000;
-}
-
-.nav-pill{
-  border:1px solid #3ad6d1;
-  border-radius:999px;
-  padding:8px 14px;
-  color:white;
-  text-decoration:none;
-  font-size:0.9rem;
-  background:rgba(0,0,0,0.6);
-}
-
-/* =================== */
-/* HEADER DEL PROYECTO */
-/* =================== */
-.project-header{
-  max-width:1150px;
-  margin:90px auto 20px;
-  padding:0 0px;
-}
-
-.project-meta{
-  color:#9aa0a6;
-  font-size:0.95rem;
-}
-
-/* =================== */
-/* LAYOUT PRINCIPAL    */
-/* =================== */
-.project-container{
-  max-width:1150px;
-  margin:0 auto;
-  padding:0 0px 50px;
-}
-
-/* =================== */
-/* DOS COLUMNAS VIDEO  */
-/* =================== */
-.interactive-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:40px;
-  margin-bottom:20px;
-}
-
-.interactive-card{
-  background:rgba(255,255,255,0.03);
-  border:1px solid rgba(255,255,255,0.08);
-  border-radius:16px;
-  padding:10px; /* más limpio, como pediste */
-}
-
-/* Contenedor del video con lupa + play */
-.media-wrapper{
-  position:relative;
-  cursor:pointer;
-}
-
-/* videos normales */
-.media-wrapper video{
-  width:100%;
-  border-radius:14px;
-  display:block;
-}
-
-/* SUBTÍTULO DE CADA VIDEO */
-.media-caption{
-  text-align:center;
-  font-size:0.85rem;
-  opacity:0.85;
-  margin-top:6px;
-}
-
-/* =================== */
-/* SWITCH TOGGLE       */
-/* =================== */
-.switch-row{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  margin-top:6px;
-}
-
-.toggle{
-  position:relative;
-  width:46px;
-  height:24px;
-  background:#0b0f12;
-  border:1px solid #3ad6d1;
-  border-radius:999px;
-  cursor:pointer;
-}
-
-.toggle::before{
-  content:"";
-  position:absolute;
-  width:18px;
-  height:18px;
-  border-radius:50%;
-  background:#3ad6d1;
-  top:3px;
-  left:3px;
-  transition:.25s;
-}
-
-.toggle.active::before{
-  left:25px;
-}
-
-/* =================== */
-/* GALERÍA CON LUPA    */
-/* =================== */
-.gallery{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:16px;
-  margin-top:12px;
-}
-
-.gallery img{
-  width:100%;
-  border-radius:12px;
-  border:1px solid rgba(255,255,255,0.08);
-  cursor:pointer;
-}
-
-/* =================== */
-/* MODAL (LUPA GLOBAL) */
-/* =================== */
-#modal{
-  position:fixed;
-  top:0; left:0;
-  width:100%; height:100%;
-  background:rgba(0,0,0,0.9);
-  display:none;
-  align-items:center;
-  justify-content:center;
-  z-index:2000;
-}
-
-#modal-content{
-  max-width:85%;
-  max-height:85%;
-}
-
-#modal img, #modal video{
-  width:100%;
-  border-radius:14px;
-}
-
-#modal-close{
-  position:absolute;
-  top:20px;
-  right:25px;
-  color:white;
-  font-size:24px;
-  cursor:pointer;
-}
-
-/* Espaciados limpios SOLO para esta página */
-.project-container section {
-  padding: 1.5rem 0;
-}
-
-.project-description{
-  margin-top:10px;
-}
-
-</style>
 </head>
 
 <body>
@@ -270,10 +83,24 @@ Se trabajó con:
 
 <!-- ================= GALERÍA DE PROPS ================= -->
 <section class="gallery">
-  <img src="../media/kirby_tree.jpg" onclick="openModalImage(this.src)">
-  <img src="../media/kirby_rock.jpg" onclick="openModalImage(this.src)">
-  <img src="../media/kirby_grass.jpg" onclick="openModalImage(this.src)">
-  <img src="../media/kirby_house.jpg" onclick="openModalImage(this.src)">
+
+  <figure>
+    <img src="../media/kirby_tree.jpg" onclick="openModalImage(this.src)">
+    <figcaption>Descripcion...</figcaption>
+  </figure>
+  <figure>
+    <img src="../media/kirby_rock.jpg" onclick="openModalImage(this.src)">
+    <figcaption>Descripcion...</figcaption>
+  </figure>
+  <figure>
+    <img src="../media/kirby_grass.jpg" onclick="openModalImage(this.src)">
+    <figcaption>Descripcion...</figcaption>
+  </figure>
+  <figure>
+    <img src="../media/kirby_house.jpg" onclick="openModalImage(this.src)">
+    <figcaption>Descripcion...</figcaption>
+  </figure>
+
 </section>
 
 </main>

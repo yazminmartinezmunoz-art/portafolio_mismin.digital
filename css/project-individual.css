@@ -1,7 +1,7 @@
-/* =======================================================
-   BASE COMÚN PARA TODAS LAS PÁGINAS INDIVIDUALES
-   (FIEL A LA ESTRUCTURA DE HAIKO)
-======================================================= */
+/* ============================= */
+/* BASE DE PÁGINA DE PROYECTO    */
+/* (REUTILIZABLE PARA TODOS)     */
+/* ============================= */
 
 body{
   background:#0b0f12;
@@ -9,9 +9,7 @@ body{
   margin:0;
 }
 
-/* =================== */
-/* BOTONES SUPERIORES  */
-/* =================== */
+/* ===== BOTONES SUPERIORES ===== */
 .top-nav{
   position:fixed;
   top:20px;
@@ -29,20 +27,13 @@ body{
   text-decoration:none;
   font-size:0.9rem;
   background:rgba(0,0,0,0.6);
-  transition:.2s;
 }
 
-.nav-pill:hover{
-  box-shadow: 0 0 10px rgba(58,214,209,0.4);
-}
-
-/* =================== */
-/* HEADER DEL PROYECTO */
-/* =================== */
+/* ===== HEADER DEL PROYECTO ===== */
 .project-header{
-  max-width:1150px;
+  max-width:1100px;
   margin:90px auto 20px;
-  padding:0 20px;
+  padding: 0px;
 }
 
 .project-meta{
@@ -50,23 +41,14 @@ body{
   font-size:0.95rem;
 }
 
-/* =================== */
-/* LAYOUT PRINCIPAL    */
-/* =================== */
+/* ===== LAYOUT PRINCIPAL ===== */
 .project-container{
   max-width:1150px;
   margin:0 auto;
   padding:0 1% 60px;
 }
 
-/* Mantiene tu criterio de “compactar solo páginas individuales” */
-.project-container section {
-  padding: 1.5rem 0;
-}
-
-/* =================== */
-/* DOS COLUMNAS VIDEO  */
-/* =================== */
+/* ===== DOS PANELES LADO A LADO ===== */
 .interactive-grid{
   display:grid;
   grid-template-columns:1fr 1fr;
@@ -74,57 +56,34 @@ body{
   margin-bottom:10px;
 }
 
+/* TARJETAS */
 .interactive-card{
   background:rgba(255,255,255,0.03);
   border:1px solid rgba(255,255,255,0.08);
   border-radius:16px;
-  padding:10px; /* mismo criterio que afinaste en Haiko */
+  padding:10px;
 }
 
-/* Contenedor del video con lupa + play */
+/* VIDEO */
 .media-wrapper{
   position:relative;
   cursor:pointer;
 }
 
-/* Icono de lupa */
-.zoom-icon{
-  position:absolute;
-  top:10px;
-  right:10px;
-  background:rgba(0,0,0,0.7);
-  border:1px solid #3ad6d1;
-  color:white;
-  padding:6px 8px;
-  border-radius:8px;
-  font-size:0.8rem;
-}
-
-/* Botón play visible */
-.play-icon{
-  position:absolute;
-  top:50%;
-  left:50%;
-  transform:translate(-50%,-50%);
-  background:rgba(0,0,0,0.7);
-  border:1px solid #3ad6d1;
-  color:white;
-  padding:10px 14px;
-  border-radius:50%;
-  font-size:1.2rem;
-}
-
-/* videos normales */
-.media-wrapper video,
-.media-wrapper img{
+.media-wrapper video{
   width:100%;
   border-radius:14px;
   display:block;
 }
 
-/* =================== */
-/* SWITCH TOGGLE       */
-/* =================== */
+/* SUBTÍTULOS BAJO VIDEO */
+.media-caption{
+  margin-top:8px;
+  font-size:0.9rem;
+  color:#9aa0a6;
+}
+
+/* ===== SWITCHES ===== */
 .switch-row{
   display:flex;
   align-items:center;
@@ -158,14 +117,16 @@ body{
   left:25px;
 }
 
-/* =================== */
-/* GALERÍA CON LUPA    */
-/* =================== */
+/* ===== GALERÍA ===== */
 .gallery{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
   gap:16px;
   margin-top:12px;
+}
+
+.gallery figure{
+  margin:0;
 }
 
 .gallery img{
@@ -175,9 +136,13 @@ body{
   cursor:pointer;
 }
 
-/* =================== */
-/* MODAL (LUPA GLOBAL) */
-/* =================== */
+.gallery figcaption{
+  margin-top:6px;
+  font-size:0.85rem;
+  color:#9aa0a6;
+}
+
+/* ===== MODAL GLOBAL ===== */
 #modal{
   position:fixed;
   top:0; left:0;
@@ -206,5 +171,84 @@ body{
   color:white;
   font-size:24px;
   cursor:pointer;
+}
+
+/* ===== ESPACIADOS DE PÁGINA INDIVIDUAL ===== */
+.project-container section {
+  padding: 1.5rem 0;
+}
+
+.project-description{
+  margin-top: 10px;
+}
+
+.two-panels{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:40px;
+}
+
+.caption{
+  margin-top:6px;
+  color:#9aa0a6;
+  font-size:0.9rem;
+  text-align:center;
+}
+
+/* =================== */
+/* BOTÓN PLAY ESTÉTICO */
+/* =================== */
+
+.media-wrapper{
+  position: relative;
+  overflow: hidden;
+}
+
+/* Botón circular con brillo celeste */
+.play-btn{
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%, -50%);
+  
+  width:60px;
+  height:60px;
+  border-radius:50%;
+  
+  background: rgba(0,0,0,0.7);
+  border: 1px solid #3ad6d1;
+  color:white;
+  
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  
+  font-size:22px;
+  cursor:pointer;
+  
+  backdrop-filter: blur(4px);
+  transition: .25s ease;
+}
+
+/* BRILLO SUTIL TIPO NEÓN */
+.play-btn::after{
+  content:"";
+  position:absolute;
+  inset:-4px;
+  border-radius:50%;
+  border:1px solid rgba(58,214,209,0.4);
+  filter: blur(6px);
+  opacity:0;
+  transition:.25s;
+}
+
+/* Hover elegante */
+.play-btn:hover{
+  background:#0b0f12;
+  transform:translate(-50%, -50%) scale(1.08);
+}
+
+.play-btn:hover::after{
+  opacity:1;
 }
 

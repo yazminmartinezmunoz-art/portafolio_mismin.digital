@@ -4,240 +4,8 @@
 <meta charset="UTF-8">
 <title>Trafalgar | Proyecto</title>
 <link rel="stylesheet" href="../css/main.css">
+<link rel="stylesheet" href="../css/project-individual.css">
 
-<style>
-body{
-  background:#0b0f12;
-  color:white;
-  margin:0;
-}
-
-/* =================== */
-/* BOTONES SUPERIORES  */
-/* =================== */
-.top-nav{
-  position:fixed;
-  top:20px;
-  right:20px;
-  display:flex;
-  gap:10px;
-  z-index:1000;
-}
-
-.nav-pill{
-  border:1px solid #3ad6d1;
-  border-radius:999px;
-  padding:8px 14px;
-  color:white;
-  text-decoration:none;
-  font-size:0.9rem;
-  background:rgba(0,0,0,0.6);
-}
-
-/* =================== */
-/* HEADER DEL PROYECTO */
-/* =================== */
-.project-header{
-  max-width:1100px;
-  margin:90px auto 20px;
-  padding:0 20px;
-}
-
-.project-meta{
-  color:#9aa0a6;
-  font-size:0.95rem;
-}
-
-/* =================== */
-/* LAYOUT PRINCIPAL    */
-/* =================== */
-.project-container{
-  max-width:1100px;
-  margin:0 auto;
-  padding:0 20px 70px;
-}
-
-/* =================== */
-/* DOS PANELES LADO A LADO */
-/* =================== */
-.interactive-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:40px;
-  margin-bottom:20px;
-}
-
-/* TARJETAS */
-.interactive-card{
-  background:rgba(255,255,255,0.03);
-  border:1px solid rgba(255,255,255,0.08);
-  border-radius:16px;
-  padding:16px;
-}
-
-/* VIDEO */
-.media-wrapper{
-  position:relative;
-  cursor:pointer;
-}
-
-.media-wrapper video{
-  width:100%;
-  border-radius:12px;
-  display:block;
-}
-
-/* SUBTÍTULOS BAJO VIDEO */
-.media-caption{
-  margin-top:8px;
-  font-size:0.9rem;
-  color:#9aa0a6;
-}
-
-/* =================== */
-/* SWITCHES */
-/* =================== */
-.switch-row{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  margin-top:10px;
-}
-
-.toggle{
-  position:relative;
-  width:46px;
-  height:24px;
-  background:#0b0f12;
-  border:1px solid #3ad6d1;
-  border-radius:999px;
-  cursor:pointer;
-}
-
-.toggle::before{
-  content:"";
-  position:absolute;
-  width:18px;
-  height:18px;
-  border-radius:50%;
-  background:#3ad6d1;
-  top:3px;
-  left:3px;
-  transition:.25s;
-}
-
-.toggle.active::before{
-  left:25px;
-}
-
-/* =================== */
-/* GALERÍA CON LUPA    */
-/* =================== */
-.gallery{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:16px;
-  margin-top:20px;
-}
-
-.gallery figure{
-  margin:0;
-}
-
-.gallery img{
-  width:100%;
-  border-radius:12px;
-  border:1px solid rgba(255,255,255,0.08);
-  cursor:pointer;
-}
-
-.gallery figcaption{
-  margin-top:6px;
-  font-size:0.85rem;
-  color:#9aa0a6;
-}
-
-/* =================== */
-/* MODAL (LUPA GLOBAL) */
-/* =================== */
-#modal{
-  position:fixed;
-  top:0; left:0;
-  width:100%; height:100%;
-  background:rgba(0,0,0,0.9);
-  display:none;
-  align-items:center;
-  justify-content:center;
-  z-index:2000;
-}
-
-#modal-content{
-  max-width:85%;
-  max-height:85%;
-}
-
-#modal img, #modal video{
-  width:100%;
-  border-radius:14px;
-}
-
-#modal-close{
-  position:absolute;
-  top:20px;
-  right:25px;
-  color:white;
-  font-size:24px;
-  cursor:pointer;
-}
-
-
-
-/* ===========================================
-   AJUSTES DE ESPACIO SOLO PARA PAGINA INDIVIDUAL
-   (NO AFECTA HOME NI OTRAS PÁGINAS)
-=========================================== */
-
-.project-container section {
-  padding: 1.5rem 0; /* antes era 5.5rem → ahora mucho más limpio */
-}
-
-/* Reducimos el espacio general del main */
-.project-container {
-  padding: 0 1% 60px; /* menos aire lateral y abajo */
-}
-
-/* Hacemos los videos VISUALMENTE más grandes */
-.interactive-grid {
-  gap: 40px; /* antes era 18px */
-  margin-bottom: 10px;
-}
-
-/* Hacemos que cada tarjeta tenga menos relleno */
-.interactive-card{
-  padding: 10px; /* antes 16px */
-}
-
-/* Hace que el video ocupe más área visual dentro de la card */
-.media-wrapper video{
-  border-radius: 14px;
-}
-
-/* Acercamos los switch al video */
-.switch-row{
-  margin-top: 6px; /* antes 10px */
-}
-
-/* Acercamos descripción a la zona visual */
-.project-description{
-  margin-top: 10px;
-}
-
-/* Acercamos la galería al texto */
-.gallery{
-  margin-top: 12px;
-}
-
-</style>
 </head>
 
 <body>
@@ -311,25 +79,25 @@ Su espada tiene variantes de diseño que pueden intercambiarse dinámicamente en
 <!-- ===== GALERÍA CON SUBTÍTULOS ===== -->
 <section class="gallery">
 
-<figure>
-  <img src="../media/trafalgar_front.png" onclick="openModalImage(this.src)">
-  <figcaption>Vista frontal del personaje.</figcaption>
-</figure>
+  <figure>
+    <img src="../media/trafalgar_front.png" onclick="openModalImage(this.src)">
+    <figcaption>Vista frontal del personaje.</figcaption>
+  </figure>
 
-<figure>
-  <img src="../media/trafalgar_back.png" onclick="openModalImage(this.src)">
-  <figcaption>Vista trasera y detalles de armadura.</figcaption>
-</figure>
+  <figure>
+    <img src="../media/trafalgar_back.png" onclick="openModalImage(this.src)">
+    <figcaption>Vista trasera y detalles de armadura.</figcaption>
+  </figure>
 
-<figure>
-  <img src="../media/trafalgar_wireframe.png" onclick="openModalImage(this.src)">
-  <figcaption>Wireframe optimizado para videojuegos.</figcaption>
-</figure>
+  <figure>
+    <img src="../media/trafalgar_wireframe.png" onclick="openModalImage(this.src)">
+    <figcaption>Wireframe optimizado para videojuegos.</figcaption>
+  </figure>
 
-<figure>
-  <img src="../media/trafalgar_sword_detail.png" onclick="openModalImage(this.src)">
-  <figcaption>Detalle de la espada A.</figcaption>
-</figure>
+  <figure>
+    <img src="../media/trafalgar_sword_detail.png" onclick="openModalImage(this.src)">
+    <figcaption>Detalle de la espada A.</figcaption>
+  </figure>
 
 </section>
 

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Habitación Marinet | Diorama</title>
+
+<link rel="stylesheet" href="../css/main.css">
+<link rel="stylesheet" href="../css/project-individual.css">
+</head>
+
+<body>
+
+<div class="top-nav">
+  <a href="../index.html" class="nav-pill">Home</a>
+  <a href="../index.html#sobre-mi" class="nav-pill">Sobre mí</a>
+  <a href="../projects.html" class="nav-pill home">Todos los proyectos</a>
+</div>
+
+<header class="project-header">
+  <h1>Diorama — Habitación Marinet</h1>
+  <div class="project-meta">
+    Blender · Lighting · Composición · Props · Diorama
+  </div>
+</header>
+
+<main class="project-container">
+
+<!-- ===== PANEL DÍA / NOCHE ===== -->
+<section class="interactive-grid">
+
+<div class="interactive-card">
+
+  <div class="media-wrapper" onclick="openModalVideo('roomVideo')">
+    <video id="roomVideo" autoplay loop muted>
+      <source src="../media/marinet_day.mp4" type="video/mp4">
+    </video>
+  </div>
+
+  <div class="media-caption">
+    Iluminación diurna y nocturna del diorama.
+  </div>
+
+  <div class="switch-row">
+    <span>Día / Noche</span>
+    <div class="toggle" onclick="toggleRoom(this)"></div>
+  </div>
+
+</div>
+
+</section>
+
+<!-- ===== DESCRIPCIÓN ===== -->
+<section class="project-description">
+<h2>Sobre el proyecto</h2>
+<p>
+Diorama detallado de habitación con iluminación cinematográfica en Blender.  
+Se cuidó la composición, materiales y escala realista para storytelling visual.
+</p>
+</section>
+
+<!-- ===== GALERÍA DE PROPS ===== -->
+<section class="gallery">
+
+<figure>
+  <img src="../media/marinet_bed.jpg" onclick="openModalImage(this.src)">
+  <figcaption>Cama y textiles.</figcaption>
+</figure>
+
+<figure>
+  <img src="../media/marinet_desk.jpg" onclick="openModalImage(this.src)">
+  <figcaption>Escritorio y objetos personales.</figcaption>
+</figure>
+
+<figure>
+  <img src="../media/marinet_lamp.jpg" onclick="openModalImage(this.src)">
+  <figcaption>Lámpara y luz cálida.</figcaption>
+</figure>
+
+<figure>
+  <img src="../media/marinet_window.jpg" onclick="openModalImage(this.src)">
+  <figcaption>Ventana y vista exterior.</figcaption>
+</figure>
+
+</section>
+
+</main>
+
+<!-- MODAL GLOBAL -->
+<div id="modal">
+  <span id="modal-close" onclick="closeModal()">✖</span>
+  <div id="modal-content"></div>
+</div>
+
+<script>
+function toggleRoom(el){
+  const video = document.getElementById("roomVideo");
+
+  if(el.classList.contains("active")){
+    el.classList.remove("active");
+    video.src="../media/marinet_day.mp4";
+  } else {
+    el.classList.add("active");
+    video.src="../media/marinet_night.mp4";
+  }
+  video.play();
+}
+
+function openModalVideo(id){
+  const modal = document.getElementById("modal");
+  const content = document.getElementById("modal-content");
+
+  const video = document.getElementById(id).cloneNode(true);
+  video.controls = true;
+  video.muted = false;
+
+  content.innerHTML = "";
+  content.appendChild(video);
+  modal.style.display="flex";
+}
+
+function openModalImage(src){
+  const modal = document.getElementById("modal");
+  const content = document.getElementById("modal-content");
+  content.innerHTML = `<img src="${src}">`;
+  modal.style.display="flex";
+}
+
+function closeModal(){
+  document.getElementById("modal").style.display="none";
+}
+</script>
+
+</body>
+</html>

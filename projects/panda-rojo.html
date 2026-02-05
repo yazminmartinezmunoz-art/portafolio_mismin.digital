@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Panda Rojo | Animación</title>
+
+<link rel="stylesheet" href="../css/main.css">
+<link rel="stylesheet" href="../css/project-individual.css">
+</head>
+
+<body>
+
+<div class="top-nav">
+  <a href="../index.html" class="nav-pill">Home</a>
+  <a href="../index.html#sobre-mi" class="nav-pill">Sobre mí</a>
+  <a href="../projects.html" class="nav-pill home">Todos los proyectos</a>
+</div>
+
+<header class="project-header">
+  <h1>Animación — Panda Rojo</h1>
+  <div class="project-meta">
+    Blender · Animación · Rigging · Motion · Storytelling
+  </div>
+</header>
+
+<main class="project-container">
+
+<!-- ===== VIDEOS PRINCIPALES ===== -->
+<section class="interactive-grid">
+
+<!-- VIDEO 1 -->
+<div class="interactive-card">
+  <div class="media-wrapper">
+    <video id="panda1" muted playsinline>
+      <source src="../media/chica.mp4" type="video/mp4">
+    </video>
+
+    <button class="play-btn" onclick="togglePlayAndZoom('panda1')">▶</button>
+  </div>
+
+  <div class="media-caption">
+    Ciclo de caminata y peso corporal.
+  </div>
+</div>
+
+<!-- VIDEO 2 -->
+<div class="interactive-card">
+  <div class="media-wrapper">
+    <video id="panda2" muted playsinline>
+      <source src="../media/panda_jump.mp4" type="video/mp4">
+    </video>
+
+    <button class="play-btn" onclick="togglePlayAndZoom('panda2')">▶</button>
+  </div>
+
+  <div class="media-caption">
+    Salto y amortiguación de impacto.
+  </div>
+</div>
+
+</section>
+
+<!-- ===== DESCRIPCIÓN ===== -->
+<section class="project-description">
+<h2>Sobre el proyecto</h2>
+<p>
+Animación de personaje en Blender con rig personalizado.  
+Se trabajó la transferencia de peso, timing y expresividad corporal.  
+Pensado para uso posterior en Unity o Three.js con control interactivo.
+</p>
+</section>
+
+<!-- ===== GALERÍA DE DETALLES ===== -->
+<section class="gallery">
+
+<figure>
+  <img src="../media/panda_face.jpg" onclick="openModalImage(this.src)">
+  <figcaption>Expresiones faciales.</figcaption>
+</figure>
+
+<figure>
+  <img src="../media/panda_rig.jpg" onclick="openModalImage(this.src)">
+  <figcaption>Estructura del rig.</figcaption>
+</figure>
+
+<figure>
+  <img src="../media/panda_pose.jpg" onclick="openModalImage(this.src)">
+  <figcaption>Poses clave.</figcaption>
+</figure>
+
+</section>
+
+</main>
+
+<!-- MODAL GLOBAL -->
+<div id="modal">
+  <span id="modal-close" onclick="closeModal()">✖</span>
+  <div id="modal-content"></div>
+</div>
+
+<script>
+function togglePlayAndZoom(videoId){
+  const modal = document.getElementById("modal");
+  const content = document.getElementById("modal-content");
+
+  const original = document.getElementById(videoId);
+  const video = original.cloneNode(true);
+
+  video.controls = true;
+  video.muted = false;
+  video.autoplay = true;
+
+  content.innerHTML = "";
+  content.appendChild(video);
+
+  modal.style.display="flex";
+  video.play();
+}
+
+function closeModal(){
+  document.getElementById("modal").style.display="none";
+}
+</script>
+
+
+</body>
+</html>
