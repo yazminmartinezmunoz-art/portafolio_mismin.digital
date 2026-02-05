@@ -2,124 +2,168 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<title>Diorama Japonés | Portafolio 3D</title>
+<title>Diorama Japonés | Proyecto</title>
 
-<link rel="stylesheet" href="css/main.css">
-<link rel="stylesheet" href="css/project-individual.css">
-<link rel="stylesheet" href="css/diorama-japones.css">
+<link rel="stylesheet" href="../css/main.css">
+<link rel="stylesheet" href="../css/project-individual.css">
 
-<script src="js/project-interactions.js" defer></script>
+<style>
+/* ===== SOLO AJUSTES ESPECÍFICOS DEL DIORAMA ===== */
+
+.two-panels{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:40px;
+}
+
+.caption{
+  margin-top:6px;
+  color:#9aa0a6;
+  font-size:0.9rem;
+  text-align:center;
+}
+</style>
 </head>
 
-<body class="project-page dark-bg">
+<body>
 
-<!-- BOTONES DE RETORNO (mismo estilo que aprobaste) -->
-<div class="top-nav-buttons">
-  <a href="index.html" class="nav-pill">Home</a>
-  <a href="sobre-mi.html" class="nav-pill">Sobre mí</a>
+<!-- BOTONES SUPERIORES (MISMO ESTILO HAIKO) -->
+<div class="top-nav">
+  <a href="../index.html" class="nav-pill">Home</a>
+  <a href="../index.html#sobre-mi" class="nav-pill">Sobre mí</a>
+  <a href="../projects.html" class="nav-pill">Todos los proyectos</a>
 </div>
 
-<header class="projects-header refined">
+<header class="project-header">
   <h1>Diorama Interior Japonés</h1>
-  <p class="subtitle">Escena atmosférica optimizada para tiempo real</p>
+  <div class="project-meta">
+    Escenario · Blender · Iluminación · Composición · Props
+  </div>
 </header>
 
-<section class="project-main compact">
+<main class="project-container">
 
-  <!-- INFORMACIÓN CLAVE -->
-  <div class="project-info">
-    <h2>Descripción</h2>
-    <p>
-      Diorama interior inspirado en arquitectura japonesa tradicional,
-      optimizado para Unity con iluminación mixta (baked + realtime).
-      Explora variaciones de día y noche, composición modular y props detallados.
-    </p>
+<!-- ===== DOS PANELES INTERACTIVOS ===== -->
+<section class="interactive-grid two-panels">
 
-    <div class="tags-row">
-      <span>Escenarios</span>
-      <span>Props</span>
-      <span>Iluminación</span>
-      <span>Unity</span>
-      <span>Blender</span>
-    </div>
+<!-- PANEL 1: DÍA / NOCHE -->
+<div class="interactive-card">
+  <div class="media-wrapper" onclick="openModalVideo('dioramaVideo')">
+    <video id="dioramaVideo" autoplay loop muted>
+      <source src="../media/diorama_dia.mp4" type="video/mp4">
+    </video>
   </div>
 
-  <!-- PANEL INTERACTIVO PRINCIPAL -->
-  <div class="dual-panels">
-
-    <!-- PANEL 1: DÍA / NOCHE -->
-    <div class="panel glass">
-      <h3>Ambiente: Día / Noche</h3>
-
-      <div class="media-container">
-        <video id="dioramaVideo" muted loop playsinline>
-          <source src="media/diorama_dia.mp4" type="video/mp4">
-        </video>
-
-        <button class="media-zoom" data-target="dioramaVideo">🔍</button>
-        <button class="media-play" data-target="dioramaVideo">▶</button>
-      </div>
-
-      <p class="media-caption">
-        Switch entre iluminación diurna cálida y nocturna dramática con neones sutiles.
-      </p>
-
-      <label class="switch">
-        <input type="checkbox" id="dayNightSwitch">
-        <span class="slider"></span>
-      </label>
-    </div>
-
-    <!-- PANEL 2: PROPS DESTACADOS -->
-    <div class="panel glass">
-      <h3>Props destacados</h3>
-
-      <div class="props-grid">
-        <div class="prop-item">
-          <img src="media/prop_lampara.jpg" class="zoomable">
-          <button class="media-zoom">🔍</button>
-          <p>Lámpara de papel con iluminación volumétrica</p>
-        </div>
-
-        <div class="prop-item">
-          <img src="media/prop_tatami.jpg" class="zoomable">
-          <button class="media-zoom">🔍</button>
-          <p>Tatami modular con normal map personalizado</p>
-        </div>
-
-        <div class="prop-item">
-          <img src="media/prop_biombo.jpg" class="zoomable">
-          <button class="media-zoom">🔍</button>
-          <p>Biombo con transparencia realista</p>
-        </div>
-      </div>
-    </div>
-
+  <div class="caption">
+    Iluminación ambiental: Día / Noche
   </div>
 
-  <!-- ZONA PARA FUTURA INTERACCIÓN (NO VISIBLE AÚN) -->
-  <!-- 
-  FUTURO: Three.js o Unity WebGL
-  <div id="webgl-container"></div>
-  Aquí irá el modelo interactivo:
-  - Rotación 360°
-  - Toggle luces
-  - Cambio de materiales
-  -->
+  <div class="switch-row">
+    <span>Día / Noche</span>
+    <div class="toggle" onclick="toggleDiorama(this)"></div>
+  </div>
+</div>
+
+<!-- PANEL 2: VARIACIÓN DE ILUMINACIÓN -->
+<div class="interactive-card">
+  <div class="media-wrapper" onclick="openModalVideo('lightVideo')">
+    <video id="lightVideo" autoplay loop muted>
+      <source src="../media/diorama_luz_calida.mp4" type="video/mp4">
+    </video>
+  </div>
+
+  <div class="caption">
+    Temperatura de luz: Cálida / Fría
+  </div>
+
+  <div class="switch-row">
+    <span>Cálida / Fría</span>
+    <div class="toggle" onclick="toggleLight(this)"></div>
+  </div>
+</div>
 
 </section>
 
-<script>
-/* CAMBIO DÍA / NOCHE */
-const switcher = document.getElementById("dayNightSwitch");
-const video = document.getElementById("dioramaVideo");
+<section class="project-description">
+<h2>Sobre el proyecto</h2>
+<p>
+Diorama interior de estilo japonés modelado íntegramente en Blender, enfocado en narrativa espacial, composición y 
+dirección de luz. El proyecto explora cómo la iluminación transforma la atmósfera del mismo espacio, pasando de una 
+escena íntima y acogedora a una nocturna más silenciosa y cinematográfica.
+</p>
+</section>
 
-switcher.addEventListener("change", () => {
-  video.src = switcher.checked 
-    ? "media/diorama_noche.mp4"
-    : "media/diorama_dia.mp4";
+<h2>Detalles del escenario</h2>
+<section class="gallery">
+  <img src="../media/diorama_01.jpg" onclick="openModalImage(this.src)">
+  <img src="../media/diorama_02.jpg" onclick="openModalImage(this.src)">
+  <img src="../media/diorama_props.jpg" onclick="openModalImage(this.src)">
+  <img src="../media/diorama_luz.jpg" onclick="openModalImage(this.src)">
+</section>
+
+</main>
+
+<!-- ===== MODAL GLOBAL ===== -->
+<div id="modal">
+  <span id="modal-close" onclick="closeModal()">✖</span>
+  <div id="modal-content"></div>
+</div>
+
+<script>
+function toggleDiorama(el){
+  const video = document.getElementById("dioramaVideo");
+
+  if(el.classList.contains("active")){
+    el.classList.remove("active");
+    video.src="../media/diorama_dia.mp4";
+  }else{
+    el.classList.add("active");
+    video.src="../media/diorama_noche.mp4";
+  }
   video.play();
-});
+}
+
+function toggleLight(el){
+  const video = document.getElementById("lightVideo");
+
+  if(el.classList.contains("active")){
+    el.classList.remove("active");
+    video.src="../media/diorama_luz_calida.mp4";
+  }else{
+    el.classList.add("active");
+    video.src="../media/diorama_luz_fria.mp4";
+  }
+  video.play();
+}
+
+/* LUPA VIDEO */
+function openModalVideo(videoId){
+  const modal = document.getElementById("modal");
+  const content = document.getElementById("modal-content");
+
+  const video = document.getElementById(videoId).cloneNode(true);
+  video.controls = true;
+  video.autoplay = true;
+  video.muted = false;
+
+  content.innerHTML = "";
+  content.appendChild(video);
+  modal.style.display="flex";
+}
+
+/* LUPA IMAGEN */
+function openModalImage(src){
+  const modal = document.getElementById("modal");
+  const content = document.getElementById("modal-content");
+
+  content.innerHTML = `<img src="${src}">`;
+  modal.style.display="flex";
+}
+
+/* CERRAR MODAL */
+function closeModal(){
+  document.getElementById("modal").style.display="none";
+}
 </script>
 
 </body>
