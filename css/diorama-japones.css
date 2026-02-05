@@ -1,0 +1,37 @@
+.project-page .project-main {
+  padding: 2.5rem 5%;
+}
+
+.dual-panels {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.2rem;
+}
+
+.panel {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(0,255,255,0.2);
+  border-radius: 18px;
+  padding: 1.2rem;
+}
+
+.media-container video {
+  width: 100%;
+  border-radius: 12px;
+}
+
+.props-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.8rem;
+}
+
+.prop-item img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+/* mantiene estética celeste brillante */
+.nav-pill {
+  box-shadow: 0 0 10px rgba(0,255,255,.4);
+}

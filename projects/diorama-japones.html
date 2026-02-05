@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Diorama Japonés | Portafolio 3D</title>
+
+<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="css/project-individual.css">
+<link rel="stylesheet" href="css/diorama-japones.css">
+
+<script src="js/project-interactions.js" defer></script>
+</head>
+
+<body class="project-page dark-bg">
+
+<!-- BOTONES DE RETORNO (mismo estilo que aprobaste) -->
+<div class="top-nav-buttons">
+  <a href="index.html" class="nav-pill">Home</a>
+  <a href="sobre-mi.html" class="nav-pill">Sobre mí</a>
+</div>
+
+<header class="projects-header refined">
+  <h1>Diorama Interior Japonés</h1>
+  <p class="subtitle">Escena atmosférica optimizada para tiempo real</p>
+</header>
+
+<section class="project-main compact">
+
+  <!-- INFORMACIÓN CLAVE -->
+  <div class="project-info">
+    <h2>Descripción</h2>
+    <p>
+      Diorama interior inspirado en arquitectura japonesa tradicional,
+      optimizado para Unity con iluminación mixta (baked + realtime).
+      Explora variaciones de día y noche, composición modular y props detallados.
+    </p>
+
+    <div class="tags-row">
+      <span>Escenarios</span>
+      <span>Props</span>
+      <span>Iluminación</span>
+      <span>Unity</span>
+      <span>Blender</span>
+    </div>
+  </div>
+
+  <!-- PANEL INTERACTIVO PRINCIPAL -->
+  <div class="dual-panels">
+
+    <!-- PANEL 1: DÍA / NOCHE -->
+    <div class="panel glass">
+      <h3>Ambiente: Día / Noche</h3>
+
+      <div class="media-container">
+        <video id="dioramaVideo" muted loop playsinline>
+          <source src="media/diorama_dia.mp4" type="video/mp4">
+        </video>
+
+        <button class="media-zoom" data-target="dioramaVideo">🔍</button>
+        <button class="media-play" data-target="dioramaVideo">▶</button>
+      </div>
+
+      <p class="media-caption">
+        Switch entre iluminación diurna cálida y nocturna dramática con neones sutiles.
+      </p>
+
+      <label class="switch">
+        <input type="checkbox" id="dayNightSwitch">
+        <span class="slider"></span>
+      </label>
+    </div>
+
+    <!-- PANEL 2: PROPS DESTACADOS -->
+    <div class="panel glass">
+      <h3>Props destacados</h3>
+
+      <div class="props-grid">
+        <div class="prop-item">
+          <img src="media/prop_lampara.jpg" class="zoomable">
+          <button class="media-zoom">🔍</button>
+          <p>Lámpara de papel con iluminación volumétrica</p>
+        </div>
+
+        <div class="prop-item">
+          <img src="media/prop_tatami.jpg" class="zoomable">
+          <button class="media-zoom">🔍</button>
+          <p>Tatami modular con normal map personalizado</p>
+        </div>
+
+        <div class="prop-item">
+          <img src="media/prop_biombo.jpg" class="zoomable">
+          <button class="media-zoom">🔍</button>
+          <p>Biombo con transparencia realista</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ZONA PARA FUTURA INTERACCIÓN (NO VISIBLE AÚN) -->
+  <!-- 
+  FUTURO: Three.js o Unity WebGL
+  <div id="webgl-container"></div>
+  Aquí irá el modelo interactivo:
+  - Rotación 360°
+  - Toggle luces
+  - Cambio de materiales
+  -->
+
+</section>
+
+<script>
+/* CAMBIO DÍA / NOCHE */
+const switcher = document.getElementById("dayNightSwitch");
+const video = document.getElementById("dioramaVideo");
+
+switcher.addEventListener("change", () => {
+  video.src = switcher.checked 
+    ? "media/diorama_noche.mp4"
+    : "media/diorama_dia.mp4";
+  video.play();
+});
+</script>
+
+</body>
+</html>
