@@ -41,11 +41,11 @@
   </div>
 
   <div class="media-caption">
-    Descripcion...
+    Prueba de personaje Haiko con animaciones de mixamo
   </div>
 
   <div class="switch-row">
-    <span>Idle / Run</span>
+    <span>Walk / Run</span>
     <div class="toggle" id="toggleHaiko" onclick="toggleHaiko(this)"></div>
   </div>
 </div>
@@ -118,7 +118,7 @@ function toggleHaiko(el){
 
   if(el.classList.contains("active")){
     el.classList.remove("active");
-    video.src="../media/chica.mp4";
+    video.src="../media/haiko_idle.mp4";
   }else{
     el.classList.add("active");
     video.src="../media/haiko_run.mp4";
