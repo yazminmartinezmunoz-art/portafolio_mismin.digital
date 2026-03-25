@@ -887,6 +887,10 @@ footer {
   /* TEXTOS */
   /* ========================= */
 
+  body {
+    font-size: 16px;
+  }
+
   h1 {
     font-size: 2rem;
   }
@@ -976,6 +980,106 @@ footer {
   }
 
 }
+
+/* Corte de video fondo home */
+@media (max-width: 768px){
+
+  .background-video-wrapper video,
+  .hero-bg-media {
+    object-fit: cover;
+    height: 100vh;
+    width: auto; /* 👈 clave */
+  }
+
+}
+
+/* Arreglar corte de boton de todos los proyectos*/
+@media (max-width: 768px){
+
+  .projects-highlight .btn,
+  .allprojects-btn {
+    width: 100%;
+    text-align: center;
+    padding: 12px;
+  }
+
+}
+
+/* Ajuste de filtros en todos los proyectos */
+@media (max-width: 768px){
+
+  .filters {
+    display: flex;
+    flex-wrap: wrap; /* 🔥 clave */
+    justify-content: center;
+    gap: 10px;
+    padding: 0 10px;
+  }
+
+  .filter {
+    flex: 1 1 auto;
+    min-width: 120px;
+  }
+
+}
+
+/* Tarjetas centradas */
+@media (max-width: 768px){
+
+  .allprojects-grid {
+    grid-template-columns: 1fr;
+    padding: 0 15px;
+    justify-items: center;
+  }
+
+}
+
+
+
+/* Padding lateral global (Bordes para que no quede pegado a los costados) */
+
+@media (max-width: 768px){
+
+  body {
+    overflow-x: hidden;
+  }
+
+  .project-container,
+  .projects-header,
+  .hero-content,
+  section {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+
+}
+
+
+/* Paginas individuales a una columna */
+@media (max-width: 768px){
+
+  .interactive-grid {
+    grid-template-columns: 1fr; /* 🔥 pasa de 2 a 1 */
+    gap: 20px;
+  }
+
+}
+
+
+/* Nav superior para botones de home y sobre mi  */
+@media (max-width: 768px){
+
+  .top-nav {
+    top: 10px;
+    right: 10px;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+}
+
+
+/* Tarjetas centradas */
 
 
 
