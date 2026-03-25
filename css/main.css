@@ -879,3 +879,106 @@ footer {
   }
 }
 
+
+/* Base Mobile */
+@media (max-width: 768px) {
+
+  /* ========================= */
+  /* TEXTOS */
+  /* ========================= */
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.6rem;
+  }
+
+  p {
+    font-size: 1rem;
+  }
+
+  /* ========================= */
+  /* LAYOUT GENERAL */
+  /* ========================= */
+
+  header,
+  section {
+    padding: 3rem 6%;
+  }
+
+}
+
+/* Grid -> 1 columna */
+@media (max-width: 768px) {
+
+  .projects-grid,
+  .allprojects-grid {
+    grid-template-columns: 1fr; /* antes varias columnas */
+    gap: 20px;
+  }
+
+}
+
+/* Cards mas grandes */
+@media (max-width: 768px) {
+
+  .card,
+  .allprojects-card {
+    transform: scale(1.02); /* leve aumento visual */
+  }
+
+}
+
+/* Hero Video (Evita el corte de video de fondo)*/
+@media (max-width: 768px) {
+
+  .hero-bg-media {
+    object-fit: cover;
+    transform: scale(1.2); /* rellena mejor vertical */
+  }
+
+}
+
+/* Fondos de secciones (Para que no queden en formato horizontal en mobile) */
+@media (max-width: 768px) {
+
+  .section-background video {
+    object-fit: cover;
+    transform: scale(1.2);
+  }
+
+}
+
+/* Nav */
+@media (max-width: 768px) {
+
+  .top-nav {
+    top: 10px;
+    right: 10px;
+    gap: 6px;
+  }
+
+  .nav-pill {
+    font-size: 0.75rem;
+    padding: 6px 10px;
+  }
+
+}
+
+/* Pagina de todos los proyectos cambio de columnas */
+@media (max-width: 768px) {
+
+  .interactive-grid {
+    grid-template-columns: 1fr; /* pasa de 2 → 1 */
+    gap: 20px;
+  }
+
+}
+
+
+
+
+
+
