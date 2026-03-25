@@ -1,7 +1,7 @@
 // =========================
 // VIDEO PLAY ON HOVER
 // =========================
-
+/*
 document.addEventListener("DOMContentLoaded", () => {
 
   document.querySelectorAll(".project-card").forEach(card => {
@@ -20,3 +20,22 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
 });
+*/
+
+
+document.querySelectorAll(".allprojects-card").forEach(card => {
+  const video = card.querySelector("video");
+
+  if (!video) return;
+
+  card.addEventListener("mouseenter", () => {
+    video.currentTime = 0;
+    video.play();
+  });
+
+  card.addEventListener("mouseleave", () => {
+    video.pause();
+    video.currentTime = 0;
+  });
+});
+
