@@ -27,6 +27,7 @@ section {
 .featured-projects{
   padding: 2.5rem 6%;
   transform:scale(1.15);
+  overflow: visible;
 }
 
 footer {
@@ -981,17 +982,18 @@ footer {
 
 }
 
-/* Corte de video fondo home */
+/* Corte de video fondo home 
 @media (max-width: 768px){
 
   .background-video-wrapper video,
   .hero-bg-media {
     object-fit: cover;
     height: 100vh;
-    width: auto; /* 👈 clave */
+    width: auto; 
   }
 
 }
+*/
 
 /* Arreglar corte de boton de todos los proyectos*/
 @media (max-width: 768px){
@@ -1079,10 +1081,19 @@ footer {
 }
 
 
-/* Tarjetas centradas */
+/* BOTÓN: evitar que se salga en mobile */
+@media (max-width: 768px){
+
+  .featured-projects .cta-button{
+    display: block;
+    width: fit-content;
+    margin: 30px auto 0;
+    position: relative; /* 🔥 clave */
+  }
+
+}
 
 
 
 
-
-
+.featured-projects
