@@ -1127,3 +1127,67 @@ footer {
 
 }
 
+
+/* Tarjeta con switch Fix correcto */
+@media (max-width: 768px){
+
+  .interactive-grid {
+    grid-template-columns: 1fr !important;
+    gap: 20px;
+  }
+
+}
+
+/* Hace los videos mas grandes */
+@media (max-width: 768px){
+
+  .interactive-card {
+    padding: 8px;
+  }
+
+  .media-wrapper video {
+    width: 100%;
+    height: auto;
+  }
+
+}
+
+/* Espacio lateral */
+@media (max-width: 768px){
+
+  .project-container,
+  section,
+  .projects-header {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+
+}
+
+/* Boton cortado fix */
+@media (max-width: 768px){
+
+  .featured-projects,
+  .featured-projects-grid,
+  .project-card {
+    overflow: visible !important;
+  }
+
+}
+
+/* Boton cortado */
+@media (max-width: 768px){
+
+  .featured-projects .cta-button {
+    display: block;
+    width: 100%;
+    max-width: 280px;
+    margin: 30px auto 0;
+    text-align: center;
+    position: relative !important;
+    bottom: auto !important;
+  }
+
+}
+
+
