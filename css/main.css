@@ -1191,3 +1191,12 @@ footer {
 }
 
 
+@media (max-width: 768px){
+
+  .project-card {
+    height: auto !important;
+  }
+
+}
+
+
