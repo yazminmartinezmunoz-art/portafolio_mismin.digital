@@ -1088,16 +1088,17 @@ footer {
 
 }
 
-
-/* Paginas individuales a una columna */
+/*
+/* Paginas individuales a una columna 
 @media (max-width: 768px){
 
   .interactive-grid {
-    grid-template-columns: 1fr; /* 🔥 pasa de 2 a 1 */
+    grid-template-columns: 1fr;  🔥 pasa de 2 a 1 
     gap: 20px;
   }
 
-}
+}*/
+
 
 
 /* Nav superior para botones de home y sobre mi  */
