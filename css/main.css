@@ -1082,8 +1082,8 @@ footer {
   .projects-header,
   .hero-content,
   section {
-    padding-left: 16px !important;
-    padding-right: 16px !important;
+    padding-left: 22px !important;
+    padding-right: 22px !important;
   }
 
 }
@@ -1162,6 +1162,10 @@ footer {
     text-align: center;
     position: relative !important;
     bottom: auto !important;
+  }
+  .featured-cta {
+    margin-top: 2rem; /* 👈 separa claramente del grid */
+    text-align: center;
   }
 
 }
