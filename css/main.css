@@ -1082,8 +1082,8 @@ footer {
   .projects-header,
   .hero-content,
   section {
-    padding-left: 22px !important;
-    padding-right: 22px !important;
+    padding-left: 28px !important;
+    padding-right: 28px !important;
   }
 
 }
@@ -1166,12 +1166,16 @@ footer {
   .featured-cta {
     margin-top: 2rem; /* 👈 separa claramente del grid */
     text-align: center;
+    margin-bottom: 2rem;
   }
 
 }
 
 @media (max-width: 768px){
 
+  *{
+    padding: 15rem;
+  }
   .project-card {
     height: auto !important;
   }
