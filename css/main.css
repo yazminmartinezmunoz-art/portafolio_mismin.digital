@@ -1152,17 +1152,6 @@ footer {
 
 }
 
-/* Espacio lateral */
-@media (max-width: 768px){
-
-  .project-container,
-  section,
-  .projects-header {
-    padding-left: 16px !important;
-    padding-right: 16px !important;
-  }
-
-}
 
 /* Boton cortado fix */
 @media (max-width: 768px){
