@@ -1070,8 +1070,6 @@ footer {
 
 }
 
-
-
 /* Padding lateral global (Bordes para que no quede pegado a los costados) */
 
 @media (max-width: 768px){
@@ -1174,5 +1172,3 @@ footer {
   }
 
 }
-
-
