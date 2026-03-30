@@ -552,7 +552,7 @@ footer {
 .featured-projects,
 .about-contact {
   position: relative;
-  z-index: 2;
+  z-index: 1;
 }
 
 /* ===== DIFUMINADO INFERIOR (LO QUE TE FALTA) ===== */
@@ -1084,7 +1084,7 @@ footer {
   .projects-header,
   .hero-content,
   section {
-    padding-left: 56px !important;
+    padding-left: 16px !important;
     padding-right: 16px !important;
   }
 
@@ -1115,17 +1115,6 @@ footer {
 }
 
 
-/* BOTÓN: evitar que se salga en mobile */
-@media (max-width: 768px){
-
-  .featured-projects .cta-button{
-    display: block;
-    width: fit-content;
-    margin: 30px auto 0;
-    position: relative; /* 🔥 clave */
-  }
-
-}
 
 
 /* Tarjeta con switch Fix correcto */
@@ -1156,7 +1145,6 @@ footer {
 /* Boton cortado fix */
 @media (max-width: 768px){
 
-  .featured-projects,
   .featured-projects-grid,
   .project-card {
     overflow: visible !important;
@@ -1169,7 +1157,7 @@ footer {
 
   .featured-projects .cta-button {
     display: block;
-    width: 100%;
+    width: fit-content;
     max-width: 280px;
     margin: 30px auto 0;
     text-align: center;
