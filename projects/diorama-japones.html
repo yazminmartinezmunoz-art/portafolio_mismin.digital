@@ -80,7 +80,7 @@ escena íntima y acogedora a una nocturna más silenciosa.
     <figcaption>Descripcion...</figcaption>
   </figure>
   <figure>
-    <img src="../assets/images/projects/" onclick="openModalImage(this.src)">
+    <img src="../assets/images/projects/DioramaJapones/" onclick="openModalImage(this.src)">
     <figcaption>Descripcion...</figcaption>
   </figure>
 
@@ -201,6 +201,14 @@ escena íntima y acogedora a una nocturna más silenciosa.
       content.appendChild(video);
     }
 
+    modal.style.display = "flex";
+  }
+
+  function openModalImage(src){
+    const modal = document.getElementById("modal");
+    const content = document.getElementById("modal-content");
+
+    content.innerHTML = `<img src="${src}">`;
     modal.style.display = "flex";
   }
 
