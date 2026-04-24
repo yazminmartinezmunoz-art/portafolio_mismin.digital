@@ -47,7 +47,7 @@
   </div>
 </div>
 
-<!-- PANEL 2: VARIACIÓN DE ESPADA -->
+<!-- PANEL 2: VARIACIÓN DE ESPADA 
 <div class="interactive-card">
   <div class="media-wrapper" onclick="openModalVideo('trafalgarSword')">
     <video id="trafalgarSword" autoplay loop muted>
@@ -63,7 +63,7 @@
     <span>Espada A / B</span>
     <div class="toggle" onclick="toggleSword(this)"></div>
   </div>
-</div>
+</div>-->
 
 </section>
 
@@ -72,8 +72,7 @@
 <h2>Sobre el proyecto</h2>
 <p>
 Trafalgar es un personaje estilizado modelado y riggeado en Blender, optimizado para tiempo real.  
-Incluye animaciones limpias, retopología eficiente y materiales listos para Unity o Three.js.  
-Su espada tiene variantes de diseño que pueden intercambiarse dinámicamente en motor.
+Incluye animaciones limpias, retopología eficiente y materiales listos para Unity.  
 </p>
 </section>
 
@@ -82,12 +81,12 @@ Su espada tiene variantes de diseño que pueden intercambiarse dinámicamente en
 
   <figure>
     <img src="../media/trafalgar_front.png" onclick="openModalImage(this.src)">
-    <figcaption>Vista frontal del personaje.</figcaption>
+    <figcaption>Descripción...</figcaption>
   </figure>
 
   <figure>
     <img src="../media/trafalgar_back.png" onclick="openModalImage(this.src)">
-    <figcaption>Vista trasera y detalles de armadura.</figcaption>
+    <figcaption>Descripción...</figcaption>
   </figure>
 
   <figure>
@@ -97,7 +96,7 @@ Su espada tiene variantes de diseño que pueden intercambiarse dinámicamente en
 
   <figure>
     <img src="../media/trafalgar_sword_detail.png" onclick="openModalImage(this.src)">
-    <figcaption>Detalle de la espada A.</figcaption>
+    <figcaption>Referencia</figcaption>
   </figure>
 
 </section>
@@ -133,7 +132,7 @@ function toggleAnim(el){
   video.play();
 }
 
-/* ===== SWITCH ESPADA ===== */
+/* ===== SWITCH ESPADA ===== 
 function toggleSword(el){
   const video = document.getElementById("trafalgarSword");
 
@@ -145,7 +144,7 @@ function toggleSword(el){
     video.src="../media/trafalgar_sword_B.mp4";
   }
   video.play();
-}
+}*/
 
 /* ===== LUPA PARA VIDEO ===== */
 function openModalVideo(videoId){

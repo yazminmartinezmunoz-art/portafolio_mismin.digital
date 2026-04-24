@@ -33,7 +33,7 @@
 
   <div class="media-wrapper" onclick="openModalVideo('roomVideo')">
     <video id="roomVideo" autoplay loop muted>
-      <source src="../media/marinet_day.mp4" type="video/mp4">
+      <source src="assets/images/thumbnails/render_diorama_lady.png" type="video/mp4">
     </video>
   </div>
 
@@ -54,8 +54,7 @@
 <section class="project-description">
 <h2>Sobre el proyecto</h2>
 <p>
-Diorama detallado de habitación con iluminación cinematográfica en Blender.  
-Se cuidó la composición, materiales y escala realista para storytelling visual.
+Diorama de habitación, referenciado en la serie de Ladybug. Modelada, texturizada e iluminada en Blender.  
 </p>
 </section>
 
@@ -64,7 +63,7 @@ Se cuidó la composición, materiales y escala realista para storytelling visual
 
 <figure>
   <img src="../media/marinet_bed.jpg" onclick="openModalImage(this.src)">
-  <figcaption>Cama y textiles.</figcaption>
+  <figcaption>Descripción...</figcaption>
 </figure>
 
 <figure>
@@ -74,12 +73,12 @@ Se cuidó la composición, materiales y escala realista para storytelling visual
 
 <figure>
   <img src="../media/marinet_lamp.jpg" onclick="openModalImage(this.src)">
-  <figcaption>Lámpara y luz cálida.</figcaption>
+  <figcaption>Malla</figcaption>
 </figure>
 
 <figure>
   <img src="../media/marinet_window.jpg" onclick="openModalImage(this.src)">
-  <figcaption>Ventana y vista exterior.</figcaption>
+  <figcaption>Referencia</figcaption>
 </figure>
 
 </section>
@@ -98,7 +97,7 @@ function toggleRoom(el){
 
   if(el.classList.contains("active")){
     el.classList.remove("active");
-    video.src="../media/marinet_day.mp4";
+    video.src="assets/images/thumbnails/render_diorama_lady.png";
   } else {
     el.classList.add("active");
     video.src="../media/marinet_night.mp4";
