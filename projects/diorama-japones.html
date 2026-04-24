@@ -33,38 +33,24 @@
 
 <!-- PANEL 1: DÍA / NOCHE -->
 <div class="interactive-card">
-  <div class="media-wrapper" onclick="openModalVideo('dioramaVideo')">
-    <video id="dioramaVideo" autoplay loop muted>
-      <source src="../media/diorama_dia.mp4" type="video/mp4">
-    </video>
-  </div>
-
-  <div class="caption">
-    Iluminación ambiental: Día / Noche
-  </div>
+  <div class="media-wrapper" id="media1" onclick="openModalGeneric('media1')"></div>
 
   <div class="switch-row">
     <span>Día / Noche</span>
-    <div class="toggle" onclick="toggleDiorama(this)"></div>
+    <div class="toggle" onclick="toggleMedia(this, 'media1')"></div>
   </div>
+
 </div>
 
 <!-- PANEL 2: VARIACIÓN DE ILUMINACIÓN -->
 <div class="interactive-card">
-  <div class="media-wrapper" onclick="openModalVideo('lightVideo')">
-    <video id="lightVideo" autoplay loop muted>
-      <source src="../media/diorama_luz_calida.mp4" type="video/mp4">
-    </video>
-  </div>
-
-  <div class="caption">
-    Temperatura de luz: Cálida / Fría
-  </div>
+  <div class="media-wrapper" id="media2" onclick="openModalGeneric('media2')"></div>
 
   <div class="switch-row">
     <span>Cálida / Fría</span>
-    <div class="toggle" onclick="toggleLight(this)"></div>
+    <div class="toggle" onclick="toggleMedia(this, 'media2')"></div>
   </div>
+
 </div>
 
 </section>
@@ -94,7 +80,7 @@ escena íntima y acogedora a una nocturna más silenciosa.
     <figcaption>Descripcion...</figcaption>
   </figure>
   <figure>
-    <img src="../media/diorama_luz.jpg" onclick="openModalImage(this.src)">
+    <img src="../assets/" onclick="openModalImage(this.src)">
     <figcaption>Descripcion...</figcaption>
   </figure>
 
@@ -109,61 +95,130 @@ escena íntima y acogedora a una nocturna más silenciosa.
 </div>
 
 <script>
-function toggleDiorama(el){
-  const video = document.getElementById("dioramaVideo");
 
-  if(el.classList.contains("active")){
-    el.classList.remove("active");
-    video.src="../media/diorama_dia.mp4";
-  }else{
-    el.classList.add("active");
-    video.src="../media/diorama_noche.mp4";
+  // CONFIGURACIÓN (EDITAS AQUÍ)
+  const mediaConfigs = {
+
+    media1: {
+      state: "day",
+      states: {
+        day: {
+          type: "image",
+          src: "../assets/images/projects/DioramaJapones/RenderJapones3.png"
+        },
+        night: {
+          type: "image",
+          src: "../assets/images/projects/DioramaJapones/RenderJapones3_Oscura.png"
+        }
+      }
+    },
+
+    media2: {
+      state: "day",
+      states: {
+        day: {
+          type: "image",
+          src: "../assets/images/projects/DioramaJapones/RenderJapones2.png"
+        },
+        night: {
+          type: "image",
+          src: "../assets/images/projects/DioramaJapones/RenderJapones3.png"
+        }
+      }
+    }
+
+  };
+
+  let currentState = "day";
+
+  // ==========================
+  // RENDER DINÁMICO
+  // ==========================
+  function renderMedia(id){
+    const container = document.getElementById(id);
+    const config = mediaConfigs[id];
+    const state = config.states[config.state];
+
+    container.innerHTML = "";
+
+    if(state.type === "image"){
+      const img = document.createElement("img");
+      img.src = state.src;
+      img.style.width = "100%";
+      img.style.borderRadius = "16px";
+      container.appendChild(img);
+    }
+
+    if(state.type === "video"){
+      const video = document.createElement("video");
+      video.src = state.src;
+      video.autoplay = true;
+      video.loop = true;
+      video.muted = true;
+      video.style.width = "100%";
+      video.style.borderRadius = "16px";
+      container.appendChild(video);
+    }
   }
-  video.play();
-}
+// ==========================
+  // SWITCH (universal)
+  // ==========================
+  function toggleMedia(el, id){
+    const config = mediaConfigs[id];
 
-function toggleLight(el){
-  const video = document.getElementById("lightVideo");
+    if(el.classList.contains("active")){
+      el.classList.remove("active");
+      config.state = "day";
+    } else {
+      el.classList.add("active");
+      config.state = "night";
+    }
 
-  if(el.classList.contains("active")){
-    el.classList.remove("active");
-    video.src="../media/diorama_luz_calida.mp4";
-  }else{
-    el.classList.add("active");
-    video.src="../media/diorama_luz_fria.mp4";
+    renderMedia(id);
   }
-  video.play();
-}
 
-/* LUPA VIDEO */
-function openModalVideo(videoId){
-  const modal = document.getElementById("modal");
-  const content = document.getElementById("modal-content");
+  // ==========================
+  // MODAL INTELIGENTE
+  // ==========================
+  function openModalGeneric(id){
+    const modal = document.getElementById("modal");
+    const content = document.getElementById("modal-content");
+    const config = mediaConfigs[id];
+    const state = config.states[config.state];
 
-  const video = document.getElementById(videoId).cloneNode(true);
-  video.controls = true;
-  video.autoplay = true;
-  video.muted = false;
+    content.innerHTML = "";
 
-  content.innerHTML = "";
-  content.appendChild(video);
-  modal.style.display="flex";
-}
+    if(state.type === "image"){
+      content.innerHTML = `<img src="${state.src}">`;
+    }
 
-/* LUPA IMAGEN */
-function openModalImage(src){
-  const modal = document.getElementById("modal");
-  const content = document.getElementById("modal-content");
+    if(state.type === "video"){
+      const video = document.createElement("video");
+      video.src = state.src;
+      video.controls = true;
+      video.autoplay = true;
+      video.muted = false;
+      content.appendChild(video);
+    }
 
-  content.innerHTML = `<img src="${src}">`;
-  modal.style.display="flex";
-}
+    modal.style.display = "flex";
+  }
 
-/* CERRAR MODAL */
-function closeModal(){
-  document.getElementById("modal").style.display="none";
-}
+  // ==========================
+  // MODAL CLOSE (igual)
+  // ==========================
+  function closeModal(){
+    document.getElementById("modal").style.display="none";
+  }
+
+  // ==========================
+  // INIT
+  // ==========================
+  renderMedia("media1");
+  renderMedia("media2");
+
 </script>
+
 
 </body>
 </html>
