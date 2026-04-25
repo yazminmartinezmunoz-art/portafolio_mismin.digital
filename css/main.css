@@ -1175,3 +1175,8 @@ footer {
   }
 
 }
+.gallery video {
+  width: 100%;
+  border-radius: 12px;
+  cursor: pointer;
+}

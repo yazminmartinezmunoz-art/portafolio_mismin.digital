@@ -75,18 +75,18 @@ Posteriormente se configuro en Unity con control interactivo.
 <section class="gallery">
 
   <figure>
-    <img src="../media/panda_face.jpg" onclick="openModalImage(this.src)">
-    <figcaption>Expresiones faciales.</figcaption>
+    <video src="../assets/videos/projects/PandaRojo/AnimacionesConFondo.mp4" o muted loop playsinline onclick="openModalMedia(this.src, 'video')">
+    <figcaption>Animación de correr.</figcaption>
   </figure>
 
   <figure>
-    <img src="../media/panda_rig.jpg" onclick="openModalImage(this.src)">
+    <video src="../assets/videos/projects/PandaRojo/AnimacionDefensaConFondo.mp4" o muted loop playsinline onclick="openModalMedia(this.src, 'video')">
+    <figcaption>Animación de defensa.</figcaption>
+  </figure>
+
+  <figure>
+    <img src="../assets/images/projects/PandaRojo/ArmaturePandaRojo.png" onclick="openModalImage(this.src)">
     <figcaption>Estructura del rig.</figcaption>
-  </figure>
-
-  <figure>
-    <img src="../media/panda_pose.jpg" onclick="openModalImage(this.src)">
-    <figcaption>Poses clave.</figcaption>
   </figure>
 
 </section>
@@ -130,6 +130,29 @@ function openModalImage(src){
 
   content.innerHTML = "";
   content.appendChild(img);
+
+  modal.style.display = "flex";
+}
+
+function openModalMedia(src, type){
+  const modal = document.getElementById("modal");
+  const content = document.getElementById("modal-content");
+
+  content.innerHTML = "";
+
+  if(type === "image"){
+    content.innerHTML = `<img src="${src}">`;
+  }
+
+  if(type === "video"){
+    const video = document.createElement("video");
+    video.src = src;
+    video.controls = true;
+    video.autoplay = true;
+    video.muted = false;
+    video.style.maxWidth = "100%";
+    content.appendChild(video);
+  }
 
   modal.style.display = "flex";
 }
