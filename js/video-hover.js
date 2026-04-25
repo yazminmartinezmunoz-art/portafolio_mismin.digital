@@ -38,8 +38,8 @@ document.querySelectorAll(".allprojects-card").forEach(card => {
     video.currentTime = 0;
   });
 });
-
 */
+
 
 document.querySelectorAll(".project-card").forEach(card => {
 
@@ -64,3 +64,17 @@ document.querySelectorAll(".project-card").forEach(card => {
 
 });
 
+document.querySelectorAll(".allprojects-card").forEach(card => {
+  const video = card.querySelector("video");
+
+  if(!video) return;
+
+  card.addEventListener("mouseenter", () => {
+    video.currentTime = 0;
+    video.play();
+  });
+
+  card.addEventListener("mouseleave", () => {
+    video.pause();
+  });
+});

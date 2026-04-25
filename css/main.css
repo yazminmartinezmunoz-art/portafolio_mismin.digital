@@ -630,16 +630,8 @@ footer {
   position: absolute;
   inset: 0;
   opacity: 0;
-  transition: opacity .35s ease;
-}
-
-/* aparece al hover (igual que home) */
-.allprojects-card:hover .allprojects-video {
-  opacity: 1;
-}
-
-.allprojects-card:hover .allprojects-image {
-  opacity: 0;
+  transition: opacity 0.35s ease;
+  pointer-events: none;
 }
 
 /* Imagen hover */
@@ -661,6 +653,11 @@ footer {
 .allprojects-card:hover .allprojects-image{
   opacity:0;
 }
+
+.allprojects-card:hover .allprojects-video {
+  opacity: 1;
+}
+
 
 /* INFO INFERIOR (ESTÉTICA LIMPIA) */
 .allprojects-info {
