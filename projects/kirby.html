@@ -30,37 +30,37 @@
 <!-- ===== DOS COLUMNAS (MISMA LÓGICA QUE HAIKO) ===== -->
 <section class="interactive-grid">
 
-<!-- TARJETA 1: DÍA / NOCHE -->
+<!-- TARJETA 1:  -->
 <div class="interactive-card">
 
   <div class="media-wrapper" onclick="openModalVideo('kirbyMain')">
     <video id="kirbyMain" autoplay loop muted>
-      <source src="../media/kirby_day.mp4" type="video/mp4">
+      <source src="../assets/videos/projects/Kirby/Demostracion(OcclusionCulling).mp4" type="video/mp4">
     </video>
   </div>
 
   <div class="media-caption">
-    Vista general del escenario — Día / Noche
+    Demostración de Occlusion culling y Bake de iluminacion en Unity
   </div>
 
   <div class="switch-row">
-    <span>Día / Noche</span>
+    <span> Occlusion culling/ Bake de iluminacion</span>
     <div class="toggle" id="toggleKirby" onclick="toggleKirby(this)"></div>
   </div>
 
 </div>
 
-<!-- TARJETA 2: OPTIMIZACIÓN -->
+<!-- TARJETA 2:  -->
 <div class="interactive-card">
 
   <div class="media-wrapper" onclick="openModalVideo('kirbyOpt')">
     <video id="kirbyOpt" muted loop playsinline>
-      <source src="../media/kirby_optimization.mp4" type="video/mp4">
+      <source src="../assets/videos/projects/Kirby/Demostracion(Lods)Banca.mp4" type="video/mp4">
     </video>
   </div>
 
   <div class="media-caption">
-    Vista de rendimiento y reducción de draw calls en Unity
+    Demostración de LODs en Unity
   </div>
 
 </div>
@@ -73,12 +73,9 @@
 <p>
 Escenario estilizado inspirado en Kirby, modelado en Blender e integrado en Unity con foco en rendimiento.  
 Se trabajó con:
-- Baking de iluminación  
-- Materiales eficientes  
-- Reducción de polígonos  
-- Agrupación de meshes  
+- Baking de iluminación    
+- Reducción de polígonos (LODs)
 - Occlusion culling  
-- Escala coherente para gameplay  
 </p>
 </section>
 
@@ -86,19 +83,19 @@ Se trabajó con:
 <section class="gallery">
 
   <figure>
-    <img src="../media/kirby_tree.jpg" onclick="openModalImage(this.src)">
+    <img src="../assets/images/projects/Kirby/Image Sequence_003.png" onclick="openModalImage(this.src)">
     <figcaption>Descripcion...</figcaption>
   </figure>
   <figure>
-    <img src="../media/kirby_rock.jpg" onclick="openModalImage(this.src)">
+    <img src="../assets/images/projects/Kirby/Image Sequence_010.png" onclick="openModalImage(this.src)">
     <figcaption>Descripcion...</figcaption>
   </figure>
   <figure>
-    <img src="../media/kirby_grass.jpg" onclick="openModalImage(this.src)">
+    <img src="../assets/images/projects/Kirby/Image Sequence_008.png" onclick="openModalImage(this.src)">
     <figcaption>Descripcion...</figcaption>
   </figure>
   <figure>
-    <img src="../media/kirby_house.jpg" onclick="openModalImage(this.src)">
+    <img src="../assets/images/projects/Kirby/Image Sequence_009.png" onclick="openModalImage(this.src)">
     <figcaption>Descripcion...</figcaption>
   </figure>
 
@@ -119,7 +116,7 @@ function toggleKirby(el){
 
   if(el.classList.contains("active")){
     el.classList.remove("active");
-    video.src="../media/kirby_day.mp4";
+    video.src="../assets/videos/projects/Kirby/Demostracion(OcclusionCulling).mp4";
   }else{
     el.classList.add("active");
     video.src="../media/kirby_night.mp4";
