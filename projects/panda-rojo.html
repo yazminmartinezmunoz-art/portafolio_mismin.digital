@@ -65,9 +65,9 @@
 <section class="project-description">
 <h2>Sobre el proyecto</h2>
 <p>
-Animación de personaje en Blender con rig personalizado.  
-Se trabajó la transferencia de peso, timing y expresividad corporal.  
-Posteriormente se configuro en Unity con control interactivo.
+Desarrollo de Personaje Interactivo (Panda Rojo).  
+Utilizando Blender para rigging y animación, enfocado en la transferencia de peso y expresividad corporal. 
+El modelo fue exportado a Unity para su implementación de control en tiempo real.
 </p>
 </section>
 
@@ -75,12 +75,36 @@ Posteriormente se configuro en Unity con control interactivo.
 <section class="gallery">
 
   <figure>
-    <video src="../assets/videos/projects/PandaRojo/AnimacionesConFondo.mp4" o muted loop playsinline onclick="openModalMedia(this.src, 'video')">
+    <div class="media-item" onclick="openModalMedia('../assets/videos/projects/PandaRojo/AnimacionesConFondo.mp4', 'video')">
+
+      <video 
+        src="../assets/videos/projects/PandaRojo/AnimacionesConFondo.mp4"
+        muted
+        playsinline
+        preload="metadata">
+      </video>
+
+      <div class="play-icon"></div>
+
+    </div>
+
     <figcaption>Animación de correr.</figcaption>
   </figure>
 
   <figure>
-    <video src="../assets/videos/projects/PandaRojo/AnimacionDefensaConFondo.mp4" o muted loop playsinline onclick="openModalMedia(this.src, 'video')">
+    <div class="media-item" onclick="openModalMedia('../assets/videos/projects/PandaRojo/AnimacionDefensaConFondo.mp4', 'video')">
+
+      <video 
+        src="../assets/videos/projects/PandaRojo/AnimacionDefensaConFondo.mp4"
+        muted
+        playsinline
+        preload="metadata">
+      </video>
+
+      <div class="play-icon"></div>
+
+    </div>
+
     <figcaption>Animación de defensa.</figcaption>
   </figure>
 
@@ -151,11 +175,16 @@ function openModalMedia(src, type){
     video.autoplay = true;
     video.muted = false;
     video.style.maxWidth = "100%";
+
     content.appendChild(video);
+
+    // 🔥 FORZAR REPRODUCCIÓN
+    video.play().catch(() => {});
   }
 
   modal.style.display = "flex";
 }
+
 
 
 

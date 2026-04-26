@@ -78,3 +78,11 @@ document.querySelectorAll(".allprojects-card").forEach(card => {
     video.pause();
   });
 });
+
+document.querySelectorAll(".media-item video").forEach(video => {
+  video.addEventListener("mouseenter", () => video.play());
+  video.addEventListener("mouseleave", () => {
+    video.pause();
+    video.currentTime = 0;
+  });
+});
