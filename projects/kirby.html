@@ -23,61 +23,65 @@
   <div class="project-meta">
     Escenario · Unity · Optimización · Lighting · Blender
   </div>
-</header>
-
-<main class="project-container">
-
-<!-- ===== DOS COLUMNAS (MISMA LÓGICA QUE HAIKO) ===== -->
-<section class="interactive-grid">
-
-<!-- TARJETA 1:  -->
-<div class="interactive-card">
-
-  <div class="media-wrapper" onclick="openModalVideo('kirbyMain')">
-    <video id="kirbyMain" autoplay loop muted>
-      <source src="../assets/videos/projects/Kirby/Demostracion(OcclusionCulling).mp4" type="video/mp4">
-    </video>
-  </div>
-
-  <div class="media-caption">
-    Demostración de Occlusion culling y Bake de iluminacion en Unity
-  </div>
-
-  <div class="switch-row">
-    <span> Occlusion culling/ Bake de iluminacion</span>
-    <div class="toggle" id="toggleKirby" onclick="toggleKirby(this)"></div>
-  </div>
-
-</div>
-
-<!-- TARJETA 2:  -->
-<div class="interactive-card">
-
-  <div class="media-wrapper" onclick="openModalVideo('kirbyOpt')">
-    <video id="kirbyOpt" muted loop playsinline>
-      <source src="../assets/videos/projects/Kirby/Demostracion(Lods)Banca.mp4" type="video/mp4">
-    </video>
-  </div>
-
-  <div class="media-caption">
-    Demostración de LODs en Unity
-  </div>
-
-</div>
-
-</section>
 
 <!-- ================= DESCRIPCIÓN ================= -->
 <section class="project-description">
-<h2>Sobre el proyecto</h2>
-<p>
-Escenario estilizado inspirado en Kirby, modelado en Blender e integrado en Unity con foco en rendimiento.  
-Se trabajó con:
-- Baking de iluminación    
-- Reducción de polígonos (LODs)
-- Occlusion culling  
-</p>
+  <h2>Sobre el proyecto</h2>
+  <p>
+  Escenario estilizado inspirado en Kirby, modelado en Blender e integrado en Unity con foco en rendimiento.  
+  Se trabajó con:
+  - Baking de iluminación    
+  - Reducción de polígonos (LODs)
+  - Occlusion culling  
+  </p>
 </section>
+
+
+</header>
+
+
+
+<main class="project-container">
+
+<section class="interactive-single">
+
+  <div class="interactive-card large">
+
+    <div class="media-wrapper" onclick="openModalDynamic('kirby')">
+
+      <!-- IMAGEN INICIAL -->
+      <img id="kirbyPlaceholder"
+          src="../assets/images/projects/Kirby/Image Sequence_002.png"
+          class="media-active">
+
+      <!-- VIDEO (oculto al inicio) -->
+      <video id="kirbyViewer" autoplay loop muted playsinline></video>
+
+    </div>
+
+    <!-- MEDIA -->
+    <div class="media-wrapper" onclick="openModalVideo('kirbyViewer')">
+      <video id="kirbyViewer" autoplay loop muted playsinline></video>
+    </div>
+
+    <!-- TEXTO -->
+    <div class="media-caption" id="kirbyCaption">
+      Demostración de Bake de iluminación
+    </div>
+
+    <!-- BOTONES -->
+    <div class="button-row">
+      
+      <button onclick="setKirby('bake')">Bake iluminación</button>
+      <button onclick="setKirby('occlusion')" class="active">Occlusion</button>
+      <button onclick="setKirby('lods')">LODs</button>
+    </div>
+
+  </div>
+
+</section>
+
+
 
 <!-- ================= GALERÍA DE PROPS ================= -->
 <section class="gallery">
@@ -110,7 +114,7 @@ Se trabajó con:
 </div>
 
 <script>
-/* ===== SWITCH DÍA / NOCHE ===== */
+/* ===== SWITCH DÍA / NOCHE =====
 function toggleKirby(el){
   const video = document.getElementById("kirbyMain");
 
@@ -122,7 +126,50 @@ function toggleKirby(el){
     video.src="../media/kirby_night.mp4";
   }
   video.play();
+} */
+
+
+const kirbyStates = {
+  occlusion: {
+    src: "../assets/videos/projects/Kirby/Demostracion(OcclusionCulling).mp4",
+    caption: "Demostración de Occlusion Culling"
+  },
+  bake: {
+    src: "../assets/videos/projects/Kirby/Demostración(BakeIluminacion).mp4",
+    caption: "Demostración de Bake de iluminación"
+  },
+  lods: {
+    src: "../assets/videos/projects/Kirby/Demostracion(Lods)Banca.mp4",
+    caption: "Demostración de LODs"
+  }
+};
+
+function setKirby(type){
+  const video = document.getElementById("kirbyViewer");
+  const img = document.getElementById("kirbyPlaceholder");
+  const caption = document.getElementById("kirbyCaption");
+
+  // ocultar imagen
+  img.style.display = "none";
+
+  // mostrar video
+  video.style.display = "block";
+
+  // cambiar video
+  video.src = kirbyStates[type].src;
+  video.play();
+
+  // texto
+  caption.textContent = kirbyStates[type].caption;
+
+  // botones activos
+  document.querySelectorAll(".button-row button").forEach(btn => {
+    btn.classList.remove("active");
+  });
+
+  event.target.classList.add("active");
 }
+
 
 /* ===== LUPA PARA VIDEO ===== */
 function openModalVideo(videoId){
@@ -148,10 +195,14 @@ function openModalImage(src){
   modal.style.display="flex";
 }
 
+
+
 /* CERRAR MODAL */
 function closeModal(){
   document.getElementById("modal").style.display="none";
 }
+
+
 </script>
 
 </body>
