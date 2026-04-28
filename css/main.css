@@ -1252,3 +1252,11 @@ footer {
 .media-wrapper video {
   display: none;
 }
+
+#modal-content img,
+#modal-content video {
+  max-width: 90vw;
+  max-height: 85vh;
+  object-fit: contain;
+  border-radius: 12px;
+}

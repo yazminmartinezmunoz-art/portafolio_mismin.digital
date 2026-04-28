@@ -304,3 +304,10 @@ section {
 }
 
 
+.media-active {
+  display: block;
+}
+
+.media-hidden {
+  display: none;
+}

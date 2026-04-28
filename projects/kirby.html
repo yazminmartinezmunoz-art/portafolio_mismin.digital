@@ -142,37 +142,38 @@ const kirbyStates = {
   }
 };
 
-function setKirby(type){
-
+function setKirby(mode){
   const video = document.getElementById("kirbyViewer");
   const img = document.getElementById("kirbyPlaceholder");
   const caption = document.getElementById("kirbyCaption");
 
-  // Oculta imagen, muestra video
-  img.style.display = "none";
-  video.style.display = "block";
+  img.classList.remove("media-active");
+  img.classList.add("media-hidden");
 
-  if(type === "bake"){
+  video.classList.remove("media-hidden");
+  video.classList.add("media-active");
+
+  if(mode === "bake"){
     video.src = "../assets/videos/projects/Kirby/Demostración(BakeIluminacion).mp4";
-    caption.textContent = "";
+    caption.textContent = "Bake de iluminación en Unity";
   }
 
-  if(type === "occlusion"){
+  if(mode === "occlusion"){
     video.src = "../assets/videos/projects/Kirby/Demostracion(OcclusionCulling).mp4";
-    caption.textContent = "";
+    caption.textContent = "Occlusion Culling";
   }
 
-  if(type === "lods"){
+  if(mode === "lods"){
     video.src = "../assets/videos/projects/Kirby/Demostracion(Lods)Banca.mp4";
-    caption.textContent = "";
+    caption.textContent = "Sistema de LODs";
   }
 
   video.play();
-
   // Estado visual botones
   document.querySelectorAll(".button-row button").forEach(btn => btn.classList.remove("active"));
   event.target.classList.add("active");
 }
+
 
 
 /* ===== LUPA PARA VIDEO ===== */
@@ -198,6 +199,40 @@ function openModalImage(src){
   content.innerHTML = `<img src="${src}">`;
   modal.style.display="flex";
 }
+
+function openModalDynamic(id){
+  const modal = document.getElementById("modal");
+  const content = document.getElementById("modal-content");
+
+  content.innerHTML = "";
+
+  // ELEMENTOS
+  const placeholder = document.getElementById(id + "Placeholder");
+  const video = document.getElementById(id + "Viewer");
+
+  // CASO 1: SI EL VIDEO ESTÁ ACTIVO
+  if(video && !video.classList.contains("media-hidden") && video.src){
+
+    const clone = video.cloneNode(true);
+    clone.controls = true;
+    clone.muted = false;
+    clone.autoplay = true;
+
+    content.appendChild(clone);
+  }
+  
+  // CASO 2: SI ESTÁ LA IMAGEN
+  else if(placeholder){
+
+    const img = document.createElement("img");
+    img.src = placeholder.src;
+
+    content.appendChild(img);
+  }
+
+  modal.style.display = "flex";
+}
+
 
 
 
