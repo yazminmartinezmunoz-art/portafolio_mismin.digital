@@ -1236,59 +1236,16 @@ footer {
   font-size: 0.85rem;
 }
 
-/* Para hacer version de 3 videos en kirby en uno */
-/* CONTENEDOR */
-.interactive-single {
-  display: flex;
-  justify-content: center;
-}
 
-/* TARJETA GRANDE */
-.interactive-card.large {
-  max-width: 900px;
-  width: 100%;
-}
 
-/* BOTONES */
-.button-row {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  margin-top: 15px;
-  flex-wrap: wrap;
-}
-
-.button-row button {
-  background: transparent;
-  color: var(--text-main);
-  border: 1px solid var(--accent-soft);
-  padding: 0.5rem 1.2rem;
-  border-radius: 999px;
-  cursor: pointer;
-  transition: 0.25s;
-}
-
-/* ACTIVO */
-.button-row button.active {
-  background: rgba(125,249,255,.15);
-  border-color: var(--accent);
-  color: var(--accent);
-}
-
-/* HOVER */
-.button-row button:hover {
-  background: rgba(125,249,255,.08);
-}
-.media-wrapper {
-  position: relative;
-}
-
-/* ambos ocupan el mismo espacio */
+/* Ambos ocupan el mismo espacio */
 .media-wrapper img,
 .media-wrapper video {
+  position: absolute;
+  inset: 0;
   width: 100%;
-  border-radius: 16px;
-  margin: 0;
+  height: 100%;
+  object-fit: cover;
 }
 
 /* oculto por defecto */

@@ -47,39 +47,37 @@
 
   <div class="interactive-card large">
 
+    <!-- CONTENEDOR ÚNICO -->
     <div class="media-wrapper" onclick="openModalDynamic('kirby')">
 
       <!-- IMAGEN INICIAL -->
       <img id="kirbyPlaceholder"
-          src="../assets/images/projects/Kirby/Image Sequence_002.png"
-          class="media-active">
+           src="../assets/images/projects/Kirby/Image Sequence_002.png"
+           class="media-active">
 
-      <!-- VIDEO (oculto al inicio) -->
-      <video id="kirbyViewer" autoplay loop muted playsinline></video>
+      <!-- VIDEO -->
+      <video id="kirbyViewer"
+             autoplay loop muted playsinline
+             class="media-hidden"></video>
 
-    </div>
-
-    <!-- MEDIA -->
-    <div class="media-wrapper" onclick="openModalVideo('kirbyViewer')">
-      <video id="kirbyViewer" autoplay loop muted playsinline></video>
     </div>
 
     <!-- TEXTO -->
     <div class="media-caption" id="kirbyCaption">
-      Demostración de Bake de iluminación
+      Selecciona una demostración
     </div>
 
     <!-- BOTONES -->
     <div class="button-row">
-      
-      <button onclick="setKirby('bake')">Bake iluminación</button>
-      <button onclick="setKirby('occlusion')" class="active">Occlusion</button>
-      <button onclick="setKirby('lods')">LODs</button>
+      <button onclick="setKirby('bake')">Bake de iluminación</button>
+      <button onclick="setKirby('occlusion')">Occlusion culling</button>
+      <button onclick="setKirby('lods')">Sistema de LODs</button>
     </div>
 
   </div>
 
 </section>
+
 
 
 
@@ -145,28 +143,34 @@ const kirbyStates = {
 };
 
 function setKirby(type){
+
   const video = document.getElementById("kirbyViewer");
   const img = document.getElementById("kirbyPlaceholder");
   const caption = document.getElementById("kirbyCaption");
 
-  // ocultar imagen
+  // Oculta imagen, muestra video
   img.style.display = "none";
-
-  // mostrar video
   video.style.display = "block";
 
-  // cambiar video
-  video.src = kirbyStates[type].src;
+  if(type === "bake"){
+    video.src = "../assets/videos/projects/Kirby/Demostración(BakeIluminacion).mp4";
+    caption.textContent = "";
+  }
+
+  if(type === "occlusion"){
+    video.src = "../assets/videos/projects/Kirby/Demostracion(OcclusionCulling).mp4";
+    caption.textContent = "";
+  }
+
+  if(type === "lods"){
+    video.src = "../assets/videos/projects/Kirby/Demostracion(Lods)Banca.mp4";
+    caption.textContent = "";
+  }
+
   video.play();
 
-  // texto
-  caption.textContent = kirbyStates[type].caption;
-
-  // botones activos
-  document.querySelectorAll(".button-row button").forEach(btn => {
-    btn.classList.remove("active");
-  });
-
+  // Estado visual botones
+  document.querySelectorAll(".button-row button").forEach(btn => btn.classList.remove("active"));
   event.target.classList.add("active");
 }
 
@@ -202,7 +206,7 @@ function closeModal(){
   document.getElementById("modal").style.display="none";
 }
 
-
+let currentState = null;
 </script>
 
 </body>
