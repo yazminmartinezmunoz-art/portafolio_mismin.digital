@@ -39,45 +39,159 @@
 <!-- ===== DOS PANELES INTERACTIVOS ===== -->
 <section class="interactive-grid">
 
-<!-- PANEL 1: DÍA / NOCHE -->
+<!-- PANEL 1 : GEOMETRY NODES -->
 <div class="interactive-card">
-  <div class="media-wrapper" onclick="openModalVideo('pagodaVideo')">
-    <video id="pagodaVideo" autoplay loop muted>
-      <source src="../media/pagoda-dia.mp4" type="video/mp4">
-    </video>
-  </div>
 
-  <div class="media-caption">
-    Pagoda base con iluminación diurna.
-  </div>
+    <div class="media-wrapper" onclick="openModalVideo('geometryVideo')">
 
-  <div class="switch-row">
-    <span>Día / Noche</span>
-    <div class="toggle" id="togglePagoda" onclick="togglePagoda(this)"></div>
-  </div>
+        <video id="geometryVideo" autoplay loop muted>
+
+            <source src="../media/pagoda-geometrynodes.mp4" type="video/mp4">
+
+        </video>
+
+    </div>
+
+    <div class="media-caption">
+
+        Control de parámetros mediante Geometry Nodes en Blender.
+
+    </div>
+
 </div>
 
-<!-- PANEL 2: COLUMNAS + COLOR -->
+<!-- PANEL 2 : PAGODA PROCEDURAL -->
+
 <div class="interactive-card">
-  <div class="media-wrapper" onclick="openModalVideo('pagodaVariantVideo')">
-    <video id="pagodaVariantVideo" autoplay loop muted>
-      <source src="../media/pagoda-columnas-a.mp4" type="video/mp4">
-    </video>
-  </div>
 
-  <div class="media-caption">
-    Variaciones procedurales de columnas y color.
-  </div>
+    <div class="media-wrapper">
 
-  <div class="switch-row">
-    <span>Columnas A / B</span>
-    <div class="toggle" id="toggleColumns" onclick="toggleColumns(this)"></div>
-  </div>
+        <img
+            id="pagodaPreview"
+            src="../assets/images/projects/Pagodas/pagoda_h1_l1_a1_c1.png"
+            onclick="openModalImage(this.src)"
+        >
 
-  <div class="switch-row">
-    <span>Color A / B</span>
-    <div class="toggle" id="toggleColor" onclick="toggleColor(this)"></div>
-  </div>
+    </div>
+
+    <div class="media-caption">
+
+        Variaciones generadas mediante parámetros procedurales.
+
+    </div>
+
+    <!-- ALTURA -->
+
+    <div class="slider-group">
+
+        <label for="altura">
+            Pisos de altura
+        </label>
+
+        <div class="slider-control">
+
+            <span class="slider-value">1</span>
+
+            <input
+                type="range"
+                id="altura"
+                min="1"
+                max="2"
+                step="1"
+                value="1"
+                oninput="actualizarPagoda()"
+            >
+
+            <span class="slider-value">2</span>
+
+        </div>
+
+    </div>
+
+    <!-- LARGO -->
+
+    <div class="slider-group">
+
+        <label for="largo">
+            Largo
+        </label>
+
+        <div class="slider-control">
+
+            <span class="slider-value">1</span>
+
+            <input
+                type="range"
+                id="largo"
+                min="1"
+                max="2"
+                step="1"
+                value="1"
+                oninput="actualizarPagoda()"
+            >
+
+            <span class="slider-value">2</span>
+
+        </div>
+
+    </div>
+
+    <!-- ANCHO -->
+
+    <div class="slider-group">
+
+        <label for="ancho">
+            Ancho
+        </label>
+
+        <div class="slider-control">
+
+            <span class="slider-value">1</span>
+
+            <input
+                type="range"
+                id="ancho"
+                min="1"
+                max="2"
+                step="1"
+                value="1"
+                oninput="actualizarPagoda()"
+            >
+
+            <span class="slider-value">2</span>
+
+        </div>
+
+    </div>
+
+    <!-- COLOR -->
+
+    <div class="slider-group">
+
+        <label for="color">
+            Color
+        </label>
+
+        <div class="slider-control">
+
+            <span class="slider-value">A</span>
+
+            <input
+                type="range"
+                id="color"
+                min="1"
+                max="2"
+                step="1"
+                value="1"
+                oninput="actualizarPagoda()"
+            >
+
+            <span class="slider-value">B</span>
+
+        </div>
+
+    </div>
+
 </div>
 
 </section>
@@ -122,47 +236,45 @@
 </div>
 
 <script>
-/* ===== SWITCH DIA/NOCHE ===== */
-function togglePagoda(el){
-  const video = document.getElementById("pagodaVideo");
+/* =====================================================
+   ACTUALIZAR PAGODA PROCEDURAL
+===================================================== */
 
-  if(el.classList.contains("active")){
-    el.classList.remove("active");
-    video.src="../media/pagoda-dia.mp4";
-  }else{
-    el.classList.add("active");
-    video.src="../media/pagoda-noche.mp4";
-  }
-  video.play();
+function actualizarPagoda(){
+
+  // Obtener los valores actuales de los sliders
+
+  const altura =
+    document.getElementById("altura").value;
+
+  const largo =
+    document.getElementById("largo").value;
+
+  const ancho =
+    document.getElementById("ancho").value;
+
+  const color =
+    document.getElementById("color").value;
+
+
+  // Construir automáticamente el nombre de la imagen
+
+  const nuevaImagen =
+    `../assets/images/projects/Pagodas/pagoda_h${altura}_l${largo}_a${ancho}_c${color}.png`;
+
+
+  // Obtener la imagen actual
+
+  const imagen =
+    document.getElementById("pagodaPreview");
+
+
+  // Cambiar la imagen
+
+  imagen.src = nuevaImagen;
+
 }
 
-/* ===== SWITCH COLUMNAS ===== */
-function toggleColumns(el){
-  const video = document.getElementById("pagodaVariantVideo");
-
-  if(el.classList.contains("active")){
-    el.classList.remove("active");
-    video.src="../media/pagoda-columnas-a.mp4";
-  }else{
-    el.classList.add("active");
-    video.src="../media/pagoda-columnas-b.mp4";
-  }
-  video.play();
-}
-
-/* ===== SWITCH COLOR ===== */
-function toggleColor(el){
-  const video = document.getElementById("pagodaVariantVideo");
-
-  if(el.classList.contains("active")){
-    el.classList.remove("active");
-    video.src="../media/pagoda-color-a.mp4";
-  }else{
-    el.classList.add("active");
-    video.src="../media/pagoda-color-b.mp4";
-  }
-  video.play();
-}
 
 /* ===== LUPA PARA VIDEO ===== */
 function openModalVideo(videoId){
@@ -194,6 +306,5 @@ function closeModal(){
 }
 </script>
 
-</body>
 </html>
 
