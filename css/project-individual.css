@@ -41,6 +41,91 @@ body{
   font-size:0.95rem;
 }
 
+
+/* ===== BADGE DE ESTADO DEL PROYECTO ===== */
+/* Pequeña píldora que indica si el proyecto está Terminado o En desarrollo */
+.status-badge{
+  display:inline-block;
+  margin-left:10px;
+  padding:3px 10px;
+  border-radius:999px;
+  font-size:0.75rem;
+  vertical-align:middle;
+}
+
+/* Verde-celeste para proyectos terminados */
+.status-badge.done{
+  background:rgba(58,214,209,0.15);
+  border:1px solid #3ad6d1;
+  color:#3ad6d1;
+}
+
+/* Ámbar para proyectos en desarrollo */
+.status-badge.wip{
+  background:rgba(255,193,84,0.15);
+  border:1px solid #ffc154;
+  color:#ffc154;
+}
+
+/* ===== BLOQUE DE DETALLES (Mi participación / Herramientas / Lo que demuestra) ===== */
+/* Grid de 3 columnas que se acomoda a 1 columna en mobile */
+.project-details{
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
+  gap:24px;
+  margin-top:24px;
+  padding-top:20px;
+  border-top:1px solid rgba(255,255,255,0.08);
+}
+
+.detail-block h3{
+  font-size:0.95rem;
+  color:#3ad6d1;
+  margin-bottom:10px;
+}
+
+.detail-block ul{
+  list-style:none;
+  padding:0;
+}
+
+.detail-block li{
+  font-size:0.88rem;
+  color:#9aa0a6;
+  padding:4px 0 4px 14px;
+  position:relative;
+}
+
+/* Puntito decorativo en vez del bullet por defecto */
+.detail-block li::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:12px;
+  width:5px;
+  height:5px;
+  border-radius:50%;
+  background:#3ad6d1;
+}
+
+/* Título opcional dentro de .project-details, para páginas con más de un personaje/elemento */
+.details-title{
+  grid-column: 1 / -1; /* ocupa las 3 columnas completas */
+  color:#3ad6d1;
+  font-size:1.1rem;
+  margin-bottom:-6px;
+}
+
+/* Mobile: una sola columna */
+@media (max-width: 768px){
+  .project-details{
+    grid-template-columns:1fr;
+    gap:18px;
+  }
+}
+
+
+
 /* ===== LAYOUT PRINCIPAL ===== */
 .project-container{
   max-width:1150px;
