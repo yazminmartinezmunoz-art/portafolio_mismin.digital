@@ -39,13 +39,27 @@
 
 <!-- FILTROS -->
 <section class="filters">
-  <button class="filter active" data-filter="all">Todos</button>
-  <button class="filter" data-filter="personajes">Personajes</button>
-  <button class="filter" data-filter="escenarios">Escenarios</button>
-  <!--<button class="filter" data-filter="props">Props</button>-->
-  <button class="filter" data-filter="animacion">Animación</button>
-  <button class="filter" data-filter="unity">Unity</button>
-  <button class="filter" data-filter="procedural">Procedural</button>
+
+  <!-- Botones — visibles en escritorio/tablet -->
+  <div class="filters-buttons">
+    <button class="filter active" data-filter="all">Todos</button>
+    <button class="filter" data-filter="personajes">Personajes</button>
+    <button class="filter" data-filter="escenarios">Escenarios</button>
+    <button class="filter" data-filter="animacion">Animación</button>
+    <button class="filter" data-filter="unity">Unity</button>
+    <button class="filter" data-filter="procedural">Procedural</button>
+  </div>
+
+  <!-- Select — visible solo en mobile (lo controla el CSS) -->
+  <select class="filters-select" id="filterSelect">
+    <option value="all">Todos</option>
+    <option value="personajes">Personajes</option>
+    <option value="escenarios">Escenarios</option>
+    <option value="animacion">Animación</option>
+    <option value="unity">Unity</option>
+    <option value="procedural">Procedural</option>
+  </select>
+
 </section>
 
 <!-- GRID REAL DE PROYECTOS -->
