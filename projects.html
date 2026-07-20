@@ -11,6 +11,7 @@
 
   <script src="js/video-hover.js" defer></script>
   <script src="js/projects-filter.js" defer></script>
+  <script src="js/carousel.js" defer></script>
 </head>
   
 <body>
@@ -43,22 +44,25 @@
   <!-- Botones — visibles en escritorio/tablet -->
   <div class="filters-buttons">
     <button class="filter active" data-filter="all">Todos</button>
+    <button class="filter" data-filter="produccion">Producción</button>
     <button class="filter" data-filter="personajes">Personajes</button>
     <button class="filter" data-filter="escenarios">Escenarios</button>
     <button class="filter" data-filter="animacion">Animación</button>
     <button class="filter" data-filter="unity">Unity</button>
     <button class="filter" data-filter="procedural">Procedural</button>
+    
   </div>
 
   <!-- Select — visible solo en mobile (lo controla el CSS) -->
   <select class="filters-select" id="filterSelect">
     <option value="all">Todos</option>
+    <option value="produccion">Producción</option>
     <option value="personajes">Personajes</option>
     <option value="escenarios">Escenarios</option>
     <option value="animacion">Animación</option>
     <option value="unity">Unity</option>
     <option value="procedural">Procedural</option>
-    <option value="produccion">Producción</option>
+    
   </select>
 
 </section>
@@ -71,7 +75,7 @@
 
     <div class="allprojects-media">
       <!-- Reemplaza por tu foto de portada del proyecto -->
-      <img src="assets/images/projects/PrimerCambio/equipo_premiacion.jpg"
+      <img src="assets/images/projects/PrimerCambio/RecibiendoPremio.jpg"
         class="allprojects-image">
 
       <img src="assets/images/projects/PrimerCambio/game-design-canvas.jpg"
@@ -285,6 +289,129 @@
     </div>
 
   </article>
+
+</section>
+
+<!-- ========================= -->
+<!-- PROYECTOS SECUNDARIOS    -->
+<!-- ========================= -->
+<section class="secondary-section">
+
+  <h2>Otros proyectos</h2>
+  <p class="secondary-subtitle">Experimentos, prácticas y colaboraciones puntuales</p>
+
+  <div class="secondary-grid">
+
+    <!-- Memoria Fragmentada -->
+    <div class="secondary-card">
+      <div class="secondary-media">
+        <img src="assets/images/projects/Secundarios/memoria-fragmentada.jpg" alt="Memoria Fragmentada">
+      </div>
+      <div class="secondary-info">
+        <h4>Memoria Fragmentada</h4>
+        <p>Woman Game Jam — colaboración creando sprites en pixel art para el juego.</p>
+        <span class="secondary-tools">Aseprite</span>
+      </div>
+    </div>
+
+    <!-- Logo Esports -->
+    <div class="secondary-card">
+      <div class="secondary-media">
+        <img src="assets/images/projects/Secundarios/logo-esports.jpg" alt="Logo Esports">
+      </div>
+      <div class="secondary-info">
+        <h4>Logo Esports</h4>
+        <p>Diseño de identidad gráfica para un equipo de Esports.</p>
+        <span class="secondary-tools">Adobe Illustrator</span>
+      </div>
+    </div>
+
+    <!-- Espada de Yuuki -->
+    <div class="secondary-card">
+      <div class="secondary-media">
+        <img src="assets/images/projects/Secundarios/espada-yuuki.jpg" alt="Espada de Yuuki">
+      </div>
+      <div class="secondary-info">
+        <h4>Espada de Yuuki (SAO)</h4>
+        <p>Modelo 3D de la espada utilizada por Yuuki en Sword Art Online.</p>
+        <span class="secondary-tools">Blender</span>
+      </div>
+    </div>
+
+    <!-- Escena de terraza -->
+    <div class="secondary-card">
+
+      <div class="secondary-media carousel">
+        <div class="carousel-track">
+
+          <!-- DUPLICA ESTE BLOQUE por cada imagen que agregues -->
+          <div class="carousel-slide">
+            <img src="assets/images/projects/Secundarios/escena-terraza-01.jpg" alt="Escena de terraza">
+            <span class="carousel-caption">Vista general del escenario</span>
+          </div>
+
+          <div class="carousel-slide">
+            <img src="assets/images/projects/Secundarios/escena-terraza-02.jpg" alt="Escena de terraza - detalle">
+            <span class="carousel-caption">Detalle de materiales del sillón</span>
+          </div>
+
+          <div class="carousel-slide">
+            <img src="assets/images/projects/Secundarios/escena-terraza-03.jpg" alt="Escena de terraza - referencia">
+            <span class="carousel-caption">Referencia utilizada</span>
+          </div>
+          <!-- FIN DEL BLOQUE A DUPLICAR -->
+
+        </div>
+
+        <button class="carousel-arrow prev" onclick="moveCarousel(this, -1)">‹</button>
+        <button class="carousel-arrow next" onclick="moveCarousel(this, 1)">›</button>
+      </div>
+
+      <div class="secondary-info">
+        <h4>Escena de terraza</h4>
+        <p>Sillones de mimbre y mesa de centro — práctica de modelado y composición.</p>
+        <span class="secondary-tools">Blender</span>
+      </div>
+
+    </div>
+
+    <!-- Goshi Smash -->
+    <div class="secondary-card">
+      <div class="secondary-media">
+        <img src="assets/images/projects/Secundarios/goshi-smash.jpg" alt="Goshi Smash">
+      </div>
+      <div class="secondary-info">
+        <h4>Goshi Smash</h4>
+        <p>Prototipo móvil estilo "Golpea al topo" protagonizado por Goshi.</p>
+        <span class="secondary-tools">Unity</span>
+      </div>
+    </div>
+
+    <!-- Diseño 2D de Goshi -->
+    <div class="secondary-card">
+      <div class="secondary-media">
+        <img src="assets/images/projects/Secundarios/goshi-2d.jpg" alt="Diseño 2D de Goshi">
+      </div>
+      <div class="secondary-info">
+        <h4>Diseño 2D de Goshi</h4>
+        <p>Concepto ilustrado usado como base para el posterior modelo 3D.</p>
+        <span class="secondary-tools">Ibis Paint</span>
+      </div>
+    </div>
+
+    <!-- Belleza Liss -->
+    <div class="secondary-card">
+      <div class="secondary-media">
+        <img src="assets/images/projects/Secundarios/belleza-liss.jpg" alt="Belleza Liss">
+      </div>
+      <div class="secondary-info">
+        <h4>Belleza Liss</h4>
+        <p>Mano 3D con uñas intercambiables para un emprendimiento de manicure, interactiva en Unity.</p>
+        <span class="secondary-tools">Blender · Unity</span>
+      </div>
+    </div>
+
+  </div>
 
 </section>
 

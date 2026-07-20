@@ -1281,3 +1281,176 @@ footer {
   object-fit: contain;
   border-radius: 12px;
 }
+
+/* =====================================================
+   SECCIÓN "PROYECTOS SECUNDARIOS" (projects.html)
+   Tarjetas más pequeñas y compactas
+   ===================================================== */
+
+.secondary-section{
+  max-width: 1300px;
+  margin: 0 auto 100px;
+  padding: 0 4%;
+}
+
+.secondary-section h2{
+  text-align:center;
+  font-size:1.6rem;
+  margin-bottom:0.5rem;
+}
+
+.secondary-section .secondary-subtitle{
+  text-align:center;
+  color: var(--text-muted);
+  font-size:0.9rem;
+  margin-bottom: 2.5rem;
+}
+
+.secondary-grid{
+  display:grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.secondary-card{
+  background: var(--bg-card);
+  border-radius: 14px;
+  overflow:hidden;
+  box-shadow: 0 0 0 1px rgba(125,249,255,0.1);
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.secondary-card:hover{
+  transform: translateY(-3px);
+  box-shadow: 0 0 0 1px rgba(125,249,255,0.4), 0 0 14px rgba(125,249,255,0.2);
+}
+
+.secondary-media{
+  aspect-ratio: 4/3;
+  overflow:hidden;
+}
+
+.secondary-media img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+}
+
+.secondary-info{
+  padding: 0.9rem 1rem 1.1rem;
+}
+
+.secondary-info h4{
+  font-size:0.85rem;
+  font-weight:500;
+  margin-bottom:0.3rem;
+}
+
+.secondary-info p{
+  font-size:0.72rem;
+  color: var(--text-muted);
+  line-height:1.4;
+  margin:0;
+}
+
+.secondary-tools{
+  display:block;
+  margin-top:0.4rem;
+  font-size:0.68rem;
+  color: var(--accent);
+  opacity:0.8;
+}
+
+@media (max-width: 900px){
+  .secondary-grid{
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px){
+  .secondary-grid{
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+}
+
+/* ===== CARRUSEL DENTRO DE LAS TARJETAS SECUNDARIAS ===== */
+
+/* Contenedor: mismo tamaño que .secondary-media, pero recorta lo que se desliza afuera */
+.carousel{
+  position: relative;
+  overflow: hidden;
+}
+
+/* La "cinta" que contiene todas las imágenes en fila; se mueve con translateX */
+.carousel-track{
+  display: flex;
+  height: 100%;
+  transition: transform 0.35s ease;
+}
+
+/* Cada imagen ocupa el 100% del ancho del carrusel y nunca se achica */
+.carousel-slide{
+  position: relative;
+  min-width: 100%;
+  height: 100%;
+}
+
+.carousel-slide img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Descripción semi-transparente sobre cada imagen (opcional, se puede omitir) */
+.carousel-caption{
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 6px 10px;
+  font-size: 0.68rem;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(2px);
+}
+
+/* Flechas prev/next */
+.carousel-arrow{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(0, 0, 0, 0.55);
+  border: 1px solid rgba(125, 249, 255, 0.5);
+  color: var(--accent);
+  font-size: 0.9rem;
+  cursor: pointer;
+
+  opacity: 0;               /* oculto por defecto en escritorio */
+  transition: opacity 0.2s ease;
+  z-index: 2;
+}
+
+/* Aparecen al pasar el mouse por la tarjeta */
+.secondary-card:hover .carousel-arrow{
+  opacity: 1;
+}
+
+.carousel-arrow.prev{ left: 6px; }
+.carousel-arrow.next{ right: 6px; }
+
+/* En mobile no hay hover, así que las dejamos siempre visibles */
+@media (max-width: 768px){
+  .carousel-arrow{
+    opacity: 1;
+  }
+}
