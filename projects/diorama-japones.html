@@ -12,7 +12,6 @@
 
 <body>
 
-<!-- BOTONES SUPERIORES (MISMO ESTILO HAIKO) -->
 <div class="top-nav">
   <a href="../index.html" class="nav-pill">Home</a>
   <a href="../index.html#about" class="nav-pill">Sobre mí</a>
@@ -22,9 +21,10 @@
 <header class="project-header">
   <h1>Diorama Interior Japonés</h1>
   <div class="project-meta">
-      Escenario · Blender · Iluminación · Composición · Props
-      <span class="status-badge done">Terminado</span>
+    Escenario · Blender · Iluminación · Composición · Props
+    <span class="status-badge done">Terminado</span>
   </div>
+
   <section class="project-description">
     <h2>Sobre el proyecto</h2>
     <p>
@@ -96,12 +96,6 @@
 
 <h2>Detalles del escenario</h2>
 <section class="gallery">
-<!--
-  <figure>
-    <img src="../assets/images/projects/DioramaJapones/Ivory Beige Elegant Simple Modern Moodboard Desktop Wallpaper.png" onclick="openModalImage(this.src)">
-    <figcaption>Moodboard.</figcaption>
-  </figure>  
-  -->
   <figure>
     <img src="../assets/images/projects/DioramaJapones/Kotatsu.png" onclick="openModalImage(this.src)">
     <figcaption></figcaption>
@@ -166,9 +160,6 @@
 
   let currentState = "day";
 
-  // ==========================
-  // RENDER DINÁMICO
-  // ==========================
   function renderMedia(id){
     const container = document.getElementById(id);
     const config = mediaConfigs[id];
@@ -195,9 +186,7 @@
       container.appendChild(video);
     }
   }
-// ==========================
-  // SWITCH (universal)
-  // ==========================
+
   function toggleMedia(el, id){
     const config = mediaConfigs[id];
 
@@ -212,9 +201,6 @@
     renderMedia(id);
   }
 
-  // ==========================
-  // MODAL INTELIGENTE
-  // ==========================
   function openModalGeneric(id){
     const modal = document.getElementById("modal");
     const content = document.getElementById("modal-content");
@@ -247,16 +233,10 @@
     modal.style.display = "flex";
   }
 
-  // ==========================
-  // MODAL CLOSE (igual)
-  // ==========================
   function closeModal(){
     document.getElementById("modal").style.display="none";
   }
 
-  // ==========================
-  // INIT
-  // ==========================
   renderMedia("media1");
   renderMedia("media2");
 

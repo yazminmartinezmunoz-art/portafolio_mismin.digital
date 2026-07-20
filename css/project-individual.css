@@ -67,6 +67,53 @@ body{
   color:#ffc154;
 }
 
+/* Variante dorada del badge, para logros/premios */
+.status-badge.award{
+  background:rgba(255,193,84,0.15);
+  border:1px solid #ffc154;
+  color:#ffc154;
+}
+
+/* ===== BANNER DE RESULTADO DESTACADO ===== */
+/* Se usa para mostrar premios o logros de forma prominente, arriba del todo */
+.result-banner{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  margin:18px 0;
+  padding:16px 20px;
+  background: linear-gradient(135deg, rgba(255,193,84,0.12), rgba(58,214,209,0.08));
+  border:1px solid rgba(255,193,84,0.4);
+  border-radius:14px;
+}
+
+.result-banner .trophy{
+  font-size:2rem;
+  line-height:1;
+  flex-shrink:0;
+}
+
+.result-banner .result-text h3{
+  color:#ffc154;
+  font-size:1.05rem;
+  margin-bottom:4px;
+}
+
+.result-banner .result-text p{
+  font-size:0.85rem;
+  color:#cfd0d4;
+  margin:0;
+}
+
+@media (max-width:768px){
+  .result-banner{
+    flex-direction:column;
+    text-align:center;
+  }
+}
+
+
+
 /* ===== BLOQUE DE DETALLES — DESPLEGABLE Y HORIZONTAL ===== */
 
 /* PC/tablet: los 3 acordeones van uno al lado del otro */

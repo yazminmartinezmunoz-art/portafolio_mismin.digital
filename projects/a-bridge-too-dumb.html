@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A Bridge Too Dumb | Proyecto</title>
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/project-individual.css">
+</head>
+
+<body>
+
+<div class="top-nav">
+  <a href="../index.html" class="nav-pill">Home</a>
+  <a href="../index.html#about" class="nav-pill">Sobre mí</a>
+  <a href="../projects.html" class="nav-pill home">Todos los proyectos</a>
+</div>
+
+<header class="project-header">
+  <h1>A Bridge Too Dumb</h1>
+  <div class="project-meta">
+    Productora · Unity · Multijugador · Blender
+    <span class="status-badge wip">En desarrollo</span>
+  </div>
+
+  <section class="project-description">
+    <h2>Sobre el proyecto</h2>
+    <p>
+    Videojuego cooperativo multijugador desarrollado en Unity donde los jugadores deben
+    construir puentes utilizando distintos materiales para conectar islas flotantes y completar
+    objetivos colaborativos. Proyecto universitario desarrollado en equipo de 3 integrantes,
+    donde asumí el rol de productora.
+    </p>
+  </section>
+
+  <section class="project-details">
+    <details class="detail-block">
+      <summary>Mi participación</summary>
+      <ul>
+        <li>Productora del proyecto</li>
+        <li>Modelado 3D</li>
+        <li>Diseño de props</li>
+        <li>Programación de apoyo</li>
+        <li>Integración en Unity</li>
+        <li>Coordinación del equipo</li>
+      </ul>
+    </details>
+    <details class="detail-block">
+      <summary>Herramientas</summary>
+      <ul>
+        <li>Unity</li>
+        <li>Blender</li>
+        <li>Photon PUN</li>
+      </ul>
+    </details>
+    <details class="detail-block">
+      <summary>Lo que demuestra</summary>
+      <ul>
+        <li>Producción</li>
+        <li>Trabajo en equipo</li>
+        <li>Desarrollo multijugador</li>
+      </ul>
+    </details>
+  </section>
+
+</header>
+
+<main class="project-container">
+
+<!-- ===== GALERÍA ===== -->
+<!-- Reemplaza cada src por tus capturas/videos reales -->
+<!-- Sugerencia de carpeta: assets/images/projects/ABridgeTooDumb/ -->
+<section class="gallery">
+
+  <figure>
+    <img src="../assets/images/projects/ABridgeTooDumb/gameplay_01.jpg" onclick="openModalImage(this.src)">
+    <figcaption>Construcción cooperativa de puentes.</figcaption>
+  </figure>
+
+  <figure>
+    <img src="../assets/images/projects/ABridgeTooDumb/props.jpg" onclick="openModalImage(this.src)">
+    <figcaption>Props modelados para el proyecto.</figcaption>
+  </figure>
+
+  <figure>
+    <img src="../assets/images/projects/ABridgeTooDumb/islas.jpg" onclick="openModalImage(this.src)">
+    <figcaption>Islas flotantes del escenario.</figcaption>
+  </figure>
+
+</section>
+
+</main>
+
+<!-- ===== MODAL GLOBAL ===== -->
+<div id="modal">
+  <span id="modal-close" onclick="closeModal()">✖</span>
+  <div id="modal-content"></div>
+</div>
+
+<script>
+function openModalImage(src){
+  const modal = document.getElementById("modal");
+  const content = document.getElementById("modal-content");
+
+  content.innerHTML = `<img src="${src}">`;
+  modal.style.display = "flex";
+}
+
+function closeModal(){
+  document.getElementById("modal").style.display = "none";
+}
+</script>
+
+</body>
+</html>

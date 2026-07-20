@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Primer Cambio | Hackatón Ganadora</title>
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/project-individual.css">
+</head>
+
+<body>
+
+<div class="top-nav">
+  <a href="../index.html" class="nav-pill">Home</a>
+  <a href="../index.html#about" class="nav-pill">Sobre mí</a>
+  <a href="../projects.html" class="nav-pill home">Todos los proyectos</a>
+</div>
+
+<header class="project-header">
+  <h1>Primer Cambio</h1>
+  <div class="project-meta">
+    Game Designer · Productora · Pitch · Diseño de Mecánicas
+    <span class="status-badge award">🏆 Ganadora</span>
+  </div>
+
+  <!-- ===== BANNER DE RESULTADO — lo primero que se ve ===== -->
+  <div class="result-banner">
+    <span class="trophy">🏆</span>
+    <div class="result-text">
+      <h3>Primer Lugar — Hackatón de Seguridad Vial</h3>
+      <p>Entre ~11–12 equipos participantes · Universidad Finis Terrae + Automóvil Club de Chile</p>
+    </div>
+  </div>
+
+  <section class="project-description">
+    <h2>Sobre el proyecto</h2>
+    <p>
+    <strong>Primer Cambio</strong> es la propuesta de un videojuego educativo orientado a fomentar la
+    seguridad vial mediante mecánicas interactivas y decisiones que reflejan situaciones reales
+    del tránsito. El proyecto fue concebido durante una hackatón intensiva de dos días, donde el
+    objetivo consistía en diseñar un videojuego, desarrollar su propuesta y presentar un pitch
+    frente a un jurado especializado.
+    </p>
+    <p>
+    Nuestro equipo estaba compuesto por cuatro integrantes de dos universidades distintas.
+    Debido a la diferencia de experiencia entre los miembros y al corto tiempo disponible, asumí
+    un rol activo en la organización del trabajo, guiando el proceso de diseño, distribuyendo
+    tareas y ayudando a estructurar la propuesta para cumplir los objetivos de la competencia.
+    </p>
+    <p>
+    Como premio recibimos un viaje de tres días a Argentina con todos los gastos pagados, además
+    de la posibilidad de ser contactadas en el futuro como consultoras creativas durante el
+    desarrollo profesional del videojuego.
+    </p>
+  </section>
+
+  <section class="project-details">
+    <details class="detail-block">
+      <summary>Mi aporte</summary>
+      <ul>
+        <li>Diseño de ideas para el videojuego</li>
+        <li>Definición de las mecánicas principales</li>
+        <li>Generación de demo de una mecánica principal</li>
+        <li>Definición de la estética del escenario</li>
+        <li>Organización del trabajo del equipo</li>
+        <li>Apoyo en la dirección creativa</li>
+        <li>Preparación y presentación del pitch</li>
+        <li>Coordinación entre integrantes de distintas universidades</li>
+      </ul>
+    </details>
+    <details class="detail-block">
+      <summary>Herramientas</summary>
+      <ul>
+        <li>Canvas</li>
+        <li>Blender</li>
+        <li>Unity</li>
+      </ul>
+    </details>
+    <details class="detail-block">
+      <summary>Lo que demuestra</summary>
+      <ul>
+        <li>Trabajo bajo presión</li>
+        <li>Diseño de videojuegos desde cero</li>
+        <li>Capacidad de ideación rápida</li>
+        <li>Comunicación efectiva</li>
+        <li>Liderazgo técnico y creativo</li>
+        <li>Organización de equipos multidisciplinarios</li>
+        <li>Adaptabilidad al trabajar con personas desconocidas</li>
+        <li>Presentación profesional frente a jurado</li>
+      </ul>
+    </details>
+  </section>
+
+</header>
+
+<main class="project-container">
+
+<!-- ===== GALERÍA DEL PROCESO Y EVENTO ===== -->
+<!-- Reemplaza cada src por tus fotos/documentos reales.               -->
+<!-- Sugerencia de carpeta: assets/images/projects/PrimerCambio/       -->
+<section class="gallery">
+
+  <figure>
+    <!-- Foto del equipo o de la ceremonia de premiación -->
+    <img src="../assets/images/projects/PrimerCambio/equipo_premiacion.jpg" onclick="openModalImage(this.src)">
+    <figcaption>Equipo recibiendo el primer lugar.</figcaption>
+  </figure>
+
+  <figure>
+    <!-- Documento del Game Design Canvas que usaron durante la hackatón -->
+    <img src="../assets/images/projects/PrimerCambio/game-design-canvas.jpg" onclick="openModalImage(this.src)">
+    <figcaption>Game Design Canvas del proyecto.</figcaption>
+  </figure>
+
+  <figure>
+    <!-- Bocetos de mecánicas o diagramas de flujo del gameplay -->
+    <img src="../assets/images/projects/PrimerCambio/bocetos_mecanicas.jpg" onclick="openModalImage(this.src)">
+    <figcaption>Bocetos y diagrama de flujo de las mecánicas.</figcaption>
+  </figure>
+
+  <figure>
+    <!-- Foto durante el proceso de ideación / trabajo en equipo -->
+    <img src="../assets/images/projects/PrimerCambio/proceso_ideacion.jpg" onclick="openModalImage(this.src)">
+    <figcaption>Proceso de ideación durante las 48 horas.</figcaption>
+  </figure>
+
+</section>
+
+</main>
+
+<!-- ===== MODAL GLOBAL ===== -->
+<div id="modal">
+  <span id="modal-close" onclick="closeModal()">✖</span>
+  <div id="modal-content"></div>
+</div>
+
+<script>
+function openModalImage(src){
+  const modal = document.getElementById("modal");
+  const content = document.getElementById("modal-content");
+
+  content.innerHTML = `<img src="${src}">`;
+  modal.style.display = "flex";
+}
+
+function closeModal(){
+  document.getElementById("modal").style.display = "none";
+}
+</script>
+
+</body>
+</html>
