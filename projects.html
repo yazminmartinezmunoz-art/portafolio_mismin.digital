@@ -326,7 +326,7 @@ function closeModal(){
       <div class="secondary-media carousel">
         <div class="carousel-track">
 
-          <!-- DUPLICA ESTE BLOQUE por cada imagen que agregues -->
+          <!-- DUPLICA ESTE BLOQUE por cada imagen que agregues 
           <div class="carousel-slide">
             <img src="assets/images/projects/Secundarios/goshi-smash-01.jpg" alt="Goshi Smash - gameplay"onclick="openModalImage(this.src)">
             <span class="carousel-caption">Prototipo en Unity</span>
@@ -334,6 +334,12 @@ function closeModal(){
           <div class="carousel-slide">
             <img src="assets/images/projects/Secundarios/goshi-smash-02.jpg" alt="Goshi Smash - personaje"onclick="openModalImage(this.src)">
             <span class="carousel-caption">Goshi como protagonista</span>
+          </div>-->
+          <div class="carousel-slide">
+            <video class="video-thumb" preload="metadata" onclick="openModalVideoFromEl(this)">
+              <source src="assets/images/projects/Secundarios/GoshiGoloshi" type="video/mp4">
+            </video>
+            <span class="carousel-caption">Prototipo en Unity</span>
           </div>
           <!-- FIN DEL BLOQUE A DUPLICAR -->
 
@@ -347,6 +353,7 @@ function closeModal(){
         <span class="secondary-tools">Unity</span>
       </div>
     </div>
+    
 
     <!-- Escena de terraza -->
     <div class="secondary-card">

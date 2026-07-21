@@ -23,3 +23,23 @@ function moveCarousel(btn, direction) {
   track.dataset.index = index;
   track.style.transform = `translateX(-${index * 100}%)`;
 }
+// =========================
+// ABRIR VIDEO EN MODAL DESDE EL PROPIO ELEMENTO
+// =========================
+// A diferencia de openModalVideo(id), esta no necesita un id único:
+// recibe el <video> directamente (útil para videos dentro del carrusel,
+// donde hay varias tarjetas repetidas y sería fácil chocar ids).
+function openModalVideoFromEl(videoEl){
+  const modal = document.getElementById("modal");
+  const content = document.getElementById("modal-content");
+
+  const clone = videoEl.cloneNode(true);
+  clone.controls = true;
+  clone.autoplay = true;
+  clone.muted = false;
+  clone.classList.remove("video-thumb"); // que no le salga el botón de play encima, dentro del modal
+
+  content.innerHTML = "";
+  content.appendChild(clone);
+  modal.style.display = "flex";
+}

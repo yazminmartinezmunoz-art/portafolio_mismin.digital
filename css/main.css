@@ -1491,3 +1491,10 @@ footer {
     font-size:1.5rem;
   }
 }
+/* El video ocupa el mismo espacio que ocuparía una imagen dentro del slide */
+.carousel-slide video{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}

@@ -71,20 +71,30 @@
 <section class="interactive-grid">
 
   <div class="interactive-card">
-    <div class="media-wrapper" onclick="openModalVideo('gameplayVideo')">
-      <video id="gameplayVideo" autoplay loop muted>
-        <source src="../assets/videos/projects/ABridgeTooDumb/gameplay-demo.mp4" type="video/mp4">
+    <div class="media-wrapper video-thumb" onclick="openModalVideo('gameplayVideo')">
+      <video id="gameplayVideo" preload="metadata">
+        <source src="../assets/images/projects/ABridgeTooDumb/GamePlay_ABridgeTooDumb.mp4" type="video/mp4">
       </video>
     </div>
     <div class="media-caption">
       Demo de gameplay cooperativo — construcción de puentes en tiempo real.
     </div>
   </div>
+  <div class="interactive-card">
+    <div class="media-wrapper video-thumb" onclick="openModalVideo('MecanicaBoton')">
+      <video id="MecanicaBoton" preload="metadata">
+        <source src="../assets/images/projects/ABridgeTooDumb/MecanicaBoton.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="media-caption">
+      Mecanica "Generación de materiales".
+    </div>
+  </div>
 
 </section>
 <!-- ===== GALERÍA ===== -->
 <!-- Reemplaza cada src por tus capturas/videos reales -->
-<!-- Sugerencia de carpeta: assets/images/projects/ABridgeTooDumb/ -->
+<!-- Sugerencia de carpeta: assets/images/projects/ABridgeTooDumb/ 
 <section class="gallery">
 
   <figure>
@@ -102,7 +112,7 @@
     <figcaption>Islas flotantes del escenario.</figcaption>
   </figure>
 
-</section>
+</section>-->
 
 </main>
 
