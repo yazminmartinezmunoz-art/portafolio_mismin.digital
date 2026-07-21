@@ -233,9 +233,19 @@
     modal.style.display = "flex";
   }
 
-  function closeModal(){
-    document.getElementById("modal").style.display="none";
+function closeModal(){
+  const content = document.getElementById("modal-content");
+
+  // Si hay un video reproduciéndose dentro del modal, lo pausamos
+  // y reiniciamos antes de ocultar (si no, sigue sonando de fondo)
+  const video = content.querySelector("video");
+  if (video) {
+    video.pause();
+    video.currentTime = 0;
   }
+
+  document.getElementById("modal").style.display = "none";
+}
 
   renderMedia("media1");
   renderMedia("media2");

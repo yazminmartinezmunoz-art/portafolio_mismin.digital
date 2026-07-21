@@ -155,7 +155,17 @@ function openModalImage(src){
 }
 
 function closeModal(){
-  document.getElementById("modal").style.display="none";
+  const content = document.getElementById("modal-content");
+
+  // Si hay un video reproduciéndose dentro del modal, lo pausamos
+  // y reiniciamos antes de ocultar (si no, sigue sonando de fondo)
+  const video = content.querySelector("video");
+  if (video) {
+    video.pause();
+    video.currentTime = 0;
+  }
+
+  document.getElementById("modal").style.display = "none";
 }
 </script>
 

@@ -31,6 +31,13 @@ function openModalImage(src){
 function closeModal(){
   document.getElementById("modal").style.display = "none";
 }
+// Si el usuario cambia de pestaña o minimiza, pausa cualquier video del modal
+document.addEventListener("visibilitychange", () => {
+  if (document.hidden) {
+    const video = document.querySelector("#modal-content video");
+    if (video) video.pause();
+  }
+});
 </script>
 
 <body>
@@ -335,9 +342,9 @@ function closeModal(){
             <img src="assets/images/projects/Secundarios/goshi-smash-02.jpg" alt="Goshi Smash - personaje"onclick="openModalImage(this.src)">
             <span class="carousel-caption">Goshi como protagonista</span>
           </div>-->
-          <div class="carousel-slide">
-            <video class="video-thumb" preload="metadata" onclick="openModalVideoFromEl(this)">
-              <source src="assets/images/projects/Secundarios/GoshiGoloshi" type="video/mp4">
+          <div class="carousel-slide video-thumb" onclick="openModalVideoFromEl(this.querySelector('video'))">
+            <video preload="metadata" poster="assets/images/projects/Secundarios/GoshiGoloshi_Preview.jpg">
+              <source src="assets/images/projects/Secundarios/GoshiGoloshi.mp4" type="video/mp4">
             </video>
             <span class="carousel-caption">Prototipo en Unity</span>
           </div>

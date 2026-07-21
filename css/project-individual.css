@@ -257,9 +257,15 @@ body{
   cursor: pointer;
 }
 .media-wrapper video{
-  width:100%;
   border-radius:14px;
   display:block;
+  width: 100%;
+}
+/* Mismo comportamiento que .media-wrapper img, pero para <video> */
+.media-wrapper video{
+
+  height: 100%;
+  object-fit: cover;   /* recorta manteniendo proporción, en vez de deformar */
 }
 
 /* SUBTÍTULOS BAJO VIDEO */
