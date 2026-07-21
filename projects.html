@@ -13,7 +13,26 @@
   <script src="js/projects-filter.js" defer></script>
   <script src="js/carousel.js" defer></script>
 </head>
-  
+
+<!-- ===== MODAL GLOBAL ===== -->
+<div id="modal">
+  <span id="modal-close" onclick="closeModal()">✖</span>
+  <div id="modal-content"></div>
+</div>
+
+<script>
+function openModalImage(src){
+  const modal = document.getElementById("modal");
+  const content = document.getElementById("modal-content");
+  content.innerHTML = `<img src="${src}">`;
+  modal.style.display = "flex";
+}
+
+function closeModal(){
+  document.getElementById("modal").style.display = "none";
+}
+</script>
+
 <body>
 
 <!-- LÍNEAS FUTURISTAS DE FONDO (TODA LA PÁGINA) -->
@@ -302,6 +321,97 @@
 
   <div class="secondary-grid">
 
+    <!-- Goshi Smash -->
+    <div class="secondary-card">
+      <div class="secondary-media carousel">
+        <div class="carousel-track">
+
+          <!-- DUPLICA ESTE BLOQUE por cada imagen que agregues -->
+          <div class="carousel-slide">
+            <img src="assets/images/projects/Secundarios/goshi-smash-01.jpg" alt="Goshi Smash - gameplay"onclick="openModalImage(this.src)">
+            <span class="carousel-caption">Prototipo en Unity</span>
+          </div>
+          <div class="carousel-slide">
+            <img src="assets/images/projects/Secundarios/goshi-smash-02.jpg" alt="Goshi Smash - personaje"onclick="openModalImage(this.src)">
+            <span class="carousel-caption">Goshi como protagonista</span>
+          </div>
+          <!-- FIN DEL BLOQUE A DUPLICAR -->
+
+        </div>
+        <button class="carousel-arrow prev" onclick="moveCarousel(this, -1)">‹</button>
+        <button class="carousel-arrow next" onclick="moveCarousel(this, 1)">›</button>
+      </div>
+      <div class="secondary-info">
+        <h4>Goshi Goloshi</h4>
+        <p>Prototipo móvil estilo "Golpea al topo" protagonizado por Goshi.</p>
+        <span class="secondary-tools">Unity</span>
+      </div>
+    </div>
+
+    <!-- Escena de terraza -->
+    <div class="secondary-card">
+      <div class="secondary-media carousel">
+        <div class="carousel-track">
+
+          <!-- DUPLICA ESTE BLOQUE por cada imagen que agregues -->
+          <div class="carousel-slide">
+            <img src="assets/images/projects/Secundarios/render_Terraza_Mimbre.png" alt="Escena de terraza"onclick="openModalImage(this.src)">
+            <span class="carousel-caption">Vista general del escenario</span>
+          </div>
+          <div class="carousel-slide">
+            <img src="assets/images/projects/Secundarios/Referencia_TerrazaMimbre.png" alt="Escena de terraza - detalle"onclick="openModalImage(this.src)">
+            <span class="carousel-caption">Referencia</span>
+          </div>
+          <!-- FIN DEL BLOQUE A DUPLICAR -->
+
+        </div>
+        <button class="carousel-arrow prev" onclick="moveCarousel(this, -1)">‹</button>
+        <button class="carousel-arrow next" onclick="moveCarousel(this, 1)">›</button>
+      </div>
+      <div class="secondary-info">
+        <h4>Escena de terraza</h4>
+        <p>Sillones de mimbre y mesa de centro — práctica de modelado y composición.</p>
+        <span class="secondary-tools">Blender</span>
+      </div>
+    </div>
+
+
+    <!-- Belleza Liss -->
+    <div class="secondary-card">
+      <div class="secondary-media carousel">
+        <div class="carousel-track">
+
+          <!-- DUPLICA ESTE BLOQUE por cada imagen que agregues -->
+          <div class="carousel-slide">
+            <img src="assets/images/projects/Secundarios/Mano1_Uña1.png" alt="Belleza Liss - mano 3D"onclick="openModalImage(this.src)">
+            <span class="carousel-caption">Mano 1 Diseño 1</span>
+          </div>
+          <div class="carousel-slide">
+            <img src="assets/images/projects/Secundarios/Mano2_Uña1.png" alt="Belleza Liss - Unity"onclick="openModalImage(this.src)">
+            <span class="carousel-caption">Mano 2 Diseño 1</span>
+          </div>
+                    <div class="carousel-slide">
+            <img src="assets/images/projects/Secundarios/Mano1_Uña2.png" alt="Belleza Liss - mano 3D"onclick="openModalImage(this.src)">
+            <span class="carousel-caption">Mano 1 Diseño 2</span>
+          </div>
+          <div class="carousel-slide">
+            <img src="assets/images/projects/Secundarios/Mano2_Uña2.png" alt="Belleza Liss - Unity"onclick="openModalImage(this.src)">
+            <span class="carousel-caption">Mano 2 Diseño 2</span>
+          </div>
+          <!-- FIN DEL BLOQUE A DUPLICAR -->
+
+        </div>
+        <button class="carousel-arrow prev" onclick="moveCarousel(this, -1)">‹</button>
+        <button class="carousel-arrow next" onclick="moveCarousel(this, 1)">›</button>
+      </div>
+      <div class="secondary-info">
+        <h4>Belleza Liss</h4>
+        <p>Mano 3D con uñas intercambiables para un emprendimiento de manicure, interactiva en Unity.</p>
+        <span class="secondary-tools">Blender · Unity</span>
+      </div>
+    </div>
+
+
     <!-- Memoria Fragmentada -->
     <div class="secondary-card">
       <div class="secondary-media carousel">
@@ -309,24 +419,24 @@
 
           <!-- DUPLICA ESTE BLOQUE por cada imagen que agregues -->
           <div class="carousel-slide">
-            <img src="assets/images/projects/Secundarios/RelojArena.gif" alt="Memoria Fragmentada - juego">
+            <img src="assets/images/projects/Secundarios/RelojArena.gif" alt="Memoria Fragmentada - juego"onclick="openModalImage(this.src)">
             <span class="carousel-caption"></span>
           </div>
           <div class="carousel-slide">
-            <img src="assets/images/projects/Secundarios/Tele5.gif" alt="Memoria Fragmentada - juego">
+            <img src="assets/images/projects/Secundarios/Tele5.gif" alt="Memoria Fragmentada - juego"onclick="openModalImage(this.src)">
             <span class="carousel-caption"></span>
           </div>
 
           <div class="carousel-slide">
-            <img src="assets/images/projects/Secundarios/LibreroMaceta.png" alt="Memoria Fragmentada - juego">
+            <img src="assets/images/projects/Secundarios/LibreroMaceta.png" alt="Memoria Fragmentada - juego"onclick="openModalImage(this.src)">
             <span class="carousel-caption"></span>
           </div>
           <div class="carousel-slide">
-            <img src="assets/images/projects/Secundarios/MesitaCostadoFlorero.png" alt="Memoria Fragmentada - juego">
+            <img src="assets/images/projects/Secundarios/MesitaCostadoFlorero.png" alt="Memoria Fragmentada - juego"onclick="openModalImage(this.src)">
             <span class="carousel-caption"></span>
           </div>
           <div class="carousel-slide">
-            <img src="assets/images/projects/Secundarios/Moai.png" alt="Memoria Fragmentada - juego">
+            <img src="assets/images/projects/Secundarios/Moai.png" alt="Memoria Fragmentada - juego"onclick="openModalImage(this.src)">
             <span class="carousel-caption"></span>
           </div>
           <!-- FIN DEL BLOQUE A DUPLICAR -->
@@ -349,15 +459,15 @@
 
           <!-- DUPLICA ESTE BLOQUE por cada imagen que agregues -->
           <div class="carousel-slide">
-            <img src="assets/images/projects/Secundarios/E-sport Papu.png" alt="Logo Esports - versión color">
+            <img src="assets/images/projects/Secundarios/E-sport Papu.png" alt="Logo Esports - versión color"onclick="openModalImage(this.src)">
             <span class="carousel-caption">Logo E-Sport</span>
           </div>
           <div class="carousel-slide">
-            <img src="assets/images/projects/Secundarios/Papucho.png" alt="Logo Esports - variantes">
+            <img src="assets/images/projects/Secundarios/Papucho.png" alt="Logo Esports - variantes"onclick="openModalImage(this.src)">
             <span class="carousel-caption">Referencia 1</span>
           </div>
           <div class="carousel-slide">
-            <img src="assets/images/projects/Secundarios/Referencia_Papu.png" alt="Logo Esports - variantes">
+            <img src="assets/images/projects/Secundarios/Referencia_Papu.png" alt="Logo Esports - variantes"onclick="openModalImage(this.src)">
             <span class="carousel-caption">Referencia 2</span>
           </div>
           <!-- FIN DEL BLOQUE A DUPLICAR -->
@@ -373,21 +483,19 @@
       </div>
     </div>
 
-    <!-- Espada de Yuuki -->
+    <!-- Espada de Yuuki 
     <div class="secondary-card">
       <div class="secondary-media carousel">
         <div class="carousel-track">
 
-          <!-- DUPLICA ESTE BLOQUE por cada imagen que agregues -->
           <div class="carousel-slide">
-            <img src="assets/images/projects/Secundarios/" alt="Espada de Yuuki - modelo">
+            <img src="assets/images/projects/Secundarios/" alt="Espada de Yuuki - modelo"onclick="openModalImage(this.src)">
             <span class="carousel-caption">Modelo 3D terminado</span>
           </div>
           <div class="carousel-slide">
-            <img src="assets/images/projects/Secundarios/espada-yuuki-02.jpg" alt="Espada de Yuuki - wireframe">
+            <img src="assets/images/projects/Secundarios/espada-yuuki-02.jpg" alt="Espada de Yuuki - wireframe"onclick="openModalImage(this.src)">
             <span class="carousel-caption">Wireframe / detalle de malla</span>
           </div>
-          <!-- FIN DEL BLOQUE A DUPLICAR -->
 
         </div>
         <button class="carousel-arrow prev" onclick="moveCarousel(this, -1)">‹</button>
@@ -398,77 +506,21 @@
         <p>Modelo 3D de la espada utilizada por Yuuki en Sword Art Online.</p>
         <span class="secondary-tools">Blender</span>
       </div>
-    </div>
+    </div>-->
 
-    <!-- Escena de terraza -->
+    <!-- Diseño 2D de Goshi 
     <div class="secondary-card">
       <div class="secondary-media carousel">
         <div class="carousel-track">
 
-          <!-- DUPLICA ESTE BLOQUE por cada imagen que agregues -->
           <div class="carousel-slide">
-            <img src="assets/images/projects/Secundarios/render_Terraza_Mimbre.png" alt="Escena de terraza">
-            <span class="carousel-caption">Vista general del escenario</span>
-          </div>
-          <div class="carousel-slide">
-            <img src="assets/images/projects/Secundarios/Referencia_TerrazaMimbre.png" alt="Escena de terraza - detalle">
-            <span class="carousel-caption">Referencia</span>
-          </div>
-          <!-- FIN DEL BLOQUE A DUPLICAR -->
-
-        </div>
-        <button class="carousel-arrow prev" onclick="moveCarousel(this, -1)">‹</button>
-        <button class="carousel-arrow next" onclick="moveCarousel(this, 1)">›</button>
-      </div>
-      <div class="secondary-info">
-        <h4>Escena de terraza</h4>
-        <p>Sillones de mimbre y mesa de centro — práctica de modelado y composición.</p>
-        <span class="secondary-tools">Blender</span>
-      </div>
-    </div>
-
-    <!-- Goshi Smash -->
-    <div class="secondary-card">
-      <div class="secondary-media carousel">
-        <div class="carousel-track">
-
-          <!-- DUPLICA ESTE BLOQUE por cada imagen que agregues -->
-          <div class="carousel-slide">
-            <img src="assets/images/projects/Secundarios/goshi-smash-01.jpg" alt="Goshi Smash - gameplay">
-            <span class="carousel-caption">Prototipo en Unity</span>
-          </div>
-          <div class="carousel-slide">
-            <img src="assets/images/projects/Secundarios/goshi-smash-02.jpg" alt="Goshi Smash - personaje">
-            <span class="carousel-caption">Goshi como protagonista</span>
-          </div>
-          <!-- FIN DEL BLOQUE A DUPLICAR -->
-
-        </div>
-        <button class="carousel-arrow prev" onclick="moveCarousel(this, -1)">‹</button>
-        <button class="carousel-arrow next" onclick="moveCarousel(this, 1)">›</button>
-      </div>
-      <div class="secondary-info">
-        <h4>Goshi Smash</h4>
-        <p>Prototipo móvil estilo "Golpea al topo" protagonizado por Goshi.</p>
-        <span class="secondary-tools">Unity</span>
-      </div>
-    </div>
-
-    <!-- Diseño 2D de Goshi -->
-    <div class="secondary-card">
-      <div class="secondary-media carousel">
-        <div class="carousel-track">
-
-          <!-- DUPLICA ESTE BLOQUE por cada imagen que agregues -->
-          <div class="carousel-slide">
-            <img src="assets/images/projects/Secundarios/goshi-2d-01.jpg" alt="Diseño 2D de Goshi - concepto">
+            <img src="assets/images/projects/Secundarios/goshi-2d-01.jpg" alt="Diseño 2D de Goshi - concepto"onclick="openModalImage(this.src)">
             <span class="carousel-caption">Concepto ilustrado</span>
           </div>
           <div class="carousel-slide">
-            <img src="assets/images/projects/Secundarios/goshi-2d-02.jpg" alt="Diseño 2D de Goshi - variaciones">
+            <img src="assets/images/projects/Secundarios/goshi-2d-02.jpg" alt="Diseño 2D de Goshi - variaciones"onclick="openModalImage(this.src)">
             <span class="carousel-caption">Variaciones de color</span>
           </div>
-          <!-- FIN DEL BLOQUE A DUPLICAR -->
 
         </div>
         <button class="carousel-arrow prev" onclick="moveCarousel(this, -1)">‹</button>
@@ -479,42 +531,7 @@
         <p>Concepto ilustrado usado como base para el posterior modelo 3D.</p>
         <span class="secondary-tools">Ibis Paint</span>
       </div>
-    </div>
-
-    <!-- Belleza Liss -->
-    <div class="secondary-card">
-      <div class="secondary-media carousel">
-        <div class="carousel-track">
-
-          <!-- DUPLICA ESTE BLOQUE por cada imagen que agregues -->
-          <div class="carousel-slide">
-            <img src="assets/images/projects/Secundarios/Mano1_Uña1.png" alt="Belleza Liss - mano 3D">
-            <span class="carousel-caption">Mano 1 Diseño 1</span>
-          </div>
-          <div class="carousel-slide">
-            <img src="assets/images/projects/Secundarios/Mano2_Uña1.png" alt="Belleza Liss - Unity">
-            <span class="carousel-caption">Mano 2 Diseño 1</span>
-          </div>
-                    <div class="carousel-slide">
-            <img src="assets/images/projects/Secundarios/Mano1_Uña2.png" alt="Belleza Liss - mano 3D">
-            <span class="carousel-caption">Mano 1 Diseño 2</span>
-          </div>
-          <div class="carousel-slide">
-            <img src="assets/images/projects/Secundarios/Mano2_Uña2.png" alt="Belleza Liss - Unity">
-            <span class="carousel-caption">Mano 2 Diseño 2</span>
-          </div>
-          <!-- FIN DEL BLOQUE A DUPLICAR -->
-
-        </div>
-        <button class="carousel-arrow prev" onclick="moveCarousel(this, -1)">‹</button>
-        <button class="carousel-arrow next" onclick="moveCarousel(this, 1)">›</button>
-      </div>
-      <div class="secondary-info">
-        <h4>Belleza Liss</h4>
-        <p>Mano 3D con uñas intercambiables para un emprendimiento de manicure, interactiva en Unity.</p>
-        <span class="secondary-tools">Blender · Unity</span>
-      </div>
-    </div>
+    </div>-->
 
   </div>
 

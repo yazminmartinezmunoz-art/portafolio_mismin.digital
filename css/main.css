@@ -1454,3 +1454,40 @@ footer {
     opacity: 1;
   }
 }
+
+/* ===== MODAL GLOBAL (zoom de imágenes en projects.html) ===== */
+#modal{
+  display:none;
+  position:fixed;
+  inset:0;
+  background: rgba(0,0,0,0.85);
+  z-index: 999;
+  align-items:center;
+  justify-content:center;
+  padding: 20px;
+}
+
+#modal-content img{
+  max-width: 90vw;
+  max-height: 85vh;
+  border-radius: 12px;
+  display:block;
+}
+
+#modal-close{
+  position:absolute;
+  top:20px;
+  right:30px;
+  font-size:1.8rem;
+  color:#fff;
+  cursor:pointer;
+  z-index:1000;
+}
+
+@media (max-width:768px){
+  #modal-close{
+    top:12px;
+    right:16px;
+    font-size:1.5rem;
+  }
+}

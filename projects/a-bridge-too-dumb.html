@@ -67,6 +67,21 @@
 
 <main class="project-container">
 
+<!-- ===== VIDEO DEMO DE GAMEPLAY (tarjeta grande, sin slider) ===== -->
+<section class="interactive-grid">
+
+  <div class="interactive-card">
+    <div class="media-wrapper" onclick="openModalVideo('gameplayVideo')">
+      <video id="gameplayVideo" autoplay loop muted>
+        <source src="../assets/videos/projects/ABridgeTooDumb/gameplay-demo.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="media-caption">
+      Demo de gameplay cooperativo — construcción de puentes en tiempo real.
+    </div>
+  </div>
+
+</section>
 <!-- ===== GALERÍA ===== -->
 <!-- Reemplaza cada src por tus capturas/videos reales -->
 <!-- Sugerencia de carpeta: assets/images/projects/ABridgeTooDumb/ -->
@@ -103,6 +118,20 @@ function openModalImage(src){
   const content = document.getElementById("modal-content");
 
   content.innerHTML = `<img src="${src}">`;
+  modal.style.display = "flex";
+}
+
+function openModalVideo(videoId){
+  const modal = document.getElementById("modal");
+  const content = document.getElementById("modal-content");
+
+  const video = document.getElementById(videoId).cloneNode(true);
+  video.controls = true;
+  video.autoplay = true;
+  video.muted = false;
+
+  content.innerHTML = "";
+  content.appendChild(video);
   modal.style.display = "flex";
 }
 
