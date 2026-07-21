@@ -94,11 +94,41 @@
 </header>
 
 <main class="project-container">
+<!-- ===== VIDEO DE LA MECÁNICA PRINCIPAL ===== -->
+<section class="interactive-grid">
 
+  <div class="interactive-card">
+    <div class="media-wrapper" onclick="openModalVideo('mecanicaVideo')">
+      <video id="mecanicaVideo" autoplay loop muted>
+        <source src="../assets/images/projects/PrimerCambio/GAnarPuntos.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="media-caption">
+      Demo de la mecánica "Ganar puntos".
+    </div>
+  </div>
+    <div class="interactive-card">
+    <div class="media-wrapper" onclick="openModalVideo('mecanicaVideo')">
+      <video id="mecanicaVideo" autoplay loop muted>
+        <source src="../assets/images/projects/PrimerCambio/Perder puntos.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="media-caption">
+      Demo de la mecánica "Perder puntos".
+    </div>
+  </div>
+
+</section>
 <!-- ===== GALERÍA DEL PROCESO Y EVENTO ===== -->
 <!-- Reemplaza cada src por tus fotos/documentos reales.               -->
 <!-- Sugerencia de carpeta: assets/images/projects/PrimerCambio/       -->
 <section class="gallery">
+
+  <figure>
+    <!-- Foto del equipo o de la ceremonia de premiación -->
+    <img src="../assets/images/projects/PrimerCambio/LogoPrimerCambio.png" onclick="openModalImage(this.src)">
+    <figcaption>Logo</figcaption>
+  </figure>
 
   <figure>
     <!-- Foto del equipo o de la ceremonia de premiación -->
@@ -107,21 +137,39 @@
   </figure>
 
   <figure>
+    <!-- Foto del equipo o de la ceremonia de premiación -->
+    <img src="../assets/images/projects/PrimerCambio/Pitch.jpg" onclick="openModalImage(this.src)">
+    <figcaption>Durante el Pitch.</figcaption>
+  </figure>
+
+  <figure>
+    <!-- Foto del equipo o de la ceremonia de premiación -->
+    <img src="../assets/images/projects/PrimerCambio/Automovil.jpg" onclick="openModalImage(this.src)">
+    <figcaption>Durante el Pitch.</figcaption>
+  </figure>
+
+  <figure>
     <!-- Documento del Game Design Canvas que usaron durante la hackatón -->
-    <img src="../assets/images/projects/PrimerCambio/game-design-canvas.jpg" onclick="openModalImage(this.src)">
-    <figcaption>Game Design Canvas del proyecto.</figcaption>
+    <img src="../assets/images/projects/PrimerCambio/Menu_PrimerCambio.png" onclick="openModalImage(this.src)">
+    <figcaption>Menú</figcaption>
   </figure>
 
   <figure>
     <!-- Bocetos de mecánicas o diagramas de flujo del gameplay -->
-    <img src="../assets/images/projects/PrimerCambio/bocetos_mecanicas.jpg" onclick="openModalImage(this.src)">
-    <figcaption>Bocetos y diagrama de flujo de las mecánicas.</figcaption>
+    <img src="../assets/images/projects/PrimerCambio/Controles_PrimerCambio.png" onclick="openModalImage(this.src)">
+    <figcaption>Controles</figcaption>
   </figure>
 
   <figure>
     <!-- Foto durante el proceso de ideación / trabajo en equipo -->
-    <img src="../assets/images/projects/PrimerCambio/proceso_ideacion.jpg" onclick="openModalImage(this.src)">
-    <figcaption>Proceso de ideación durante las 48 horas.</figcaption>
+    <img src="../assets/images/projects/PrimerCambio/Tienda_PrimerCAmbio.png" onclick="openModalImage(this.src)">
+    <figcaption>Tienda</figcaption>
+  </figure>
+
+  <figure>
+    <!-- Foto durante el proceso de ideación / trabajo en equipo -->
+    <img src="../assets/images/projects/PrimerCambio/Logros_PrimerCambio.png" onclick="openModalImage(this.src)">
+    <figcaption>Logros</figcaption>
   </figure>
 
 </section>
@@ -140,6 +188,20 @@ function openModalImage(src){
   const content = document.getElementById("modal-content");
 
   content.innerHTML = `<img src="${src}">`;
+  modal.style.display = "flex";
+}
+/* ===== LUPA PARA VIDEO ===== */
+function openModalVideo(videoId){
+  const modal = document.getElementById("modal");
+  const content = document.getElementById("modal-content");
+
+  const video = document.getElementById(videoId).cloneNode(true);
+  video.controls = true;
+  video.autoplay = true;
+  video.muted = false;
+
+  content.innerHTML = "";
+  content.appendChild(video);
   modal.style.display = "flex";
 }
 
