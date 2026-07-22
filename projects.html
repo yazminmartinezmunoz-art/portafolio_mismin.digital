@@ -30,14 +30,15 @@ function openModalImage(src){
 
 function closeModal(){
   document.getElementById("modal").style.display = "none";
-}
-// Si el usuario cambia de pestaña o minimiza, pausa cualquier video del modal
-document.addEventListener("visibilitychange", () => {
-  if (document.hidden) {
-    const video = document.querySelector("#modal-content video");
-    if (video) video.pause();
+  // Si el usuario cambia de pestaña o minimiza, pausa cualquier video del modal
+  document.addEventListener("visibilitychange", () => {
+    if (document.hidden) {
+      const video = document.querySelector("#modal-content video");
+      if (video) video.pause();
   }
 });
+}
+
 </script>
 
 <body>
@@ -343,7 +344,7 @@ document.addEventListener("visibilitychange", () => {
             <span class="carousel-caption">Goshi como protagonista</span>
           </div>-->
           <div class="carousel-slide video-thumb" onclick="openModalVideoFromEl(this.querySelector('video'))">
-            <video preload="metadata" poster="assets/images/projects/Secundarios/GoshiGoloshi_Preview.jpg">
+            <video preload="metadata" poster="assets/images/projects/Secundarios/GoshiGoloshi_Preview.png">
               <source src="assets/images/projects/Secundarios/GoshiGoloshi.mp4" type="video/mp4">
             </video>
             <span class="carousel-caption">Prototipo en Unity</span>
@@ -356,7 +357,7 @@ document.addEventListener("visibilitychange", () => {
       </div>
       <div class="secondary-info">
         <h4>Goshi Goloshi</h4>
-        <p>Prototipo móvil estilo "Golpea al topo" protagonizado por Goshi.</p>
+        <p>Prototipo mobile estilo "Golpea al topo" protagonizado por Goshi. Rol: Diseños de Goshi</p>
         <span class="secondary-tools">Unity</span>
       </div>
     </div>
