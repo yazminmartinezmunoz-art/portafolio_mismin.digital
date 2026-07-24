@@ -65,24 +65,18 @@
 <!-- ===== PANEL DÍA / NOCHE ===== 
 <section class="interactive-grid">
 
-<div class="interactive-card">
+  <div class="interactive-card">
+    <div class="media-wrapper" id="media1" onclick="openModalGeneric('media1')"></div>
+    
+    <div class="media-caption">
+      Iluminación diurna y nocturna del diorama.
+    </div>
+    <div class="switch-row">
+      <span>Día / Noche</span>
+      <div class="toggle" onclick="toggleMedia(this, 'media1')"></div>
+    </div>
 
-  <div class="media-wrapper" onclick="openModalVideo('roomVideo')">
-    <video id="roomVideo" autoplay loop muted>
-      <source src="assets/images/thumbnails/render_diorama_lady.png" type="video/mp4">
-    </video>
   </div>
-
-  <div class="media-caption">
-    Iluminación diurna y nocturna del diorama.
-  </div>
-
-  <div class="switch-row">
-    <span>Día / Noche</span>
-    <div class="toggle" onclick="toggleRoom(this)"></div>
-  </div>
-
-</div>
 
 </section>-->
 
@@ -90,20 +84,24 @@
 <!-- ===== GALERÍA DE PROPS ===== -->
 <section class="gallery">
 
-
 <figure>
-  <img src="../media/marinet_desk.jpg" onclick="openModalImage(this.src)">
-  <figcaption>Escritorio y objetos personales.</figcaption>
+  <img src="../assets/images/projects/DioramaLadybug/todolady_Render.png" onclick="openModalImage(this.src)">
+  <figcaption>Escena.</figcaption>
 </figure>
 
 <figure>
-  <img src="../media/marinet_lamp.jpg" onclick="openModalImage(this.src)">
-  <figcaption>Malla</figcaption>
+  <img src="../assets/images/projects/DioramaLadybug/Escritorio2_Render.png" onclick="openModalImage(this.src)">
+  <figcaption>Escritorio.</figcaption>
 </figure>
 
 <figure>
-  <img src="../media/marinet_window.jpg" onclick="openModalImage(this.src)">
-  <figcaption>Referencia</figcaption>
+  <img src="../assets/images/projects/DioramaLadybug/Tocador_Render.png" onclick="openModalImage(this.src)">
+  <figcaption>Tocador.</figcaption>
+</figure>
+
+<figure>
+  <img src="../assets/images/projects/DioramaLadybug/Moodboard.png" onclick="openModalImage(this.src)">
+  <figcaption>Moodboard.</figcaption>
 </figure>
 
 </section>
@@ -117,52 +115,113 @@
 </div>
 
 <script>
-function toggleRoom(el){
-  const video = document.getElementById("roomVideo");
 
-  if(el.classList.contains("active")){
-    el.classList.remove("active");
-    video.src="assets/images/thumbnails/render_diorama_lady.png";
-  } else {
-    el.classList.add("active");
-    video.src="../media/marinet_night.mp4";
+  // CONFIGURACIÓN (EDITAS AQUÍ)
+  const mediaConfigs = {
+
+    media1: {
+      state: "day",
+      states: {
+        day: {
+          type: "image",
+          src: "../assets/images/projects/DioramaLadybug/render_diorama_lady.png"
+        },
+        night: {
+          type: "image",
+          src: "../assets/images/projects/DioramaLadybug/render de noche diorama final ladybug.png"
+        }
+      }
+    },
+
+  };
+
+  let currentState = "day";
+
+  function renderMedia(id){
+      const container = document.getElementById(id);
+      const config = mediaConfigs[id];
+      const state = config.states[config.state];
+
+      container.innerHTML = "";
+
+      if(state.type === "image"){
+        const img = document.createElement("img");
+        img.src = state.src;
+        img.style.width = "100%";
+        img.style.borderRadius = "16px";
+        container.appendChild(img);
+      }
+
+      if(state.type === "video"){
+        const video = document.createElement("video");
+        video.src = state.src;
+        video.autoplay = true;
+        video.loop = true;
+        video.muted = true;
+        video.style.width = "100%";
+        video.style.borderRadius = "16px";
+        container.appendChild(video);
+      }
   }
-  video.play();
-}
 
-function openModalVideo(id){
-  const modal = document.getElementById("modal");
-  const content = document.getElementById("modal-content");
+  function toggleMedia(el, id){
+      const config = mediaConfigs[id];
 
-  const video = document.getElementById(id).cloneNode(true);
-  video.controls = true;
-  video.muted = false;
+      if(el.classList.contains("active")){
+        el.classList.remove("active");
+        config.state = "day";
+      } else {
+        el.classList.add("active");
+        config.state = "night";
+      }
 
-  content.innerHTML = "";
-  content.appendChild(video);
-  modal.style.display="flex";
-}
-
-function openModalImage(src){
-  const modal = document.getElementById("modal");
-  const content = document.getElementById("modal-content");
-  content.innerHTML = `<img src="${src}">`;
-  modal.style.display="flex";
-}
-
-function closeModal(){
-  const content = document.getElementById("modal-content");
-
-  // Si hay un video reproduciéndose dentro del modal, lo pausamos
-  // y reiniciamos antes de ocultar (si no, sigue sonando de fondo)
-  const video = content.querySelector("video");
-  if (video) {
-    video.pause();
-    video.currentTime = 0;
+      renderMedia(id);
   }
 
-  document.getElementById("modal").style.display = "none";
-}
+  function openModalGeneric(id){
+      const modal = document.getElementById("modal");
+      const content = document.getElementById("modal-content");
+      const config = mediaConfigs[id];
+      const state = config.states[config.state];
+
+      content.innerHTML = "";
+
+      if(state.type === "image"){
+        content.innerHTML = `<img src="${state.src}">`;
+      }
+
+      if(state.type === "video"){
+        const video = document.createElement("video");
+        video.src = state.src;
+        video.controls = true;
+        video.autoplay = true;
+        video.muted = false;
+        content.appendChild(video);
+      }
+
+      modal.style.display = "flex";
+  }
+
+  function openModalImage(src){
+    const modal = document.getElementById("modal");
+    const content = document.getElementById("modal-content");
+    content.innerHTML = `<img src="${src}">`;
+    modal.style.display="flex";
+  }
+
+  function closeModal(){
+    const content = document.getElementById("modal-content");
+
+    // Si hay un video reproduciéndose dentro del modal, lo pausamos
+    // y reiniciamos antes de ocultar (si no, sigue sonando de fondo)
+    const video = content.querySelector("video");
+    if (video) {
+      video.pause();
+      video.currentTime = 0;
+    }
+
+    document.getElementById("modal").style.display = "none";
+  }
 </script>
 
 </body>
