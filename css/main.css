@@ -38,7 +38,10 @@ section {
   transform:scale(1.15);
   overflow: visible;
 }
+.featured-projects h2{
+  font-size: 2rem;
 
+}
 /* Evita que el zoom de la sección desborde el viewport en tablet/mobile */
 @media (max-width: 1024px){
   .featured-projects{
