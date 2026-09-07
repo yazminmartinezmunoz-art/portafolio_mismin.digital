@@ -10,49 +10,90 @@
   <!-- ESTILOS PRINCIPALES -->
   <link rel="stylesheet" href="css/main.css">
 
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&family=Nunito:wght@400;600&display=swap" rel="stylesheet">
+
   <script src="js/video-hover.js" defer></script>
   <script src="js/background-video.js" defer></script>
   <script src="js/hero-background.js"></script>
 </head>
 
 <body>
+  <a href="index.html" class="brand-logo">
+  <img src="assets/icons/Logo_transparente.png" alt="Puwari - Marca personal">
+  </a>
   <!--===================== -->
   <!-- HERO / PRESENTACIÓN  -->
   <!-- ===================== -->
   <header class="hero">
 
-    <!-- ===== CAPA 1: VIDEO / IMAGEN DE FONDO ===== -->
+    <!-- FONDO — mismo video de siempre, solo se espeja con CSS -->
     <div class="hero-background">
-      <video
-        class="hero-bg-media"
-        autoplay
-        muted
-        loop
-        playsinline
-        preload="auto"
-      >
+      <video class="hero-bg-media" autoplay muted loop playsinline preload="auto">
         <source src="assets/backgrounds/home-bg.webm" type="video/webm">
         <source src="assets/backgrounds/Fondo_Haiko.mp4" type="video/mp4">
       </video>
     </div>
 
-    <!-- ===== CAPA 2: OVERLAY DEGRADADO ARTÍSTICO ===== -->
     <div class="hero-overlay"></div>
 
-    <!-- ===== CONTENIDO (NO SE TOCA) ===== -->
-    <div class="hero-content">
-      <h1>Diseñadora 3D <br> Yazmin Martínez</h1>
-      <p>Modelado y entornos estilizados para videojuegos</p>
+    <!-- CONTENEDOR DE DOS COLUMNAS -->
+    <div class="hero-layout">
 
-      <div class="hero-buttons">
-        <a href="projects.html" class="btn primary">Ver proyectos</a>
-        <a href="index.html#about" class="btn primary about">Sobre mí</a>
-        <!--<button class="btn secondary disabled">Explorar experiencia</button>-->
+      <!-- IZQUIERDA: nombre + especialidad + botones (queda sobre el personaje) -->
+      <div class="hero-intro">
+        <h1>Yazmin Martínez</h1>
+        <p>Modelado y entornos estilizados para videojuegos</p>
+
+        <div class="hero-buttons">
+          <a href="projects.html" class="btn primary">Ver proyectos</a>
+          <!--<a href="index.html#about" class="btn secondary">Sobre mí</a>-->
+        </div>
       </div>
+
+      <!-- DERECHA: tarjeta "Sobre mí" -->
+      <div class="hero-about" id="about">
+
+        <div class="hero-about-top">
+          <img src="assets/icons/Foto_Perfil.jpeg" class="profile-pic" alt="Foto de perfil">
+
+          <div class="hero-tools">
+            <img src="assets/icons/Blender-Logo.png" class="profile-hability" alt="Blender">
+            <img src="assets/icons/Unity.jpeg" class="profile-hability" alt="Unity">
+          </div>
+        </div>
+
+        <p class="about-text">
+          ° Diseñadora 3D con enfoque en creación de personajes,
+          entornos 3D y experiencias interactivas en Unity. <br>
+          ° Experiencia en modelado y texturizado en Blender,
+          optimización de escenas y trabajo en proyectos colaborativos en unity. <br>
+          ° Destaco por mi capacidad de trabajo en equipo, asumiendo
+          frecuentemente roles de liderazgo para coordinar y potenciar
+          el desempeño del grupo. <br>
+          ° Soy responsable, proactiva y comprometida con la mejora
+          continua y el aprendizaje constante.
+        </p>
+
+        <div class="contact-icons">
+          <a href="https://www.linkedin.com/in/yazmin-mart%C3%ADnez-853b87338/" target="_blank">
+            <img src="assets/icons/LinkedIn_icon.png" alt="LinkedIn">
+          </a>
+          <a href="mailto:yazmin.martinez.munoz@gmail.com">
+            <img src="assets/icons/gmail_icon.png" alt="Email">
+          </a>
+          <a href="https://drive.google.com/file/d/1cclqOCrH3x5tw3_zQnhqeuSDgaesTFwY/view?usp=sharing" target="_blank">
+            <img src="assets/icons/cv_icon.png" alt="CV">
+          </a>
+        </div>
+
+      </div>
+
     </div>
 
   </header>
-
 
 
   <section class="section-with-bg projects-bg">
@@ -264,85 +305,6 @@
     </section>
 
   </section>
-
-  
-  <section class="section-with-bg projects-bg">
-
-    <!-- FONDO DE LA SECCIÓN -->
-    <div class="section-background">
-      <video autoplay muted loop playsinline>
-        <source src="assets/backgrounds/Fondo_Haiko.mp4" type="video/mp4">
-      </video>
-    </div>
-
-    <!-- ========================= -->
-    <!-- SOBRE MÍ + CONTACTO      -->
-    <!-- ========================= -->
-    <section class="about-contact" id="about">
-
-      <h2>Sobre mí</h2>
-
-      <!-- CONTENIDO COMPLETO -->
-      <div class="about-content">
-
-        <!-- FOTO DE PERFIL -->
-        <img
-          src="assets/icons/Foto_Perfil.jpeg"
-          class="profile-pic"
-          alt="Foto de perfil"
-        >
-        <img 
-          src="assets/icons/Unity.jpeg"
-          class="profile-hability"
-          alt="Unity"        
-        >
-        <img 
-          src="assets/icons/Blender-Logo.png"
-          class="profile-hability"
-          alt="Blender"        
-        >
-
-        <!-- TEXTO DESCRIPTIVO -->
-        <p class="about-text">
-          ° Diseñadora 3D con enfoque en creación de personajes, 
-          entornos 3D y experiencias interactivas en Unity. <br>
-          ° Experiencia en modelado y texturizado en
-          Blender, optimización de escenas y trabajo
-          en proyectos colaborativos en unity. <br>
-          ° Destaco por mi capacidad de trabajo en equipo, asumiendo
-          frecuentemente roles de liderazgo para
-          coordinar y potenciar el desempeño del grupo. <br>
-          ° Soy responsable, proactiva y
-          comprometida con la mejora continua y el
-          aprendizaje constante.
-        </p>
-
-        <!-- ICONOS DE CONTACTO -->
-        <div class="contact-icons">
-
-          <a
-            href="https://www.linkedin.com/in/yazmin-mart%C3%ADnez-853b87338/"
-            target="_blank"
-          >
-            <img src="assets/icons/LinkedIn_icon.png" alt="LinkedIn">
-          </a>
-
-          <a href="mailto:yazmin.martinez.munoz@gmail.com">
-            <img src="assets/icons/gmail_icon.png" alt="Email">
-          </a>
-
-          <a href="https://drive.google.com/file/d/1cclqOCrH3x5tw3_zQnhqeuSDgaesTFwY/view?usp=sharing" target="_blank">
-            <img src="assets/icons/cv_icon.png" alt="CV">
-          </a>
-
-        </div>
-
-      </div>
-
-    </section>
-
-  </section>
-
   
   <!-- ========================= -->
   <!-- FOOTER                   -->
@@ -352,4 +314,5 @@
   </footer>
 
 </body>
+
 </html>

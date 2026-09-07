@@ -10,7 +10,7 @@
 
 .panel {
   background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(0,255,255,0.2);
+  border: 1px solid rgba(171, 218, 252,0.2);
   border-radius: 18px;
   padding: 1.2rem;
 }
@@ -33,5 +33,5 @@
 
 /* mantiene estética celeste brillante */
 .nav-pill {
-  box-shadow: 0 0 10px rgba(0,255,255,.4);
+  box-shadow: 0 0 10px rgba(171, 218, 252,.4);
 }
