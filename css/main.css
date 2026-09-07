@@ -105,7 +105,7 @@ footer {
 }
 
 .btn.primary {
-  background: linear-gradient(100deg, #ABDAFC, #C490D1);
+  background: linear-gradient(125deg, #ABDAFC,#c3edff, #ffdca0,#ffd386);
   color: #0E0E11;
 }
 
@@ -1697,4 +1697,18 @@ footer {
     transform: scaleX(-1) scale(1.2);
     object-position: right center;
   }
+  .nombre {
+    height: auto;        /* antes: 48px — ahora se adapta según el ancho */
+    width: 100%;          /* ocupa el ancho disponible del contenedor */
+    max-width: 280px;     /* pero nunca más grande que esto, ajusta a tu gusto */
+    margin-top: 4px;
+  }
+}
+/* Imagen del nombre dentro del título del hero */
+.nombre {
+  height: auto;         /* antes: 70px */
+  width: auto;
+  max-width: 100%;       /* nunca se pasa del ancho de .hero-intro */
+  display: inline-block;
+  margin-top: 6px;
 }

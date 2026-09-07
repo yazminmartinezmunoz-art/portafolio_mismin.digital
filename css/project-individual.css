@@ -63,15 +63,15 @@ body{
 /* Ámbar para proyectos en desarrollo */
 .status-badge.wip{
   background:rgba(255,193,84,0.15);
-  border:1px solid #ffc154;
-  color:#ffc154;
+  border:1px solid #ffd386;
+  color:#fac76d;
 }
 
 /* Variante dorada del badge, para logros/premios */
 .status-badge.award{
   background:rgba(255,193,84,0.15);
-  border:1px solid #ffc154;
-  color:#ffc154;
+  border:1px solid #ffd386;
+  color:#fac76d;
 }
 
 /* ===== BANNER DE RESULTADO DESTACADO ===== */
@@ -94,7 +94,7 @@ body{
 }
 
 .result-banner .result-text h3{
-  color:#ffc154;
+  color:#ffd386;
   font-size:1.05rem;
   margin-bottom:4px;
 }
@@ -709,4 +709,15 @@ section {
   .project-header{
     padding: 0 5%;   /* antes: 0px — ahora el título/meta/badges no tocan el borde, en PC y mobile */
   }
+}
+
+/* Link dentro de las descripciones de la galería (ej: "ver publicación original") */
+.gallery figcaption a {
+  color: var(--accent);          /* usa tu celeste de marca en vez del azul por defecto */
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.gallery figcaption a:hover {
+  color: var(--text-main);       /* se aclara al pasar el mouse, como feedback */
 }

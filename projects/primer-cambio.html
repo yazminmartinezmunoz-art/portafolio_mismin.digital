@@ -103,17 +103,10 @@
 <section class="gallery">
 
   <figure>
-    <div class="media-wrapper video-thumb" onclick="openModalVideoFromEl(this.querySelector('video'))">
-      <video preload="metadata" poster="../assets/images/projects/PrimerCambio/Instagram_Preview.png">
-        <source src="../assets/images/projects/PrimerCambio/Hackaton_Insta.mp4" type="video/mp4">
-      </video>
-    </div>
-    <figcaption>
-      Cobertura del evento por la Universidad Finis Terrae —
-      <a href="https://www.instagram.com/reel/DXMp4btjUZt/?igsh=bGw4MW10amU2eGZ1" target="_blank" rel="noopener">ver publicación original</a>
-    </figcaption>
+    <img src="../assets/images/projects/PrimerCambio/LogoPrimerCambio.png" onclick="openModalImage(this.src, this)">
+    <figcaption>Logo</figcaption>
   </figure>
-
+  
   <figure>
     <img src="../assets/images/projects/PrimerCambio/RecibiendoPremio.jpg" onclick="openModalImage(this.src, this)">
     <figcaption>Equipo recibiendo el primer lugar.</figcaption>
@@ -129,10 +122,16 @@
     <figcaption>Durante el Pitch.</figcaption>
   </figure>
 
-
   <figure>
-    <img src="../assets/images/projects/PrimerCambio/LogoPrimerCambio.png" onclick="openModalImage(this.src, this)">
-    <figcaption>Logo</figcaption>
+    <div class="media-wrapper video-thumb" onclick="openModalVideoFromEl(this.querySelector('video'))">
+      <video preload="metadata" poster="../assets/images/projects/PrimerCambio/Instagram_Preview.png">
+        <source src="../assets/images/projects/PrimerCambio/Hackaton_Insta.mp4" type="video/mp4">
+      </video>
+    </div>
+    <figcaption>
+      Cobertura del evento por la Universidad Finis Terrae —
+      <a href="https://www.instagram.com/reel/DXMp4btjUZt/?igsh=bGw4MW10amU2eGZ1" target="_blank" rel="noopener">ver publicación original</a>
+    </figcaption>
   </figure>
 
   <figure>
