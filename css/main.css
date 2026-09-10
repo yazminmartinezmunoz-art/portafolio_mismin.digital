@@ -30,7 +30,10 @@ p {
 
 header,
 section {
-  padding: 5.5rem 6%;
+  padding: 4.5rem 6%;
+  padding-top: 1.5rem 6%;
+  padding-bottom: 1.5rem 6%;
+
 }
 
 .featured-projects{
@@ -183,7 +186,7 @@ footer {
 }
 
 .featured-cta {
-  margin-top: 6rem; /* 👈 separa claramente del grid */
+  margin-top: 3rem; /* 👈 separa claramente del grid */
   text-align: center;
 }
 
@@ -1549,8 +1552,8 @@ footer {
 /* ===== LOGO DE MARCA (esquina superior izquierda, en todas las páginas) ===== */
 .brand-logo {
   position: fixed;
-  top: 16px;
-  left: 16px;
+  top: 35px;
+  left: 35px;
   z-index: 1000;               /* mismo nivel que .top-nav */
   display: inline-block;
 
@@ -1562,7 +1565,7 @@ footer {
 }
 
 .brand-logo img {
-  height: 42px;   /* tamaño en escritorio */
+  height: 55px;   /* tamaño en escritorio */
   width: auto;
   display: block;
 }

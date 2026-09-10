@@ -309,12 +309,65 @@ body{
   left:25px;
 }
 
-/* ===== GALERÍA ===== */
+/* ===== GALERÍA — BASE GENÉRICA (respaldo para cualquier cantidad) ===== */
 .gallery{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;   /* clave: centra automáticamente la última fila incompleta */
   gap:16px;
   margin-top:12px;
+}
+
+.gallery figure{
+  flex:0 1 260px;    /* ancho base de cada imagen; no se estira a ocupar toda la fila */
+  max-width:320px;
+}
+
+/* =====================================================
+   GALERÍA — PATRONES ESPECÍFICOS SEGÚN CANTIDAD
+   (Se activan automáticamente vía data-count, sin tocar HTML)
+   ===================================================== */
+
+/* 4 imágenes → 2 columnas fijas (2x2) */
+.gallery[data-count="4"]{
+  display:grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap:16px;
+}
+.gallery[data-count="4"] figure{
+  grid-column: span 2;   /* cada imagen ocupa 2 de las 4 columnas = 2 por fila */
+}
+
+/* 6 imágenes → 3 columnas fijas (2 filas de 3) */
+.gallery[data-count="6"]{
+  display:grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap:16px;
+}
+.gallery[data-count="6"] figure{
+  grid-column: span 2;   /* cada imagen ocupa 2 de las 6 columnas = 3 por fila */
+}
+
+/* 5 imágenes → 3 arriba, 2 centradas abajo */
+.gallery[data-count="5"]{
+  display:grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap:16px;
+}
+.gallery[data-count="5"] figure{
+  grid-column: span 2;                 /* todas ocupan 2 de 6 columnas por defecto */
+}
+.gallery[data-count="5"] figure:nth-child(4){
+  grid-column: 2 / 4;                  /* la 4ta imagen se corre al centro-izquierda */
+}
+.gallery[data-count="5"] figure:nth-child(5){
+  grid-column: 4 / 6;                  /* la 5ta se corre al centro-derecha, quedan centradas juntas */
+}
+/* Si la última imagen queda sola en su fila (cantidad impar en modo genérico), se centra */
+.gallery:not([data-count="4"]):not([data-count="5"]):not([data-count="6"]) figure:last-child:nth-child(odd){
+  flex-basis: 100%;
+  display:flex;
+  justify-content:center;
 }
 
 .gallery figure{
@@ -326,6 +379,23 @@ body{
   border-radius:12px;
   border:1px solid rgba(255,255,255,0.08);
   cursor:pointer;
+}
+/* Para imágenes panorámicas que necesitan más ancho y menos recorte vertical */
+.gallery figure.wide-item{
+  /* flex-basis: 50%;       ocupa toda la fila para sí sola, más espacio horizontal */
+  max-width: 550px;        /*pero con un tope razonable, no gigante */
+  display:flex;
+  flex-direction:column;
+}
+
+.gallery figure.wide-item img{
+  aspect-ratio: 16 / 8;    /* proporción más ancha y baja, acorde a una tira de 3 poses */
+}
+.gallery figure.Trafy{
+  /* flex-basis: 50%;       ocupa toda la fila para sí sola, más espacio horizontal */
+  max-width: 200px;        /*pero con un tope razonable, no gigante */
+  display:flex;
+  flex-direction:column;
 }
 
 .gallery figcaption{
@@ -720,4 +790,138 @@ section {
 
 .gallery figcaption a:hover {
   color: var(--text-main);       /* se aclara al pasar el mouse, como feedback */
+}
+@media (max-width: 768px){
+  .gallery[data-count="4"],
+  .gallery[data-count="5"],
+  .gallery[data-count="6"]{
+    display:flex;              /* vuelve al modo flexible en mobile */
+    flex-wrap:wrap;
+    justify-content:center;
+  }
+  .gallery[data-count="4"] figure,
+  .gallery[data-count="5"] figure,
+  .gallery[data-count="6"] figure{
+    grid-column:auto;          /* anula los spans fijos de escritorio */
+    flex:0 1 260px;
+    max-width:320px;
+  }
+}
+/* =====================================================
+   GALERÍA — PATRÓN "ESTRELLA" (opcional, manual)
+   1 imagen destacada al centro + 2 a la izquierda y
+   2 a la derecha, apiladas verticalmente.
+   Se activa agregando la clase .gallery-star en el HTML,
+   y cada figure lleva su propia clase de posición.
+   ===================================================== */
+
+.gallery.gallery-star{
+  display:grid;
+  grid-template-columns: 1fr 1.4fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap:16px;
+  margin-top:12px;
+  align-items:stretch;
+
+  /* CLAVE: le da una altura predecible al conjunto completo,
+     así las filas se dividen exactamente a la mitad sin que
+     ninguna imagen "empuje" el alto de las demás */
+  aspect-ratio: 16 / 10;   /* ajusta esta proporción a tu gusto (ej: 4/3, 1/1) */
+}
+
+/* min-width: 0 en TODAS las posiciones — evita que Grid reserve espacio de más
+   por el "ancho mínimo de contenido" y achique la columna central sin que se note por qué */
+/* Anula la regla genérica de .gallery figure (max-width:320px / flex:0 1 260px)
+   que se estaba filtrando aquí porque gallery-star también es .gallery */
+.gallery-star > figure{
+  min-width:0;
+  min-height:0;
+  width:100%;        /* ocupa TODO el ancho de su columna de grid */
+  max-width:none;    /* anula el max-width:320px heredado */
+  flex:none;         /* anula el flex:0 1 260px heredado (ya no estamos en modo flex acá) */
+}
+.gallery-star .star-left-top,
+.gallery-star .star-left-bottom,
+.gallery-star .star-right-top,
+.gallery-star .star-right-bottom{
+  overflow:hidden;   /* necesario para que object-fit recorte prolijo dentro del figure */
+}
+
+.gallery-star .star-left-top img,
+.gallery-star .star-left-bottom img,
+.gallery-star .star-right-top img,
+.gallery-star .star-right-bottom img{
+  width:100%;
+  height:100%;        /* antes: aspect-ratio fijo — ahora llena exactamente su celda de grid */
+  object-fit:cover;
+  display:block;
+}
+
+.gallery-star .star-left-top{
+  grid-column: 1;
+  grid-row: 1;
+}
+.gallery-star .star-left-bottom{
+  grid-column: 1;
+  grid-row: 2;
+}
+
+/* La columna central ahora es su propio contenedor flex vertical:
+   esto FUERZA imagen arriba y texto abajo, sin importar cuánto mida la imagen */
+.gallery-star .star-center{
+  grid-column: 2;
+  grid-row: 1 / 3;
+  display:flex;
+  flex-direction:column;
+}
+
+.gallery-star .star-right-top{
+  grid-column: 3;
+  grid-row: 1;
+}
+.gallery-star .star-right-bottom{
+  grid-column: 3;
+  grid-row: 2;
+}
+
+/* La imagen central crece para llenar el espacio disponible dentro de su columna flex,
+   PERO cede espacio al figcaption (flex-shrink:0 en el caption más abajo) */
+.gallery-star .star-center img{
+  flex:1 1 auto;
+  min-height:0;
+  width:100%;
+  max-width:100%;
+  height:100%;         /* refuerzo: ahora también respeta el alto total del contenedor con aspect-ratio */
+  object-fit:cover;
+  display:block;
+}
+
+/* El texto del centro nunca se encoge ni se empuja a un costado */
+.gallery-star .star-center figcaption{
+  flex-shrink:0;
+  text-align:center;
+}
+@media (max-width: 768px){
+  .gallery.gallery-star{
+    display:flex;
+    flex-direction:column;
+    aspect-ratio: unset;   /* anula el 16/10 del contenedor — en mobile cada imagen usa su alto natural */
+    gap:16px;
+  }
+
+  .gallery-star .star-center{
+    order: -1;              /* la destacada se muestra primero */
+  }
+
+  /* Todas las imágenes (incluida la central) vuelven a su proporción natural,
+     sin recortes forzados por grid/aspect-ratio de escritorio */
+  .gallery-star > figure img{
+    height:auto;             /* anula el height:100% que solo tiene sentido dentro del grid de PC */
+    width:100%;
+    object-fit:initial;      /* anula el cover — ya no hace falta recortar nada */
+  }
+
+  .gallery-star > figure{
+    overflow:visible;        /* anula el overflow:hidden que en PC recortaba el sobrante */
+  }
 }
