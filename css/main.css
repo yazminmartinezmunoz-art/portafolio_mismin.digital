@@ -1715,3 +1715,142 @@ footer {
   display: inline-block;
   margin-top: 6px;
 }
+
+/* =====================================================
+   FRANJA DIVISORIA CON DEGRADADO ANIMADO
+   Para desactivar: borra esta regla y quita los <div class="section-divider">
+   ===================================================== */
+.section-divider {
+  height: 3px;
+  max-width: 1200px;
+  margin: 0 auto;
+  border-radius: 999px;
+  background: linear-gradient(90deg, transparent, var(--accent), #ffd386, var(--accent), transparent);
+  background-size: 200% 100%;
+  animation: dividerSweep 6s linear infinite;
+  opacity: 0.55;
+}
+
+@keyframes dividerSweep {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* Mobile: un poco más delgada y lenta para no distraer en pantallas chicas */
+@media (max-width: 768px){
+  .section-divider {
+    height: 2px;
+    animation-duration: 9s;
+  }
+}
+/* =====================================================
+   BRILLO QUE SIGUE AL CURSOR (solo dentro del hero)
+   Para desactivar: borra el <div class="hero-glow"> del HTML
+   y quita el <script src="js/hero-glow.js">
+   ===================================================== */
+.hero-glow {
+  position: fixed;      /* antes: absolute — ahora sigue al scroll y cubre toda la ventana */
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: radial-gradient(
+    320px circle at var(--gx, 50%) var(--gy, 30%),
+    rgba(171, 218, 252, 0.16),
+    transparent 70%
+  );
+}
+
+/* En mobile no hay "cursor" real (es touch), así que lo ocultamos para ahorrar recursos */
+@media (max-width: 768px){
+  .hero-glow { display: none; }
+}
+
+/* =====================================================
+   BORDE ANIMADO EN TARJETAS (aparece al hover)
+   Para desactivar: borra este bloque completo
+   ===================================================== */
+.project-card,
+.allprojects-card {
+  position: relative;  /* ya existe en .project-card; .allprojects-card la necesita para esto */
+}
+
+.project-card::before,
+.allprojects-card::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1.5px;
+
+  background: linear-gradient(120deg, var(--accent), transparent, #ffd386, transparent, var(--accent));
+  background-size: 300% 300%;
+
+  /* Trucos de máscara: dibuja SOLO el borde, no rellena toda la tarjeta */
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  animation: borderFlow 5s linear infinite;
+  pointer-events: none;
+}
+
+.project-card:hover::before,
+.allprojects-card:hover::before {
+  opacity: 1;
+}
+
+@keyframes borderFlow {
+  0%   { background-position: 0% 50%; }
+  100% { background-position: 300% 50%; }
+}
+
+/* Mobile no tiene hover real, así que se muestra siempre pero más sutil */
+@media (max-width: 768px){
+  .project-card::before,
+  .allprojects-card::before {
+    opacity: 0.4;
+  }
+}
+
+/* =====================================================
+   TEXTURA DE FONDO — manchas de color flotando muy sutil
+   Para desactivar: borra los <div class="bg-aura"> del HTML
+   (o agrega temporalmente "display:none" a .bg-aura)
+   ===================================================== */
+.bg-aura {
+  position: fixed;
+  inset: 0;
+  z-index: -3;      /* siempre detrás de todo, incluso del video de fondo */
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.aura-blob {
+  position: absolute;
+  width: 40vw;
+  height: 40vw;
+  border-radius: 50%;
+  filter: blur(90px);
+  opacity: 0.16;
+}
+
+.aura-1{ background: var(--accent); top: -10%; left: -10%; animation: floatBlob 9s ease-in-out infinite; }
+.aura-2{ background: #ffd386;       bottom: -15%; right: -10%; animation: floatBlob 11s ease-in-out infinite reverse; }
+.aura-3{ background: var(--accent); top: 40%; left: 60%; animation: floatBlob 13s ease-in-out infinite; }
+
+@keyframes floatBlob {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50%      { transform: translate(120px, -90px) scale(1.35); }  /* antes: 40px/-30px scale(1.15) — recorrido mucho más notorio */
+}
+
+/* Mobile: manchas más chicas y blur más liviano (mejor rendimiento en celulares) */
+@media (max-width: 768px){
+  .aura-blob {
+    width: 60vw;
+    height: 60vw;
+    filter: blur(60px);
+    opacity: 0.12;
+  }
+}
